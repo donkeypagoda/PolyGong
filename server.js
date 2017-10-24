@@ -26,6 +26,8 @@ app.use((req, res) => {
   res.sendStatus(404);
 });
 
+// console.log("hayo");
+
 // Handle Boom errors
 // app.use((err, _req, res, _next) => {
 //   console.log('boom error!')
