@@ -19,13 +19,15 @@
 
     function link(scope, iElement, iAttrs, controller, transcludeFn){
       const root = $(iElement)
-      controller.time = root.find('#delayTime');
-      controller.feedbackSlider = root.find("#delayFeedback");
-      controller.delayWetDryMix = root.find("#delayWetDryMix");
-      controller.delayBypass = root.find("#delayBypass");
-      controller.delayInputBypass = root.find("#delayInputBypass");
-      controller.feedbackBypass = root.find("#feedbackBypass");
-      // console.log(controller.time);
+      // have to build the event listeners in here
+
+      // controller.time = root.find('#delayTime');
+      // controller.feedbackSlider = root.find("#delayFeedback");
+      // controller.delayWetDryMix = root.find("#delayWetDryMix");
+      // controller.delayBypass = root.find("#delayBypass");
+      // controller.delayInputBypass = root.find("#delayInputBypass");
+      // controller.feedbackBypass = root.find("#feedbackBypass");
+      // // console.log(controller.time);
 
 
     } // end of link
