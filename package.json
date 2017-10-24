@@ -1,0 +1,23 @@
+{
+  "name": "polygong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donkeypagoda/PolyGong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donkeypagoda/PolyGong/issues"
+  },
+  "homepage": "https://github.com/donkeypagoda/PolyGong#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "knex": "^0.13.0"
+  }
+}
