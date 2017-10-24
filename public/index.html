@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title>PolyGong</title>
+    <base href="/">
     <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
     <script defer src="https://unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
     <script defer type="text/javascript" src="js/test.js"></script>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <h1>HAYO</h1>
+    <ui-view></ui-view>
 
   </body>
 </html>
