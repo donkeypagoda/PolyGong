@@ -5,7 +5,7 @@
       return {
         controller,
         controllerAs: '$ctrl',
-        templateUrl: "templates/gongbase.template.html"
+        template: `<circle></circle>`
       }
     }) // end of directive
 
@@ -16,7 +16,7 @@
       vm.rotationTable = Array.from(new Array(2512), (x, i) => (i * 0.25) + 0.25);
 
 
-      }
+
     } // end of controller
 
 }());
