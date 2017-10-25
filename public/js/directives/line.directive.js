@@ -16,6 +16,7 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
+      vm.rotationIncrement = 3;
 
 
     } // end of controller
@@ -28,11 +29,9 @@
       controller.context.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
       controller.context.translate(350, 350);
 
-
-      controller.drawLine = function(context) {
+      controller.drawLine = (context) => {
         controller.mallet1 = controller.helper.makeMallet(240, 0, 20);
         controller.mallet2 = controller.helper.makeMallet(-240, 0, 20);
-
         controller.helper.connectorLine(context, controller.mallet1, controller.mallet2);
 
         context.beginPath();
@@ -46,8 +45,7 @@
         context.fill();
       }
 
-
-      controller.stateUpdate = function(){
+      controller.stateUpdate = () => {
         controller.context.setTransform(1, 0, 0, 1, 0, 0);
         controller.context.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
         controller.context.translate(350, 350);
@@ -55,23 +53,20 @@
         controller.drawLine(controller.context);
         controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
 
-
-
-  controller.rotation = -((rotationTable[k] * 0.01).toFixed(3));
-  let gongTime3 = Math.floor(rotationTable.length / 2)
-  if ( k > gongTime3 - rotationIncrement3 && k < gongTime3 + rotationIncrement3){
-    gong3.triggerAttackRelease('C4', '8n')
-    console.log("line")
-    k += rotationIncrement3;
-  }
-  else if (k < rotationTable.length - (rotationIncrement3 + 1)){
-    k += rotationIncrement3;
-  }
-  else {
-      k = 0;
-      gong3.triggerAttackRelease('E3', '8n')
-      console.log("line")
-    }
+        controller.gongTime = Math.floor(controller.helper.rotationTable.length / 2)
+        if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
+          // gong3.triggerAttaccontroller.iRelease('C4', '8n')
+          console.log("line")
+          controller.i += controller.rotationIncrement;
+        }
+        else if (controller.i < controller.helper.rotationTable.length - (controller.rotationIncrement + 1)){
+          controller.i += controller.rotationIncrement;
+        }
+        else {
+          controller.i = 0;
+          // gong3.triggerAttackRelease('E3', '8n')
+          console.log("line")
+        }
         window.requestAnimationFrame(controller.stateUpdate);
       }
       controller.stateUpdate();

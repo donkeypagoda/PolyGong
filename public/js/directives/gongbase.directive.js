@@ -5,18 +5,25 @@
       return {
         controller,
         controllerAs: '$ctrl',
-        template: `<circle></circle>`
+        link: link,
+        template: `<canvas id="circle" width="700" height="700"></canvas><circle></circle><line></line>`
       }
     }) // end of directive
 
-    controller.inject = [];
-    function controller() {
-      const vm = this
+    controller.inject = ['helperService'];
+    function controller(helperService) {
+      const vm = this;
+      vm.helper = helperService;
       vm.gongStack = [];
 
-
-
-
     } // end of controller
-
+    function link(scope, element, iAttrs, controller, transcludeFn){
+      controller.canvas = element[0].childNodes[0];
+      controller.context = controller.canvas.getContext("2d");
+      controller.context.fillStyle = "black";
+      controller.context.setTransform(1, 0, 0, 1, 0, 0);
+      controller.context.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
+      controller.context.translate(350, 350);
+      controller.helper.gongLine(controller.context);
+    }
 }());
