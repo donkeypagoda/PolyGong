@@ -5,7 +5,7 @@
       return {
         controller: controller,
         link: link,
-        template: `<canvas id="circle" width="700" height="700"></canvas>`
+        template: `<canvas id="line" width="700" height="700"></canvas>`
       };
 
     })

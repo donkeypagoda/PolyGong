@@ -6,7 +6,7 @@
         controller,
         controllerAs: '$ctrl',
         link: link,
-        template: `<canvas id="circle" width="700" height="700"></canvas><circle></circle><line></line>`
+        template: `<canvas id="gongbase1" width="700" height="700"></canvas><circle></circle><triangle></triangle><line></line>`
       }
     }) // end of directive
 
