@@ -21,16 +21,16 @@
     } // end of controller
 
     function link(scope, element, iAttrs, controller, transcludeFn){
-      let canvas = element[0].childNodes[0];
-      let context = canvas.getContext("2d");
-      context.fillStyle = "yellow";
-      context.setTransform(1, 0, 0, 1, 0, 0);
-      context.clearRect(0, 0, context.width, context.height);
-      context.translate(350, 350);
+      controller.canvas = element[0].childNodes[0];
+      controller.context = controller.canvas.getContext("2d");
+      controller.context.fillStyle = "yellow";
+      controller.context.setTransform(1, 0, 0, 1, 0, 0);
+      controller.context.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
+      controller.context.translate(350, 350);
 
 
       controller.drawCircle = function(context) {
-        let circleMallet = controller.helper.makeMallet(240, 0, 20);
+        controller.circleMallet = controller.helper.makeMallet(240, 0, 20);
 
         context.beginPath();
         context.arc(0, 0, 240, 0, Math.PI * 2, false);
@@ -38,22 +38,29 @@
         context.stroke();
 
         context.beginPath();
-        context.arc(circleMallet.x, circleMallet.y, circleMallet.r, 0, 2 * Math.PI, false);
+        context.arc(controller.circleMallet.x, controller.circleMallet.y, controller.circleMallet.r, 0, 2 * Math.PI, false);
         context.stroke();
         context.fill();
       }
-      context.rotate(controller.rotation);
-      controller.drawCircle(context);
-      controller.rotation = -((controller.helper.rotationTable[i] * 0.01).toFixed(3));
-      if (i < controller.helper.rotationTable.length - 1){
-        // i += rotationIncrement
-        i++
+
+      controller.stateUpdate = function(){
+        controller.context.setTransform(1, 0, 0, 1, 0, 0);
+        controller.context.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
+        controller.context.translate(350, 350);
+        controller.context.rotate(controller.rotation);
+        controller.drawCircle(controller.context);
+        controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        if (controller.i < controller.helper.rotationTable.length - 1){
+          // i += rotationIncrement
+          controller.i++
+        }
+        else {
+          controller.i = 0;
+          // gong2.triggerAttackRelease('C2', '4n')
+          console.log("circle")
+        }
+        window.requestAnimationFrame(controller.stateUpdate);
       }
-      else {
-        i = 0;
-        // gong2.triggerAttackRelease('C2', '4n')
-        console.log("circle")
-      }
-      window.requestAnimationFrame(link);
+      controller.stateUpdate();
     }// end of link
 })();
