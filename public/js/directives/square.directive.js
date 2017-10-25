@@ -16,7 +16,7 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 2;
+      vm.rotationIncrement = 3;
       vm.gong;
 
 
@@ -31,10 +31,10 @@
       controller.context.translate(350, 350);
 
       controller.drawSquare = (context) => {
-        controller.mallet1 = controller.helper.makeMallet(182, 158, 20);
-        controller.mallet2 = controller.helper.makeMallet(-182, 158, 20);
-        controller.mallet3 = controller.helper.makeMallet(-182, -158, 20);
-        controller.mallet3 = controller.helper.makeMallet(-182, -158, 20);
+        controller.mallet1 = controller.helper.makeMallet(175, 163, 20);
+        controller.mallet2 = controller.helper.makeMallet(-175, 163, 20);
+        controller.mallet3 = controller.helper.makeMallet(-175, -163, 20);
+        controller.mallet4 = controller.helper.makeMallet(175, -163, 20);
         controller.helper.connectorLine(controller.context, controller.mallet1, controller.mallet2);
         controller.helper.connectorLine(controller.context, controller.mallet2, controller.mallet3);
         controller.helper.connectorLine(controller.context, controller.mallet3, controller.mallet4);

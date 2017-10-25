@@ -16,7 +16,7 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 1;
+      vm.rotationIncrement = 2;
 
 
     } // end of controller
@@ -52,8 +52,8 @@
         controller.drawCircle(controller.context);
         controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
         if (controller.i < controller.helper.rotationTable.length - 1){
-          // i += rotationIncrement
-          controller.i++
+          controller.i += controller.rotationIncrement
+          // controller.i++
         }
         else {
           controller.i = 0;

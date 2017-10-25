@@ -16,7 +16,7 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 3;
+      vm.rotationIncrement = 5;
 
 
     } // end of controller
