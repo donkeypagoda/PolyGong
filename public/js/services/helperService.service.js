@@ -14,11 +14,16 @@
         context.stroke();
       };
 
-      vm.makeMallet = function(){
-        this.r = 20;
-        this.x = 0;
-        this.y = 0;
+      vm.makeMallet = function(x, y, r){
+        let mallet = {};
+        mallet.x = x;
+        mallet.y = y;
+        mallet.r = r
+        return mallet;
       };
+
+      vm.rotationTable = Array.from(new Array(2512), (x, i) => (i * 0.25) + 0.25);
+
 
     }
 }());
