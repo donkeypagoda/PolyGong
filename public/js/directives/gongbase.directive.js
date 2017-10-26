@@ -6,10 +6,10 @@
         controller,
         controllerAs: '$ctrl',
         link: link,
-        template: `<canvas id="gongbase1" width="700" height="700"></canvas><hexagon></hexagon><pentagon></pentagon><square></square><triangle></triangle><line></line><circle></circle><heptagon></heptagon>`
+        template: `<canvas id="gongbase1" width="700" height="700"></canvas>`
       }
     }) // end of directive
-
+    // list for test: <hexagon></hexagon><pentagon></pentagon><square></square><triangle></triangle><line></line><circle></circle><heptagon></heptagon>
     controller.inject = ['helperService'];
     function controller(helperService) {
       const vm = this;
