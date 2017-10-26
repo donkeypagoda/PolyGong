@@ -17,7 +17,9 @@
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 5;
-
+      vm.gong;
+      vm.size = 240;
+      // vm.sides = 2;
 
     } // end of controller
 
