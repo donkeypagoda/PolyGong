@@ -18,6 +18,8 @@
       vm.rotation = 0.01;
       vm.rotationIncrement = 1;
       vm.gong;
+      vm.size = 240;
+      vm.sides = 3;
 
 
     } // end of controller
@@ -31,12 +33,11 @@
       controller.context.translate(350, 350);
 
       controller.drawTriangle = (context) => {
-        controller.mallet1 = controller.helper.makeMallet(240, 0, 20);
-        controller.mallet2 = controller.helper.makeMallet(-120, 205, 20);
-        controller.mallet3 = controller.helper.makeMallet(-120, -205, 20);
-        controller.helper.connectorLine(controller.context, controller.mallet1, controller.mallet2);
-        controller.helper.connectorLine(controller.context, controller.mallet2, controller.mallet3);
-        controller.helper.connectorLine(controller.context, controller.mallet3, controller.mallet1);
+        controller.mallet1 = controller.helper.makeMallet(controller.size * Math.cos(2 * Math.PI / controller.sides), controller.size * Math.sin(2 * Math.PI / controller.sides), 20);
+        controller.mallet2 = controller.helper.makeMallet(controller.size * Math.cos(4 * Math.PI / controller.sides), controller.size * Math.sin(4 * Math.PI / controller.sides), 20);
+        controller.mallet3 = controller.helper.makeMallet(controller.size * Math.cos(6 * Math.PI / controller.sides), controller.size * Math.sin(6 * Math.PI / controller.sides), 20);
+
+        controller.helper.polyDraw(controller.context, controller.sides, controller.size, 3);
 
         context.beginPath();
         context.arc(controller.mallet1.x, controller.mallet1.y, controller.mallet1.r, 0, 2 * Math.PI, false);
