@@ -23,6 +23,9 @@
       vm.gongDuration = 0.1;
       vm.size = 240;
       vm.active = true;
+      vm.$onDestroy = () => {
+        vm.active = false;
+      }
       // vm.sides = 1;
 
     } // end of controller

@@ -15,7 +15,10 @@
       vm.helper = helperService;
       vm.tones = toneService;
       vm.builder = gongBuilderService;
-      
+      vm.removeLastAndRebuild = function(){
+        vm.builder.removeLastGong();
+      }
+
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
       controller.canvasBottom = element[0].childNodes[2];
@@ -26,12 +29,17 @@
       controller.helper.gongBottomLine(controller.contextBottom, "yellow", 7);
 
       controller.canvasTop = element[0].childNodes[element[0].childNodes.length - 2];
-      // console.log(element[0].childNodes);
       controller.contextTop = controller.canvasTop.getContext("2d");
       controller.contextTop.setTransform(1, 0, 0, 1, 0, 0);
       controller.contextTop.clearRect(0, 0, controller.canvasTop.width, controller.canvasTop.height);
       controller.contextTop.translate(350, 350);
       controller.helper.gongTopLine(controller.contextTop, "blue", 5);
+
+      controller.removeLastAndRebuild = function(){
+        console.log(element[0].childNodes[4]);
+        controller.builder.removeLastGong();
+        // if I could access the values of the removed directive here, I could stop the animation frame
+      }
 
     }
 }());

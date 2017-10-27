@@ -5,13 +5,7 @@
 
     function service(){
       const vm = this;
-      //
-      // vm.buildSignalPath = ()
-      //
-      // vm.gongMaker = () => {
-      //   let gong = new Tone.polySynth()
-      //   return gong;
-      // }
+
       vm.newGong = () =>{
         let gong = new Tone.PolySynth(3, Tone.MonoSynth).toMaster();
         gong.set({
@@ -39,6 +33,7 @@
             "exponent": 1
           }
         })
+        return gong;
       }
 
 
