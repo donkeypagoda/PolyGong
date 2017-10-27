@@ -10,11 +10,12 @@
 
     })
 
-    controller.inject = ['helperService', 'toneService']
-    function controller(helperService, toneService){
+    controller.inject = ['helperService', 'toneService', 'gongBuilderService']
+    function controller(helperService, toneService, gongBuilderService){
       const vm = this;
       vm.helper = helperService;
       vm.tone = toneService;
+      vm.builder = gongBuilderService;
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 7;
@@ -27,6 +28,7 @@
         vm.active = false;
       };
       // vm.sides = 1;
+      vm.builder.addGongDirective(this)
 
     } // end of controller
 

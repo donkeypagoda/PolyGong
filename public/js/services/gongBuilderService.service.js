@@ -9,6 +9,13 @@
 
     vm.gongStack = [];
 
+    vm.gongDirectives = [];
+
+    vm.addGongDirective = (gong) => {
+      vm.gongDirectives.push(gong)
+      // gong.rotationIncrement
+    }
+
     vm.addGong = function(gong){
       vm.gongStack.push(gong);
     };
