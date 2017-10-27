@@ -6,7 +6,7 @@
     function service(){
       const vm = this;
       this.gongMaker = () => {
-        let gong = new Tone.MonoSynth()
+        let gong = new Tone.polySynth()
         return gong;
       }
 
