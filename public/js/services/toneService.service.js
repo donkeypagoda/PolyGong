@@ -5,7 +5,10 @@
 
     function service(){
       const vm = this;
-      this.gongMaker = () => {
+
+      vm.buildSignalPath = ()
+
+      vm.gongMaker = () => {
         let gong = new Tone.polySynth()
         return gong;
       }

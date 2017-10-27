@@ -15,7 +15,7 @@
       vm.helper = helperService;
       vm.tones = toneService;
       vm.builder = gongBuilderService;
-
+      
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
       controller.canvasBottom = element[0].childNodes[2];
