@@ -10,14 +10,17 @@
 
     })
 
-    controller.inject = ['helperService']
-    function controller(helperService){
+    controller.inject = ['helperService', 'toneService']
+    function controller(helperService, toneService){
       const vm = this;
       vm.helper = helperService;
+      vm.tone = toneService;
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 7;
-      vm.gong;
+      vm.gong = vm.tone.newGong();
+      vm.gongPitchSet = [220, 280, 300];
+      vm.gongDuration = 0.1;
       vm.size = 240;
       vm.active = true;
       // vm.sides = 1;
@@ -60,7 +63,7 @@
         }
         else {
           controller.i = 0;
-          // gong2.triggerAttackRelease('C2', '4n')
+          controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
           console.log("circle")
         }
         if (controller.active){
