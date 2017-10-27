@@ -9,6 +9,7 @@
       link: function(scope, element){
           $(element).html(`<${scope.gong}></${scope.gong}>`);
           $compile($(element).contents())(scope)
+          // console.log(element[0].innerText);
         }
     }
   }])

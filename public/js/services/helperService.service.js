@@ -22,10 +22,17 @@
         return mallet;
       };
 
-      vm.gongLine = (context) =>{
+      vm.gongBottomLine = (context) =>{
         context.beginPath();
         context.moveTo(500, 0);
         context.lineTo(200, 0);
+        context.lineWidth = 2;
+        context.stroke();
+      };
+      vm.gongTopLine = (context) =>{
+        context.beginPath();
+        context.moveTo(500, 50);
+        context.lineTo(200, 50);
         context.lineWidth = 2;
         context.stroke();
       };

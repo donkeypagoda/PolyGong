@@ -7,7 +7,7 @@
 
     vm.availableGongs = ["circle", "line", "triangle", "square", "pentagon", "hexagon", "heptagon"]
 
-    vm.gongStack = [];
+    vm.gongStack = ["hexagon", "pentagon", "square"];
 
     vm.addGong = function(gong){
       vm.gongStack.push(gong)
