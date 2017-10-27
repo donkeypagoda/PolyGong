@@ -20,7 +20,10 @@
       vm.gong;
       vm.size = 240;
       vm.sides = 4;
-
+      vm.active = true;
+      vm.$onDestroy = () => {
+        vm.active = false;
+      }
 
     } // end of controller
 
@@ -97,8 +100,11 @@
             // controller.gong.triggerAttackRelease('G2', '8n');
             console.log("square");
           }
-        window.requestAnimationFrame(controller.stateUpdate);
-      }
+          if (controller.active){
+            window.requestAnimationFrame(controller.stateUpdate);
+          }
+          else return;
+        }
       controller.stateUpdate();
     }// end of link
 })();

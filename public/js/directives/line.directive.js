@@ -19,6 +19,10 @@
       vm.rotationIncrement = 6;
       vm.gong;
       vm.size = 240;
+      vm.active = true;
+      vm.$onDestroy = () => {
+        vm.active = false;
+      }
       // vm.sides = 2;
 
     } // end of controller
@@ -69,7 +73,10 @@
           // gong3.triggerAttackRelease('E3', '8n')
           console.log("line")
         }
-        window.requestAnimationFrame(controller.stateUpdate);
+        if (controller.active){
+          window.requestAnimationFrame(controller.stateUpdate);
+        }
+        else return;
       }
       controller.stateUpdate();
     }// end of link

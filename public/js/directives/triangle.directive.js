@@ -20,7 +20,10 @@
       vm.gong;
       vm.size = 240;
       vm.sides = 3;
-
+      vm.active = true;
+      vm.$onDestroy = () => {
+        vm.active = false;
+      }
 
     } // end of controller
 
@@ -67,7 +70,7 @@
         controller.gongTime = Math.floor(controller.helper.rotationTable.length / 3)
         controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
 
-        if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
+        if (controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           // controller.gong.triggerAttackRelease('E3', '8n')
           console.log("triangle")
           controller.i += controller.rotationIncrement;
@@ -86,8 +89,11 @@
             // controller.gong.triggerAttackRelease('G2', '8n');
             console.log("triangle");
           }
-        window.requestAnimationFrame(controller.stateUpdate);
-      }
+          if (controller.active){
+            window.requestAnimationFrame(controller.stateUpdate);
+          }
+          else return;
+        }
       controller.stateUpdate();
     }// end of link
 })();

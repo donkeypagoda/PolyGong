@@ -60,7 +60,7 @@
         controller.context.rotate(controller.rotation);
         controller.drawCircle(controller.context);
         controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
-        if (controller.i < controller.helper.rotationTable.length - 1){
+        if (controller.i < controller.helper.rotationTable.length - controller.rotationIncrement){
           controller.i += controller.rotationIncrement
           // controller.i++
         }
