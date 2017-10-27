@@ -16,7 +16,7 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 1;
+      vm.rotationIncrement = 5;
       vm.gong;
       vm.size = 240;
       vm.sides = 3;

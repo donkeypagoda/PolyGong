@@ -1,0 +1,21 @@
+<header>
+  <div>
+    <div>
+      <span>Add A Gong</span>
+      <span ng-repeat="gong in $ctrl.builder.availableGongs">
+          <button ng-click="$ctrl.builder.addGong(gong)">Add {{gong}}</button>
+      </span>
+    </div>
+    <div>
+      <span>
+          <button ng-click="$ctrl.builder.removeLastGong()">Remove Last Gong Added</button>
+      </span>
+    </div>
+  </div>
+</header>
+
+<canvas id="gongbase1" width="700" height="700"></canvas>
+  <div ng-repeat="g in $ctrl.builder.gongStack track by $index">
+    <gong-holder gong="{{g}}"></gong-holder>
+  </div>
+<canvas id="gongbase2" width="700" height="700"></canvas>

@@ -16,7 +16,7 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 3;
+      vm.rotationIncrement = 4;
       vm.gong;
       vm.size = 240;
       vm.sides = 4;
@@ -39,7 +39,7 @@
         controller.mallet4 = controller.helper.makeMallet(controller.size * Math.cos(8 * Math.PI / controller.sides), controller.size * Math.sin(8 * Math.PI / controller.sides), 20);
 
         controller.helper.polyDraw(controller.context, controller.sides, controller.size, 3);
-        
+
         context.beginPath();
         context.arc(controller.mallet1.x, controller.mallet1.y, controller.mallet1.r, 0, 2 * Math.PI, false);
         context.stroke();

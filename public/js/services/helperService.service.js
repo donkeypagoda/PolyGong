@@ -22,18 +22,20 @@
         return mallet;
       };
 
-      vm.gongBottomLine = (context) =>{
+      vm.gongBottomLine = (context, color, width) =>{
         context.beginPath();
         context.moveTo(500, 0);
         context.lineTo(200, 0);
-        context.lineWidth = 2;
+        context.strokeStyle = color;
+        context.lineWidth = width;
         context.stroke();
       };
-      vm.gongTopLine = (context) =>{
+      vm.gongTopLine = (context, color, width) =>{
         context.beginPath();
         context.moveTo(500, 50);
         context.lineTo(200, 50);
-        context.lineWidth = 2;
+        context.strokeStyle = color;
+        context.lineWidth = width;
         context.stroke();
       };
 

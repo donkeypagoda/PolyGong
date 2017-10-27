@@ -16,9 +16,10 @@
       vm.helper = helperService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 6;
+      vm.rotationIncrement = 3;
       vm.gong;
       vm.size = 240;
+      vm.sides = 5;
 
 
     } // end of controller
@@ -32,12 +33,12 @@
       controller.context.translate(350, 350);
 
       controller.drawPent = (context) => {
-        controller.mallet1 = controller.helper.makeMallet(controller.size * Math.cos(2 * Math.PI / 5), controller.size * Math.sin(2 * Math.PI / 5), 20);
-        controller.mallet2 = controller.helper.makeMallet(controller.size * Math.cos(4 * Math.PI / 5), controller.size * Math.sin(4 * Math.PI / 5), 20);
-        controller.mallet3 = controller.helper.makeMallet(controller.size * Math.cos(6 * Math.PI / 5), controller.size * Math.sin(6 * Math.PI / 5), 20);
-        controller.mallet4 = controller.helper.makeMallet(controller.size * Math.cos(8 * Math.PI / 5), controller.size * Math.sin(8 * Math.PI / 5), 20);
-        controller.mallet5 = controller.helper.makeMallet(controller.size * Math.cos(10 * Math.PI / 5), controller.size * Math.sin(10 * Math.PI / 5), 20);
-        controller.helper.polyDraw(controller.context, 5, 240, 3);
+        controller.mallet1 = controller.helper.makeMallet(controller.size * Math.cos(2 * Math.PI / controller.sides), controller.size * Math.sin(2 * Math.PI / controller.sides), 20);
+        controller.mallet2 = controller.helper.makeMallet(controller.size * Math.cos(4 * Math.PI / controller.sides), controller.size * Math.sin(4 * Math.PI / controller.sides), 20);
+        controller.mallet3 = controller.helper.makeMallet(controller.size * Math.cos(6 * Math.PI / controller.sides), controller.size * Math.sin(6 * Math.PI / controller.sides), 20);
+        controller.mallet4 = controller.helper.makeMallet(controller.size * Math.cos(8 * Math.PI / controller.sides), controller.size * Math.sin(8 * Math.PI / controller.sides), 20);
+        controller.mallet5 = controller.helper.makeMallet(controller.size * Math.cos(10 * Math.PI / controller.sides), controller.size * Math.sin(10 * Math.PI / controller.sides), 20);
+        controller.helper.polyDraw(controller.context, controller.sides, controller.size, 3);
 
         context.beginPath();
         context.arc(controller.mallet1.x, controller.mallet1.y, controller.mallet1.r, 0, 2 * Math.PI, false);
