@@ -6,15 +6,15 @@
         controller,
         controllerAs: '$ctrl',
         link: link,
-        template: `<canvas id="gongbase1" width="700" height="700"></canvas>`
+        template: `<canvas id="gongbase1" width="700" height="700"></canvas><div class="col-3" ng-repeat="g in $ctrl.gongStack track by $index"><gong-holder unit="{{g}}"></gong-holder><canvas id="gongbase2" width="700" height="700"></canvas></div>`
       }
     }) // end of directive
-    // list for test: <hexagon></hexagon><pentagon></pentagon><square></square><triangle></triangle><line></line><circle></circle><heptagon></heptagon>
     controller.inject = ['helperService'];
     function controller(helperService) {
       const vm = this;
       vm.helper = helperService;
-      vm.gongStack = [];
+      // list for test: <hexagon></hexagon><pentagon></pentagon><square></square><triangle></triangle><line></line><circle></circle><heptagon></heptagon>
+      vm.gongStack = ["hexagon", "pentagon","square", "triangle", "line", "circle", "heptagon"];
 
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
@@ -25,5 +25,6 @@
       controller.context.clearRect(0, 0, controller.canvas.width, controller.canvas.height);
       controller.context.translate(350, 350);
       controller.helper.gongLine(controller.context);
+
     }
 }());
