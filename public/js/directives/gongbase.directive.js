@@ -35,11 +35,5 @@
       controller.contextTop.translate(350, 350);
       controller.helper.gongTopLine(controller.contextTop, "blue", 5);
 
-      controller.removeLastAndRebuild = function(){
-        console.log(element[0].childNodes[4]);
-        controller.builder.removeLastGong();
-        // if I could access the values of the removed directive here, I could stop the animation frame
-      }
-
     }
 }());
