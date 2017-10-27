@@ -9,12 +9,12 @@
         template: `<canvas id="gongbase1" width="700" height="700"></canvas><div class="col-3" ng-repeat="g in $ctrl.gongStack track by $index"><gong-holder unit="{{g}}"></gong-holder><canvas id="gongbase2" width="700" height="700"></canvas></div>`
       }
     }) // end of directive
-    controller.inject = ['helperService'];
-    function controller(helperService) {
+    controller.inject = ['helperService', 'gongBuilderService'];
+    function controller(helperService, gongBuilderService) {
       const vm = this;
       vm.helper = helperService;
       // list for test: <hexagon></hexagon><pentagon></pentagon><square></square><triangle></triangle><line></line><circle></circle><heptagon></heptagon>
-      vm.gongStack = ["hexagon", "pentagon","square", "triangle", "line", "circle", "heptagon"];
+      // vm.gongStack = ["hexagon", "pentagon","square", "triangle", "line", "circle", "heptagon"];
 
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
