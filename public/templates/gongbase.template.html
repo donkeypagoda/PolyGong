@@ -19,3 +19,9 @@
     <gong-holder gong="{{g}}"></gong-holder>
   </div>
 <canvas class="gongbase2" width="700" height="700"></canvas>
+
+<div>
+  <span ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
+    <input ng-model="slider" ng-change="$ctrl.builder.rotateUpdate(slider, $index)" type="range" step="1" min="0" max="50">
+  </span>
+</div>
