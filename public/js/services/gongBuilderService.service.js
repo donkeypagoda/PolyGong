@@ -14,9 +14,15 @@
     vm.addGongDirective = (gong) => {
       vm.gongDirectives.push(gong)
     }
-    vm.rotateUpdate = (val,id) => {
-      vm.gongDirectives[id].rotationIncrement = parseInt(val)
-      console.log(vm.gongDirectives[id].rotationIncrement);
+    vm.rotateUpdate = (val, id) => {
+      vm.gongDirectives[id].rotationIncrement = parseInt(val);
+      // console.log(vm.gongDirectives[id].rotationIncrement);
+    }
+
+    vm.volUpdate = (val, id) => {
+      vm.gongDirectives[id].gong.volume.value = parseFloat(val);
+      // console.log(vm.gongDirectives[id].gong.volume.value);
+
     }
 
     vm.addGong = function(gong){

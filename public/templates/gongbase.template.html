@@ -20,8 +20,16 @@
   </div>
 <canvas class="gongbase2" width="700" height="700"></canvas>
 
-<div>
-  <span ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
-    <input ng-model="slider" ng-change="$ctrl.builder.rotateUpdate(slider, $index)" type="range" step="1" min="0" max="50">
+<hr>
+<div><h1>Gong Rotation Speeds</h1>
+  <span ng-repeat="rot in $ctrl.builder.gongDirectives track by $index">
+    <input ng-model="slider1" ng-change="$ctrl.builder.rotateUpdate(slider1, $index)" type="range" step="1" min="0" max="50">
   </span>
 </div>
+<hr>
+<div><h1>Gong Volumes</h1>
+  <span ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
+    <input ng-model="slider2" ng-change="$ctrl.builder.volUpdate(slider2, $index)" type="range" step="0.5" min="-24" max="12">
+  </span>
+</div>
+<hr>
