@@ -21,14 +21,15 @@
 
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
-      controller.canvasBottom = element[0].childNodes[2];
+      controller.canvasBottom = element[0].getElementsByClassName("gongbase1")[0];
+      // console.log(element[0].getElementsByClassName("gongbase1"));
       controller.contextBottom = controller.canvasBottom.getContext("2d");
       controller.contextBottom.setTransform(1, 0, 0, 1, 0, 0);
       controller.contextBottom.clearRect(0, 0, controller.canvasBottom.width, controller.canvasBottom.height);
       controller.contextBottom.translate(350, 350);
       controller.helper.gongBottomLine(controller.contextBottom, "yellow", 7);
 
-      controller.canvasTop = element[0].childNodes[element[0].childNodes.length - 2];
+      controller.canvasTop = element[0].getElementsByClassName("gongbase2")[0];
       controller.contextTop = controller.canvasTop.getContext("2d");
       controller.contextTop.setTransform(1, 0, 0, 1, 0, 0);
       controller.contextTop.clearRect(0, 0, controller.canvasTop.width, controller.canvasTop.height);
