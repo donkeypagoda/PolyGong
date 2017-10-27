@@ -4,14 +4,14 @@
     .service('toneService', service)
 
     function service(){
-      const vm = this;
-
-      vm.buildSignalPath = ()
-
-      vm.gongMaker = () => {
-        let gong = new Tone.polySynth()
-        return gong;
-      }
+      // const vm = this;
+      //
+      // vm.buildSignalPath = ()
+      //
+      // vm.gongMaker = () => {
+      //   let gong = new Tone.polySynth()
+      //   return gong;
+      // }
 
 
     }

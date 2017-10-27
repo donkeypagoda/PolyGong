@@ -19,6 +19,7 @@
       vm.rotationIncrement = 7;
       vm.gong;
       vm.size = 240;
+      vm.active = true;
       // vm.sides = 1;
 
     } // end of controller
@@ -62,7 +63,10 @@
           // gong2.triggerAttackRelease('C2', '4n')
           console.log("circle")
         }
-        window.requestAnimationFrame(controller.stateUpdate);
+        if (controller.active){
+          window.requestAnimationFrame(controller.stateUpdate);
+        }
+        else return;
       }
       controller.stateUpdate();
     }// end of link

@@ -13,6 +13,7 @@
       vm.gongStack.push(gong)
     }
     vm.removeLastGong = function(){
+
       vm.gongStack = vm.gongStack.slice(0, vm.gongStack.length - 1)
       console.log(vm.gongStack);
     }
