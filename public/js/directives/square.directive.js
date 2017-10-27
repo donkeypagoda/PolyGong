@@ -10,14 +10,17 @@
 
     })
 
-    controller.inject = ['helperService']
-    function controller(helperService){
+    controller.inject = ['helperService', 'toneService']
+    function controller(helperService, toneService){
       const vm = this;
       vm.helper = helperService;
+      vm.tone = toneService;
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 4;
-      vm.gong;
+      vm.gong = vm.tone.newGong();
+      vm.gongPitchSet = [320, 280, 290];
+      vm.gongDuration = 0.06;
       vm.size = 240;
       vm.sides = 4;
       vm.active = true;
@@ -77,17 +80,17 @@
         controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
 
         if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
-          // controller.gong.triggerAttackRelease('E3', '8n')
+          controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
           console.log("square")
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 2 * controller.gongTime - controller.rotationIncrement && controller.i < 2 * controller.gongTime + controller.rotationIncrement){
-          // controller.gong.triggerAttackRelease('C3', '8n')
+          controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
           console.log("square");
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 3 * controller.gongTime - controller.rotationIncrement && controller.i < 3 * controller.gongTime + controller.rotationIncrement){
-          // controller.gong.triggerAttackRelease('C3', '8n')
+          controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
           console.log("square");
           controller.i += controller.rotationIncrement;
         }
@@ -97,14 +100,14 @@
         }
         else {
             controller.i = 0;
-            // controller.gong.triggerAttackRelease('G2', '8n');
+            controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
             console.log("square");
           }
           if (controller.active){
             window.requestAnimationFrame(controller.stateUpdate);
           }
           else return;
-        }
+        };
       controller.stateUpdate();
     }// end of link
 })();

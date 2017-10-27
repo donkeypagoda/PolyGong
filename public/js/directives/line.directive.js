@@ -10,14 +10,17 @@
 
     })
 
-    controller.inject = ['helperService']
-    function controller(helperService){
+    controller.inject = ['helperService', 'toneService']
+    function controller(helperService, toneService){
       const vm = this;
       vm.helper = helperService;
+      vm.tone = toneService;
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 6;
-      vm.gong;
+      vm.gong = vm.tone.newGong();
+      vm.gongPitchSet = [200, 240, 275];
+      vm.gongDuration = 0.1;
       vm.size = 240;
       vm.active = true;
       vm.$onDestroy = () => {
@@ -61,7 +64,7 @@
 
         controller.gongTime = Math.floor(controller.helper.rotationTable.length / 2)
         if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
-          // gong3.triggerAttaccontroller.iRelease('C4', '8n')
+          controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
           console.log("line")
           controller.i += controller.rotationIncrement;
         }
@@ -70,7 +73,7 @@
         }
         else {
           controller.i = 0;
-          // gong3.triggerAttackRelease('E3', '8n')
+          controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
           console.log("line")
         }
         if (controller.active){

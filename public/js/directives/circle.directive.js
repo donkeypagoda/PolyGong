@@ -20,12 +20,12 @@
       vm.rotationIncrement = 7;
       vm.gong = vm.tone.newGong();
       vm.gongPitchSet = [220, 280, 300];
-      vm.gongDuration = 0.1;
+      vm.gongDuration = 0.3;
       vm.size = 240;
       vm.active = true;
       vm.$onDestroy = () => {
         vm.active = false;
-      }
+      };
       // vm.sides = 1;
 
     } // end of controller
@@ -73,7 +73,7 @@
           window.requestAnimationFrame(controller.stateUpdate);
         }
         else return;
-      }
+      };
       controller.stateUpdate();
     }// end of link
 })();
