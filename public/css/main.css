@@ -10,6 +10,9 @@ canvas {
     right: 0;
     /*opacity: 0.5;*/
 }
+.border {
+  border: solid 2px red;
+}
 
 .speeds {
     position:absolute;

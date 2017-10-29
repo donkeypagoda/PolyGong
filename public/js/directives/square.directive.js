@@ -19,6 +19,7 @@
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 4;
+      vm.direction = true;
       vm.gong = vm.tone.newGong();
       vm.gongPitchSet = [320, 280, 290];
       vm.gongDuration = 0.06;
@@ -75,11 +76,13 @@
         controller.context.translate(350, 350);
         controller.context.rotate(controller.rotation);
         controller.drawSquare(controller.context);
-        controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
-
-
-        controller.gongTime = Math.floor(controller.helper.rotationTable.length / 4)
-        controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        controller.gongTime = Math.floor(controller.helper.rotationTable.length / controller.sides)
+        if (controller.direction){
+          controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        }
+        else {
+          controller.rotation = ((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        }
 
         if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);

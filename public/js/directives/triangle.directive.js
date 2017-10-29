@@ -19,6 +19,7 @@
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 5;
+      vm.direction = true;
       vm.gong = vm.tone.newGong();
       vm.gongPitchSet = [180, 210, 245];
       vm.gongDuration = 0.08;
@@ -69,11 +70,14 @@
         controller.context.translate(350, 350);
         controller.context.rotate(controller.rotation);
         controller.drawTriangle(controller.context);
-        controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
-
-
         controller.gongTime = Math.floor(controller.helper.rotationTable.length / 3)
-        controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        if (controller.direction){
+          controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        }
+        else {
+          controller.rotation = ((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        }
+
 
         if (controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);

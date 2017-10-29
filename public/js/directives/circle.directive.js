@@ -19,6 +19,7 @@
       vm.i = 0;
       vm.rotation = 0.01;
       vm.rotationIncrement = 7;
+      vm.direction = true;
       vm.gong = vm.tone.newGong();
       vm.gongPitchSet = [220, 280, 300];
       vm.gongDuration = 0.3;
@@ -61,7 +62,13 @@
         controller.context.translate(350, 350);
         controller.context.rotate(controller.rotation);
         controller.drawCircle(controller.context);
-        controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        if (controller.direction){
+          controller.rotation = -((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        }
+        else {
+          controller.rotation = ((controller.helper.rotationTable[controller.i] * 0.01).toFixed(3));
+        }
+
         if (controller.i < controller.helper.rotationTable.length - controller.rotationIncrement){
           controller.i += controller.rotationIncrement
           // controller.i++

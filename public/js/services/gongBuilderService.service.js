@@ -22,7 +22,11 @@
     vm.volUpdate = (val, id) => {
       vm.gongDirectives[id].gong.volume.value = parseFloat(val);
       // console.log(vm.gongDirectives[id].gong.volume.value);
-
+    }
+    vm.rotateSwitch = (id) => {
+      console.log(vm.gongDirectives[id].direction);
+      vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
+      console.log(vm.gongDirectives[id].direction);
     }
 
     vm.addGong = function(gong){
