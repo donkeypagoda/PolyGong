@@ -15,7 +15,10 @@
       vm.helper = helperService;
       vm.tone = toneService;
       vm.builder = gongBuilderService;
-      vm.drone = vm.tone.droneBuilder()
+      vm.dronePitch = 60;
+      vm.drone = vm.tone.droneBuilder(vm.dronePitch)
+      vm.verb = vm.tone.makeVerb();
+      vm.delay = vm.tone.makeDelay();
 
 
     } // end of controller
@@ -38,6 +41,14 @@
       controller.droneVolume = (val) => {
         console.log(val);
         controller.drone.volume.value = parseFloat(val);
+      }
+      controller.droneVolume = (val) => {
+        console.log(val);
+        controller.verb.wet.value = parseFloat(val);
+      }
+      controller.droneVolume = (val) => {
+        console.log(val);
+        controller.delay.wet.value = parseFloat(val);
       }
     } // end of link
 }());
