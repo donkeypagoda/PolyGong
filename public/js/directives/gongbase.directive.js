@@ -13,11 +13,10 @@
     function controller(helperService, gongBuilderService, toneService) {
       const vm = this;
       vm.helper = helperService;
-      vm.tones = toneService;
+      vm.tone = toneService;
       vm.builder = gongBuilderService;
-      vm.removeLastAndRebuild = function(){
-        vm.builder.removeLastGong();
-      }
+      vm.drone = vm.tone.droneBuilder()
+
 
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
@@ -36,5 +35,9 @@
       controller.contextTop.translate(350, 350);
       controller.helper.gongTopLine(controller.contextTop, "blue", 5);
 
-    }
+      controller.droneVolume = (val) => {
+        console.log(val);
+        // controller.drone.volume.val = parseFloat(val);
+      }
+    } // end of link
 }());

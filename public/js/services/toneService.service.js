@@ -6,6 +6,10 @@
     function service(){
       const vm = this;
 
+      vm.droneBuilder = (key) => {
+
+      }
+
       vm.newGong = () =>{
         let gong = new Tone.PolySynth(3, Tone.MonoSynth).toMaster();
         gong.set({

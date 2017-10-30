@@ -24,19 +24,19 @@
 
 <div><h1>Gong Rotation Speeds</h1>
   <div ng-repeat="rot in $ctrl.builder.gongDirectives track by $index">
-    <input ng-model="slider1" ng-change="$ctrl.builder.rotateUpdate(slider1, $index)" type="range" step="1" min="0" max="50">
+    <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" type="range" step="1" min="0" max="50">
     <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
   </div>
 </div>
 <div><h1>Gong Volumes</h1>
   <div ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
-    <input ng-model="slider2" ng-change="$ctrl.builder.volUpdate(slider2, $index)" type="range" step="0.5" min="-24" max="12">
+    <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" type="range" step="0.5" min="-24" max="12">
   </div>
 </div>
 
 <div class="fl w-10 pa2">
   <div><h1>FX and Drone</h1>
-    <input ng-change="$ctrl.builder.volUpdate(slider2, $index)" type="range" step="0.5" min="-24" max="12">
+    <input ng-model="droneSlider" ng-change="$ctrl.droneVolume(droneSlider)" type="range" step="4" min="-36" max="12">
 
   </div>
 
