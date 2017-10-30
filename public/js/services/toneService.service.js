@@ -8,17 +8,20 @@
 
       vm.droneBuilder = (pitch) => {
         let drone = new Tone.FMSynth();
-        droneSolid.oscillator.type = "sine"
-        droneSolid.modulation.type = "square"
-        droneSolid.volume.value = -6;
-        droneSolid.toMaster();
+        drone.oscillator.type = "sine"
+        drone.modulation.type = "square"
+        drone.volume.value = -6;
+        drone.toMaster();
+        
         let droneModLFO = new Tone.LFO();
-        droneModLFO.connect(droneSolid.modulationIndex)
+        droneModLFO.connect(drone.modulationIndex)
         droneModLFO.min = 0.1;
         droneModLFO.max = 100;
         droneModLFO.frequency.value = 0.12;
         droneModLFO.set()
+
         droneModLFO.start();
+        drone.triggerAttack(60)
 
         return drone;
       }

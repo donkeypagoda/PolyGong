@@ -37,7 +37,7 @@
 
       controller.droneVolume = (val) => {
         console.log(val);
-        controller.drone.volume.val = parseFloat(val);
+        controller.drone.volume.value = parseFloat(val);
       }
     } // end of link
 }());
