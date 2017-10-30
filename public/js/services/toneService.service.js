@@ -6,8 +6,21 @@
     function service(){
       const vm = this;
 
-      vm.droneBuilder = (key) => {
+      vm.droneBuilder = (pitch) => {
+        let drone = new Tone.FMSynth();
+        droneSolid.oscillator.type = "sine"
+        droneSolid.modulation.type = "square"
+        droneSolid.volume.value = -6;
+        droneSolid.toMaster();
+        let droneModLFO = new Tone.LFO();
+        droneModLFO.connect(droneSolid.modulationIndex)
+        droneModLFO.min = 0.1;
+        droneModLFO.max = 100;
+        droneModLFO.frequency.value = 0.12;
+        droneModLFO.set()
+        droneModLFO.start();
 
+        return drone;
       }
 
       vm.newGong = () =>{
