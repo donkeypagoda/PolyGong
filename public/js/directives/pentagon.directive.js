@@ -21,6 +21,7 @@
       vm.rotationIncrement = 3;
       vm.direction = true;
       vm.gong = vm.tone.newGong();
+      vm.gong.volume.value = -6;
       vm.gongPitchSet = [260, 320, 340];
       vm.gongDuration = 0.04;
       vm.size = 240;
