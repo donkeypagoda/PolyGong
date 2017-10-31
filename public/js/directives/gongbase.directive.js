@@ -9,8 +9,8 @@
         templateUrl: "templates/gongbase.template.html"
       }
     }) // end of directive
-    controller.inject = ['helperService', 'gongBuilderService', 'toneService', 'urlService'];
-    function controller(helperService, gongBuilderService, toneService, urlService) {
+    controller.inject = ['helperService', 'gongBuilderService', 'toneService', 'urlService', '$state'];
+    function controller(helperService, gongBuilderService, toneService, urlService, $state) {
       const vm = this;
       vm.helper = helperService;
       vm.tone = toneService;
@@ -23,6 +23,7 @@
       vm.verb.wet.value = 0.0;
       vm.delay.wet.value = 0.0;
       Tone.Master.chain(vm.delay, vm.verb);
+      console.log($state.params);
 
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){

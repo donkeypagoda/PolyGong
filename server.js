@@ -21,6 +21,9 @@ app.use(express.static(path.join("public")));
 const polygongs = require('./routes/polygongs');
 app.use(polygongs);
 
+app.use('*', function(req, res, next) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+})
 
 app.use((req, res) => {
   res.sendStatus(404);
