@@ -5,6 +5,10 @@
 
     function service(){
       const vm = this;
+      vm.context = new Tone.Context();
+      vm.verbSend = 0.0;
+      vm.delaySend = 0.0
+      vm.fxArray = [];
 
       vm.droneBuilder = (pitch) => {
         let drone = new Tone.FMSynth();
@@ -58,15 +62,15 @@
 
       vm.makeDelay = () => {
         let delay = new Tone.PingPongDelay(0.2, 0.5);
-        delay.wet.value = 0.5;
+        vm.fxArray.push(delay);
         return delay;
       }
 
       vm.makeVerb = () => {
-        let verb = new Tone.Convolver("media/concert-crowd.ogg", () =>{
-          verb.wet.value = 0.3
-          return verb
-        })
+        let verb = new Tone.Convolver("media/concert-crowd.ogg")
+        verb.wet.value = 1.0;
+        vm.fxArray.push(verb);
+        return verb;
       }
 
 

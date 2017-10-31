@@ -19,6 +19,16 @@
       vm.drone = vm.tone.droneBuilder(vm.dronePitch)
       vm.verb = vm.tone.makeVerb();
       vm.delay = vm.tone.makeDelay();
+      // vm.verb.wet.value = 1.0;
+      vm.delay.wet.value = 1.0;
+      // Tone.Master.chain(vm.delay, vm.verb);
+      vm.verbGain = new Tone.Gain()
+      vm.delayGain = new Tone.Gain();
+      vm.verb.connect(vm.verbGain)
+      vm.delay.connect(vm.delayGain)
+      vm.verbGain.toMaster();
+      vm.delayGain.toMaster();
+
 
 
     } // end of controller
@@ -39,16 +49,16 @@
       controller.helper.gongTopLine(controller.contextTop, "blue", 5);
 
       controller.droneVolume = (val) => {
-        console.log(val);
+        // console.log(val);
         controller.drone.volume.value = parseFloat(val);
       }
-      controller.droneVolume = (val) => {
-        console.log(val);
-        controller.verb.wet.value = parseFloat(val);
+      controller.delayVolume = (val) => {
+        controller.delayGain.value = parseFloat(val);
+        console.log(controller.delayGain.value);
       }
-      controller.droneVolume = (val) => {
-        console.log(val);
-        controller.delay.wet.value = parseFloat(val);
+      controller.verbVolume = (val) => {
+        controller.verbGain.value = parseFloat(val);
+        console.log(controller.verbGain.value);
       }
     } // end of link
 }());
