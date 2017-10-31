@@ -25,6 +25,7 @@
 
 
 
+
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
       controller.canvasBottom = element[0].getElementsByClassName("gongbase1")[0];
@@ -48,7 +49,7 @@
       }
       controller.delayMix = (val) => {
         controller.delay.wet.value = parseFloat(val);
-        console.log(controller.delay.wet.value);
+        console.log(val);
       }
       controller.verbMix = (val) => {
         controller.verb.wet.value = parseFloat(val);

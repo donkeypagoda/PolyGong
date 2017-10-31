@@ -30,19 +30,19 @@
 </div>
 <div><h1>Gong Volumes</h1>
   <div ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
-    <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" type="range" value="-6" step="0.5" min="-24" max="12">
+    <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" type="range" ng-value="-6" step="0.5" min="-24" max="12">
   </div>
 </div>
 
 <div>
   <div><h1>Drone</h1>
-    <input ng-model="droneSlider" ng-change="$ctrl.droneVolume(droneSlider)" type="range" value="-36" step="0.5" min="-36" max="6">
+    <input ng-model="droneSlider" ng-change="$ctrl.droneVolume(droneSlider)" type="range" ng-value="-36" step="0.5" min="-36" max="6">
   </div>
   <div><h1>Bounce</h1>
-    <input ng-model="bounceSlider" ng-change="$ctrl.delayMix(bounceSlider)" type="range" value="0.0" step="0.01" min="0.0" max="1.0">
+    <input ng-model="bounceSlider" ng-change="$ctrl.delayMix(bounceSlider)" type="range" ng-value="0.0" step="0.01" min="0.0" max="1.0">
   </div>
   <div><h1>Shimmy</h1>
-    <input ng-model="shimmySlider" ng-change="$ctrl.verbMix(shimmySlider)" type="range" value="0.0" step="0.01" min="-0.0" max="1.0">
+    <input ng-model="shimmySlider" ng-change="$ctrl.verbMix(shimmySlider)" type="range" ng-value="0.0" step="0.01" min="-0.0" max="1.0">
   </div>
 
 </div>
