@@ -18,8 +18,8 @@ app.use(cookie());
 app.use(morgan('dev'))
 app.use(express.static(path.join("public")));
 
-// const users = require('./routes/users');
-// app.use(users);
+const polygongs = require('./routes/polygongs');
+app.use(polygongs);
 
 
 app.use((req, res) => {
@@ -28,19 +28,6 @@ app.use((req, res) => {
 
 // console.log("hayo");
 
-// Handle Boom errors
-// app.use((err, _req, res, _next) => {
-//   console.log('boom error!')
-//   if (err.output && err.output.statusCode) {
-//     return res
-//       .status(err.output.statusCode)
-//       .set('Content-Type', 'text/plain')
-//       .send(err.message);
-//   }
-//
-//   console.error(err.stack);
-//   res.sendStatus(500)
-// });
 
 app.listen(port, () => {
   console.log('listening on port', port)
