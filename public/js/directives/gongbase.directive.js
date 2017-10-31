@@ -56,8 +56,7 @@
 
       controller.getUrl = () => {
         let state = {
-          "stack": controller.builder.gongStack,
-          "directives": controller.builder.gongDirectives
+          "directives": controller.builder.gongDirectives.map((e)=>{return e.save()})
         }
         controller.url.submitState(state)
       }

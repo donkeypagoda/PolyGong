@@ -13,6 +13,7 @@
     controller.inject = ['helperService', 'toneService', 'gongBuilderService']
     function controller(helperService, toneService, gongBuilderService){
       const vm = this;
+      vm.name = "square";
       vm.helper = helperService;
       vm.tone = toneService;
       vm.builder = gongBuilderService;
@@ -31,6 +32,13 @@
         vm.active = false;
       }
       vm.builder.addGongDirective(this)
+      vm.save = () => {
+        let saveObj = {
+          "name": vm.name,
+          "rotationIncrement": vm.rotationIncrement
+        }
+        return saveObj;
+      }
 
     } // end of controller
 

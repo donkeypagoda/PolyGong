@@ -16,9 +16,12 @@ router.get('/polygongs/:id', (req, res, next) => {
 });
 
 router.post('/polygongs', (req, res, next) => {
+  console.log(req.body);
   knex('polygongs')
+    .insert({'polygong_data': JSON.stringify(req.body.directives), 'polygong_url': uuidv4()}, "*")
     .then((url) => {
-      res.send(url)
+      // console.log(url);
+      res.send(url.polygong_url)
     })
     .catch((err) => next(err));
 })
