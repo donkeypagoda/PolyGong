@@ -570,11 +570,11 @@ body.has-active-menu {
 ----------------------------------------------------------------------------- */
 .c-buttons {
   margin-bottom: 48px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .c-button {
-  display: inline-block;
+  /*display: inline-block;*/
   margin: 4px;
   padding: 12px 24px;
   color: #67b5d1;

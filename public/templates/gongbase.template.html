@@ -63,5 +63,80 @@
   </ul>
 </nav><!-- /c-menu slide-left -->
 
-
 <div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+<!-- menus script -->
+<!-- <script src="js/drawer.js"></script> -->
+<script>
+
+  /**
+   * Slide left instantiation and action.
+   */
+  var slideLeft = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-left',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideLeftBtn = document.querySelector('#c-button--slide-left');
+
+  slideLeftBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideLeft.open();
+  });
+
+
+  /**
+   * Slide right instantiation and action.
+   */
+  var slideRight = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-right',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideRightBtn = document.querySelector('#c-button--slide-right');
+
+  slideRightBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideRight.open();
+  });
+
+
+  /**
+   * Slide top instantiation and action.
+   */
+  var slideTop = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-top',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideTopBtn = document.querySelector('#c-button--slide-top');
+
+  slideTopBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideTop.open();
+  });
+
+
+  /**
+   * Slide bottom instantiation and action.
+   */
+  var slideBottom = new Menu({
+    wrapper: '#o-wrapper',
+    type: 'slide-bottom',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+
+  var slideBottomBtn = document.querySelector('#c-button--slide-bottom');
+
+  slideBottomBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideBottom.open();
+  });
+
+</script>
