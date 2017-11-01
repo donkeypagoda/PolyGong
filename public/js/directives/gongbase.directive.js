@@ -74,6 +74,9 @@
         }
         controller.url.submitState(state)
       }
-      
+      //drawer script
+
+
+
     } // end of link
 }());
