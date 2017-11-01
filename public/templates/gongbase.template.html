@@ -39,104 +39,26 @@
   <p ng-model="$ctrl.url.displayUrl">http://polygong.com/{{$ctrl.url.displayUrl}}</p>
 </div>
 
-<div id="o-wrapper" class="o-wrapper">
-  <div class="c-buttons">
-    <button id="c-button--slide-left" class="c-button">Slide Left</button>
+<div>
+  <div>
+    <button>Slide Left</button>
   </div>
-</div><!-- /o-wrapper -->
+</div>
 
-<nav id="c-menu--slide-left" class="c-menu c-menu--slide-left">
-  <button class="c-menu__close">&larr; Close Menu</button>
-  <ul class="c-menu__items">
-    <li class="c-menu__item">
+<nav>
+  <button>Close Menu</button>
+  <ul>
+    <li>
       <h1>Drone</h1>
-      <input class="c-menu__link" ng-model="droneSlider" ng-change="$ctrl.droneVolume(droneSlider)" type="range" ng-value="-36" step="0.5" min="-36" max="6">
+      <input ng-model="droneSlider" ng-change="$ctrl.droneVolume(droneSlider)" type="range" ng-value="-36" step="0.5" min="-36" max="6">
     </li>
-    <li class="c-menu__item">
+    <li>
       <h1>Bounce</h1>
-      <input class="c-menu__link" ng-model="bounceSlider" ng-change="$ctrl.delayMix(bounceSlider)" type="range" ng-value="0.0" step="0.01" min="0.0" max="1.0">
+      <input ng-model="bounceSlider" ng-change="$ctrl.delayMix(bounceSlider)" type="range" ng-value="0.0" step="0.01" min="0.0" max="1.0">
     </li>
-    <li class="c-menu__item">
+    <li>
       <h1>Shimmy</h1>
-      <input class="c-menu__link" ng-model="shimmySlider" ng-change="$ctrl.verbMix(shimmySlider)" type="range" ng-value="0.0" step="0.01" min="-0.0" max="1.0">
+      <input ng-model="shimmySlider" ng-change="$ctrl.verbMix(shimmySlider)" type="range" ng-value="0.0" step="0.01" min="-0.0" max="1.0">
     </li>
   </ul>
-</nav><!-- /c-menu slide-left -->
-
-<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
-<!-- menus script -->
-<!-- <script src="js/drawer.js"></script> -->
-<script>
-
-  /**
-   * Slide left instantiation and action.
-   */
-  var slideLeft = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'slide-left',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-
-  var slideLeftBtn = document.querySelector('#c-button--slide-left');
-
-  slideLeftBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    slideLeft.open();
-  });
-
-
-  /**
-   * Slide right instantiation and action.
-   */
-  var slideRight = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'slide-right',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-
-  var slideRightBtn = document.querySelector('#c-button--slide-right');
-
-  slideRightBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    slideRight.open();
-  });
-
-
-  /**
-   * Slide top instantiation and action.
-   */
-  var slideTop = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'slide-top',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-
-  var slideTopBtn = document.querySelector('#c-button--slide-top');
-
-  slideTopBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    slideTop.open();
-  });
-
-
-  /**
-   * Slide bottom instantiation and action.
-   */
-  var slideBottom = new Menu({
-    wrapper: '#o-wrapper',
-    type: 'slide-bottom',
-    menuOpenerClass: '.c-button',
-    maskId: '#c-mask'
-  });
-
-  var slideBottomBtn = document.querySelector('#c-button--slide-bottom');
-
-  slideBottomBtn.addEventListener('click', function(e) {
-    e.preventDefault;
-    slideBottom.open();
-  });
-
-</script>
+</nav>
