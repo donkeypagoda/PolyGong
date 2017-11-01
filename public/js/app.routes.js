@@ -12,13 +12,8 @@
     $stateProvider
       .state({
         name: 'gongbase',
-        url: '/',
-        component: 'gongbase'
-      })
-      .state({
-        name: 'box',
         url: '/:url',
-        component: 'box'
+        component: 'gongbase'
       })
 
   }

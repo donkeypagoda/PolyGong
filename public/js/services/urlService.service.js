@@ -6,12 +6,14 @@
     service.$inject = ["$http", "$stateParams"]
     function service($http, $stateParams){
       const vm = this;
-      vm.displayUrl;
+      vm.displayUrl = "";
+      vm.gongData = [];
 
-      this.getState = function (){
-        return $http.get(`/polygongs/${$state.params}`)
+      this.getState = function (url){
+        return $http.get(`/polygongs/${url}`)
         .then(function (state) {
-          return state.data
+          // console.log(state.data.polygong_data);
+          vm.gongData = state.data.polygong_data;
         })
       }
 
@@ -24,8 +26,5 @@
 
         })
       }
-
-
-
     }
 }());

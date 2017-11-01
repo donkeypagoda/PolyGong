@@ -5,9 +5,9 @@ const knex = require('../knex');
 const router = express.Router();
 const uuidv4 = require('uuid/v4');
 
-router.get('/polygongs/:id', (req, res, next) => {
+router.get('/polygongs/:url', (req, res, next) => {
   knex('polygongs')
-    .where('id', req.params.id)
+    .where('polygong_url', req.params.url)
     .first()
     .then((state) => {
       res.send(state)

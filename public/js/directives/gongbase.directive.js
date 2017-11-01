@@ -23,7 +23,20 @@
       vm.verb.wet.value = 0.0;
       vm.delay.wet.value = 0.0;
       Tone.Master.chain(vm.delay, vm.verb);
-      console.log($state.params);
+      if ($state.params.url){
+        // console.log($state.params.url);
+        vm.url.getState($state.params.url)
+        .then(()=>{
+          console.log(vm.url.gongData)
+          //should replace this next section with a .map function or some shit
+          vm.builder.gongStack = []
+          for (let i = 0; i < vm.url.gongData.length; i++){
+            vm.builder.gongStack.push(vm.url.gongData[i].name)
+          }
+
+        })
+      }
+
 
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
