@@ -16,7 +16,7 @@ canvas {
     right: 0;
     /*opacity: 0.5;*/
 }
-
+/* background gradient stuff*/
 body {
   background: linear-gradient(45deg, #12d919, #3112d9);
   background-size: 400% 400%;
@@ -40,6 +40,7 @@ body {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+/*stuff for slide out menus*/
 html, body {
    height: 100%;
 }
@@ -55,31 +56,48 @@ body {
 input[type=checkbox] {
    position: absolute;
    opacity: 0;
+
+
 }
 label {
    /*position: absolute;*/
    top: 10px;
-   left: 40px;
    z-index: 1;
    display: block;
    font-size:3em;
    color: #444;
    cursor: pointer;
    transform: translate3d(0, 0, 0);
-   transition: transform .4s;
+   transition: transform .5s;
 }
-input[type=checkbox]:checked ~ label {
-   transform: translate3d(-200px, 0, 0) rotate(90deg);
+label .lefty{
+  left: 40px;
 }
+label .righty{
+  right: 40px;
+}
+.lefty input[type=checkbox]:checked ~ label{
+  transform: rotate(90deg);
+  transform: translate3d(220px, 0px, 0);
+}
+.righty input[type=checkbox]:checked ~ label{
+  transform: rotate(90deg);
+  transform: translate3d(-220px, 0px, 0);
+}
+
+
 .content {
    width:100%;
    padding: 40px;
    background: #f2f2f2;
    transform: translate3d(0, 0, 0);
-   transition: transform .4s;
+   transition: transform .7s;
 }
-input[type=checkbox]:checked ~ .content {
+.lefty input[type=checkbox]:checked ~ .content{
    transform: translate3d(250px, 0, 0);
+}
+.righty input[type=checkbox]:checked ~ .content {
+   transform: translate3d(-250px, 0, 0);
 }
 input[type=checkbox]:checked ~ .slide-menu {
    transform: translate3d(0, 0, 0);
@@ -87,16 +105,29 @@ input[type=checkbox]:checked ~ .slide-menu {
 input[type=checkbox]:checked ~ .slide-menu .menu li {
    width: 100%;
 }
-.slide-menu {
+.lefty .slide-menu{
    transform: translate3d(-250px, 0, 0);
    position: absolute;
    width: 250px;
-   background: #4f6b81;
+   /*background: #4f6b81;*/
+   background: transparent;
    color: #ddd;
    left: 0;
    height: 100%;
    transition: all .4s;
 }
+ .righty .slide-menu{
+   transform: translate3d(250px, 0, 0);
+   position: absolute;
+   width: 250px;
+   /*background: #4f6b81;*/
+   background: transparent;
+   color: #ddd;
+   right: 0;
+   height: 100%;
+   transition: all .4s;
+}
+
 .slide-menu h1 {
    margin: 10px;
    text-shadow: 1px 1px 1px #000;
