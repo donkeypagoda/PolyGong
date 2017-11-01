@@ -74,6 +74,6 @@
         }
         controller.url.submitState(state)
       }
-
+      
     } // end of link
 }());
