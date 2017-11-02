@@ -14,12 +14,6 @@
   </div>
 </header>
 
-<canvas class="gongbase1 border" width="700" height="700"></canvas>
-  <div ng-repeat="g in $ctrl.builder.gongStack track by $index">
-    <gong-holder gong="{{g}}"></gong-holder>
-  </div>
-<canvas class="gongbase2" width="700" height="700"></canvas>
-
 <div id="containerL" class="lefty">
   <input id="lefty" type="checkbox" class="lefty"><label class="lefty_label" for="lefty">&equiv;</label>
   <div class="slide-menu lefty">
@@ -60,6 +54,12 @@
     </nav>
   </div>
 </div>
+
+<canvas class="gongbase1 border" width="700" height="700"></canvas>
+  <div ng-repeat="g in $ctrl.builder.gongStack track by $index">
+    <gong-holder gong="{{g}}"></gong-holder>
+  </div>
+<canvas class="gongbase2" width="700" height="700"></canvas>
 
 <footer>
 <div>

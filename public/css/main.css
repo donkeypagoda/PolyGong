@@ -58,46 +58,38 @@ body {
    min-height: 100%;
 }
 input[type=checkbox] {
-   /*position: absolute;*/
+   position: absolute;
    opacity: 0;
 }
-/*label {
-   position: absolute;
-   top: 10px;
-   z-index: 1;
-   display: block;
-   font-size:3em;
-   color: #444;
-   cursor: pointer;
-   transform: translate3d(0, 0, 0);
-   transition: transform .5s;
-}*/
+
 .lefty_label {
+  position: absolute;
   left: 0;
-  top: 10px;
+  top: 40px;
   z-index: 1;
   display: block;
   font-size:3em;
   color: #444;
   cursor: pointer;
-  /*transform: translate3d(0, 0, 0);*/
+  transform: translate3d(0, 0, 0);
   transition: transform .5s;
 }
 .righty_label {
+  position: absolute;
   right: 0;
-  top: 10px;
+  top: 40px;
   z-index: 1;
   display: block;
   font-size:3em;
   color: #444;
   cursor: pointer;
-  /*transform: translate3d(0, 0, 0);*/
+  transform: translate3d(0, 0, 0);
   transition: transform .5s;
 }
 .lefty input[type=checkbox]:checked ~ label{
   transform: translate3d(220px, 0px, 0);
 }
-/* this next bit is what throws the check box off the screen*/
+
 .righty input[type=checkbox]:checked ~ label{
   transform: translate3d(-220px, 0px, 0);
 }
