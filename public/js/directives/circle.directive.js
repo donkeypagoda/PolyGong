@@ -37,7 +37,8 @@
           "name": vm.name,
           "rotationIncrement": vm.rotationIncrement,
           "volume": vm.gong.volume.value,
-          "pitches": vm.gongPitchSet
+          "pitches": vm.gongPitchSet,
+          "i": vm.i
         }
         return saveObj;
       }
