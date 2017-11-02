@@ -49,15 +49,17 @@ body {
    padding: 0;
    overflow-x: hidden;
 }
-#container {
+#containerL {
+   display: flex;
+   min-height: 100%;
+}
+#containerR {
    display: flex;
    min-height: 100%;
 }
 input[type=checkbox] {
-   position: absolute;
+   /*position: absolute;*/
    opacity: 0;
-
-
 }
 label {
    /*position: absolute;*/
@@ -70,18 +72,16 @@ label {
    transform: translate3d(0, 0, 0);
    transition: transform .5s;
 }
-label .lefty{
+.lefty_label {
   left: 40px;
 }
-label .righty{
+.righty_label {
   right: 40px;
 }
 .lefty input[type=checkbox]:checked ~ label{
-  transform: rotate(90deg);
   transform: translate3d(220px, 0px, 0);
 }
 .righty input[type=checkbox]:checked ~ label{
-  transform: rotate(90deg);
   transform: translate3d(-220px, 0px, 0);
 }
 
@@ -116,7 +116,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    height: 100%;
    transition: all .4s;
 }
- .righty .slide-menu{
+.righty .slide-menu{
    transform: translate3d(250px, 0, 0);
    position: absolute;
    width: 250px;

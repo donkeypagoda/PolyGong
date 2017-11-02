@@ -20,20 +20,8 @@
   </div>
 <canvas class="gongbase2" width="700" height="700"></canvas>
 
-<div><h1>Gong Rotation Speeds</h1>
-  <div ng-repeat="rot in $ctrl.builder.gongDirectives track by $index">
-    <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" type="range" step="1" min="0" max="50">
-    <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
-  </div>
-</div>
-<div><h1>Gong Volumes</h1>
-  <div ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
-    <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" type="range" ng-value="-6" step="0.5" min="-24" max="12">
-  </div>
-</div>
-
-<div id="container" class="wrap-left lefty">
-  <input id="lefty" type="checkbox" class="lefty"><label class="lefty" for="lefty">&equiv;</label>
+<div id="containerL" class="lefty">
+  <input id="lefty" type="checkbox" class="lefty"><label class="lefty_label" for="lefty">&equiv;</label>
   <div class="slide-menu lefty">
     <nav class="menu lefty">
       <li>
@@ -47,6 +35,27 @@
       <li>
         <h1>Shimmy</h1>
         <input ng-model="shimmySlider" ng-change="$ctrl.verbMix(shimmySlider)" type="range" ng-value="0.0" step="0.01" min="-0.0" max="1.0">
+      </li>
+    </nav>
+  </div>
+</div>
+
+<div id="containerR" class="righty">
+  <input id="righty" type="checkbox" class="righty"><label class="righty_label" for="righty">&equiv;</label>
+  <div class="slide-menu righty">
+    <nav class="menu righty">
+      <li>
+        <h1>Gong Rotation Speeds</h1>
+        <div ng-repeat="rot in $ctrl.builder.gongDirectives track by $index">
+          <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" type="range" step="1" min="0" max="50">
+          <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
+        </div>
+      </li>
+      <li>
+        <h1>Gong Volumes</h1>
+        <div ng-repeat="vol in $ctrl.builder.gongDirectives track by $index">
+        <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" type="range" ng-value="-6" step="0.5" min="-24" max="12">
+        </div>
       </li>
     </nav>
   </div>
