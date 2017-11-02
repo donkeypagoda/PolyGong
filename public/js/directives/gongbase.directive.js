@@ -16,13 +16,17 @@
       vm.tone = toneService;
       vm.builder = gongBuilderService;
       vm.url = urlService;
+
       vm.dronePitch = 60;
       vm.drone = vm.tone.droneBuilder(vm.dronePitch)
+      vm.drone.volume.value = -36;
       vm.verb = vm.tone.makeVerb();
       vm.delay = vm.tone.makeDelay();
       vm.verb.wet.value = 0.0;
       vm.delay.wet.value = 0.0;
+
       Tone.Master.chain(vm.delay, vm.verb);
+      // restore from url
       if ($state.params.url){
         // console.log($state.params.url);
         vm.url.getState($state.params.url)
@@ -33,11 +37,8 @@
           for (let i = 0; i < vm.url.gongData.length; i++){
             vm.builder.gongStack.push(vm.url.gongData[i].name)
           }
-
         })
       }
-
-
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
       controller.canvasBottom = element[0].getElementsByClassName("gongbase1")[0];
@@ -74,6 +75,6 @@
         }
         controller.url.submitState(state)
       }
-      
+
     } // end of link
 }());
