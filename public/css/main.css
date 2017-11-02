@@ -72,7 +72,7 @@ input[type=checkbox] {
   color: #444;
   cursor: pointer;
   transform: translate3d(0, 0, 0);
-  transition: transform .5s;
+  transition: transform .4s;
 }
 .righty_label {
   position: absolute;
@@ -84,7 +84,7 @@ input[type=checkbox] {
   color: #444;
   cursor: pointer;
   transform: translate3d(0, 0, 0);
-  transition: transform .5s;
+  transition: transform .3s;
 }
 .lefty input[type=checkbox]:checked ~ label{
   transform: translate3d(220px, 0px, 0);
@@ -93,7 +93,6 @@ input[type=checkbox] {
 .righty input[type=checkbox]:checked ~ label{
   transform: translate3d(-250px, 0px, 0);
 }
-
 
 .content {
    width:100%;
@@ -106,7 +105,7 @@ input[type=checkbox] {
    transform: translate3d(250px, 0, 0);
 }
 .righty input[type=checkbox]:checked ~ .content {
-   transform: translate3d(-250px, 0, 0);
+   transform: translate3d(-400px, 0, 0);
 }
 input[type=checkbox]:checked ~ .slide-menu {
    transform: translate3d(0, 0, 0);

@@ -49,10 +49,12 @@
     <div class="slide-menu righty">
       <nav class="menu righty">
         <li>
-          <h1>Gong Rotation Speeds</h1>
-          <div ng-repeat="rot in $ctrl.builder.gongDirectives track by $index">
-            <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" type="range" step="1" min="0" max="50">
-            <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
+          <div>
+            <h1>Gong Rotation Speeds</h1>
+            <div ng-repeat="rot in $ctrl.builder.gongDirectives track by $index">
+              <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" type="range" step="1" min="0" max="50">
+              <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
+            </div>
           </div>
         </li>
         <li>
