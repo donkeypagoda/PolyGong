@@ -95,17 +95,17 @@
 
         if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("square")
+          // console.log("square")
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 2 * controller.gongTime - controller.rotationIncrement && controller.i < 2 * controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("square");
+          // console.log("square");
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 3 * controller.gongTime - controller.rotationIncrement && controller.i < 3 * controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("square");
+          // console.log("square");
           controller.i += controller.rotationIncrement;
         }
 
@@ -115,7 +115,7 @@
         else {
             controller.i = 0;
             controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-            console.log("square");
+            // console.log("square");
           }
           if (controller.active){
             window.requestAnimationFrame(controller.stateUpdate);

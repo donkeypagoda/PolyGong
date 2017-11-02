@@ -19,7 +19,7 @@
       vm.builder = gongBuilderService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 6;
+      vm.rotationIncrement = 1;
       vm.direction = true;
       vm.gong = vm.tone.newGong();
       vm.gong.volume.value = -6;
@@ -82,7 +82,7 @@
         controller.gongTime = Math.floor(controller.helper.rotationTable.length / 2)
         if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("line")
+          // console.log("line")
           controller.i += controller.rotationIncrement;
         }
         else if (controller.i < controller.helper.rotationTable.length - (controller.rotationIncrement + 1)){
@@ -91,7 +91,7 @@
         else {
           controller.i = 0;
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("line")
+          // console.log("line")
         }
         if (controller.active){
           window.requestAnimationFrame(controller.stateUpdate);

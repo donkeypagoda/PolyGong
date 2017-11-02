@@ -90,12 +90,12 @@
 
         if (controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("triangle")
+          // console.log("triangle")
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 2 * controller.gongTime - controller.rotationIncrement && controller.i < 2 * controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("triangle");
+          // console.log("triangle");
           controller.i += controller.rotationIncrement;
         }
 
@@ -105,7 +105,7 @@
         else {
             controller.i = 0;
             controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-            console.log("triangle");
+            // console.log("triangle");
           }
           if (controller.active){
             window.requestAnimationFrame(controller.stateUpdate);

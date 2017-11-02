@@ -19,7 +19,7 @@
       vm.builder = gongBuilderService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 3;
+      vm.rotationIncrement = 1;
       vm.direction = true;
       vm.gong = vm.tone.newGong();
       vm.gong.volume.value = -6;
@@ -101,22 +101,22 @@
 
         if ( controller.i > controller.gongTime - controller.rotationIncrement && controller.i < controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("pentagon")
+          // console.log("pentagon")
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 2 * controller.gongTime - controller.rotationIncrement && controller.i < 2 * controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("pentagon");
+          // console.log("pentagon");
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 3 * controller.gongTime - controller.rotationIncrement && controller.i < 3 * controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("pentagon");
+          // console.log("pentagon");
           controller.i += controller.rotationIncrement;
         }
         else if ( controller.i > 4 * controller.gongTime - controller.rotationIncrement && controller.i < 4 * controller.gongTime + controller.rotationIncrement){
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("pentagon");
+          // console.log("pentagon");
           controller.i += controller.rotationIncrement;
         }
 
@@ -126,7 +126,7 @@
         else {
             controller.i = 0;
             controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-            console.log("pentagon");
+            // console.log("pentagon");
           }
           if (controller.active){
             window.requestAnimationFrame(controller.stateUpdate);

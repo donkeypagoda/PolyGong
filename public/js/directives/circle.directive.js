@@ -19,10 +19,10 @@
       vm.builder = gongBuilderService;
       vm.i = 0;
       vm.rotation = 0.01;
-      vm.rotationIncrement = 7;
+      vm.rotationIncrement = 3;
       vm.direction = true;
       vm.gong = vm.tone.newGong();
-      vm.gong.volume.value = -6;
+      vm.gong.volume.value = -12;
       vm.gongPitchSet = [220, 280, 300];
       vm.gongDuration = 0.3;
       vm.size = 240;
@@ -35,7 +35,9 @@
       vm.save = () => {
         let saveObj = {
           "name": vm.name,
-          "rotationIncrement": vm.rotationIncrement
+          "rotationIncrement": vm.rotationIncrement,
+          "volume": vm.gong.volume.value,
+          "pitches": vm.gongPitchSet
         }
         return saveObj;
       }
@@ -85,7 +87,7 @@
         else {
           controller.i = 0;
           controller.gong.triggerAttackRelease(controller.gongPitchSet, controller.gongDuration);
-          console.log("circle")
+          // console.log("circle")
         }
         if (controller.active){
           window.requestAnimationFrame(controller.stateUpdate);

@@ -72,6 +72,7 @@
         }
         else droneInvoked = true;
       }
+
       controller.delayMix = (val) => {
         if (delayInvoked){
           controller.delay.wet.value = parseFloat(val);
