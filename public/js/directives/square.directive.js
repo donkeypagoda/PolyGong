@@ -35,7 +35,9 @@
       vm.save = () => {
         let saveObj = {
           "name": vm.name,
-          "rotationIncrement": vm.rotationIncrement
+          "rotationIncrement": vm.rotationIncrement,
+          "volume": vm.gong.volume.value,
+          "pitches": vm.gongPitchSet
         }
         return saveObj;
       }

@@ -26,9 +26,9 @@
         vm.delay = vm.tone.makeDelay();
         vm.verb.wet.value = 0.0;
         vm.delay.wet.value = 0.0;
-        console.log(vm.drone.volume.value);
-        console.log(vm.delay.wet.value);
-        console.log(vm.verb.wet.value);
+        // console.log(vm.drone.volume.value);
+        // console.log(vm.delay.wet.value);
+        // console.log(vm.verb.wet.value);
 
         Tone.Master.chain(vm.delay, vm.verb);
         // restore from url
@@ -36,7 +36,7 @@
           // console.log($state.params.url);
           vm.url.getState($state.params.url)
           .then(()=>{
-            console.log(vm.url.gongData)
+            // console.log(vm.url.gongData)
             //should replace this next section with a .map function or some shit
             vm.builder.gongStack = []
             for (let i = 0; i < vm.url.gongData.length; i++){
@@ -68,7 +68,7 @@
       controller.droneVolume = (val) => {
         if (droneInvoked){
           controller.drone.volume.value = parseFloat(val);
-          console.log(controller.drone.volume.value);
+          // console.log(controller.drone.volume.value);
         }
         else droneInvoked = true;
       }
@@ -76,14 +76,14 @@
       controller.delayMix = (val) => {
         if (delayInvoked){
           controller.delay.wet.value = parseFloat(val);
-          console.log(controller.delay.wet.value);
+          // console.log(controller.delay.wet.value);
         }
         else delayInvoked = true;
       }
       controller.verbMix = (val) => {
         if (verbInvoked){
           controller.verb.wet.value = parseFloat(val);
-          console.log(controller.verb.wet.value);
+          // console.log(controller.verb.wet.value);
         }
         else verbInvoked = true;
       }
