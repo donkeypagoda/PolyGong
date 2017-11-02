@@ -37,7 +37,8 @@
   </div>
 
   <div class="two">
-    <canvas class="gongbase1 border" width="700" height="700"></canvas>
+    <canvas class="gongbase1" width="700" height="700"></canvas>
+
     <div ng-repeat="g in $ctrl.builder.gongStack track by $index">
       <gong-holder gong="{{g}}"></gong-holder>
     </div>

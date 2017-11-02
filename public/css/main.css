@@ -17,14 +17,13 @@ canvas {
     /*opacity: 0.5;*/
 }
 /* background gradient stuff*/
-body {
+html {
   background: linear-gradient(45deg, #12d919, #3112d9);
   background-size: 400% 400%;
 
   -webkit-animation: slide 20s ease infinite;
   -moz-animation: slide 20s ease infinite;
   animation: slide 20s ease infinite;
-
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -43,6 +42,13 @@ body {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
+}
+.base1 {
+  background-image: url(../media/treestop.png);
+
+}
+.base2 {
+  background-image: url(../media/treesbottom.png);
 }
 /*stuff for slide out menus*/
 html, body {
