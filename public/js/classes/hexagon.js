@@ -5,7 +5,7 @@ class Hexagon {
     this.centArr = centArr;
     this.numbSides = 6;
     this.malletColor = 0xffffff;
-    this.malletMap = new THREE.TextureLoader().load('circle.png');
+    this.malletMap = new THREE.TextureLoader().load('media/circle.png');
     this.malletMaterial =  new THREE.SpriteMaterial({map: this.malletMap, color: this.malletColor, alphaTest: 0.5, transparent: true});
     this.malletMaterial.color.setHSL( 1.0, 0.3, 0.7 );
     this.lineColor = 0x0000ff;
