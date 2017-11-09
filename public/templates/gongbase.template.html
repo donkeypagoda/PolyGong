@@ -1,14 +1,14 @@
 <header>
   <div>
     <div>
-      <span>Add A Gong</span>
-      <span ng-repeat="gong in $ctrl.builder.availableGongs">
-          <button ng-click="$ctrl.builder.addGong(gong)">Add {{gong}}</button>
-      </span>
-      <span>
-        <span>Remove Gong</span>
-        <button ng-click="$ctrl.builder.removeLastGong()">Remove Last Gong Added</button>
-      </span>
+      <button id="circleAdd">ADD CIRCLE</button>
+      <button id="lineAdd">ADD LINE</button>
+      <button id="triangleAdd">ADD TRIANGLE</button>
+      <button id="squareAdd">ADD SQUARE</button>
+      <button id="pentagonAdd">ADD PENTAGON</button>
+      <button id="hexagonAdd">ADD HEXAGON</button>
+      <button id="heptagonAdd">ADD HEPTAGON</button>
+      <button id="lastRemove">Remove Last Shape Added</button>
     </div>
   </div>
 </header>
