@@ -35,11 +35,13 @@
         vm.verb.wet.value = 0.0;
         vm.delay.wet.value = 0.0;
 
+        vm.width = 800;
+        vm.height = 800;
         vm.renderer = new THREE.WebGLRenderer();
-        vm.renderer.setSize(window.innerWidth, window.innerHeight);
+        vm.renderer.setSize(vm.width, vm.height);
         vm.gongSpace = document.getElementById("gongSpace")
         vm.gongSpace.appendChild(vm.renderer.domElement);
-        vm.cam = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 100);
+        vm.cam = new THREE.PerspectiveCamera(45, vm.width / vm.height, 1, 100);
         vm.cam.position.set(0, 0, 50);
         vm.cam.lookAt(new THREE.Vector3(0, 0, 0));
         vm.scene = new THREE.Scene();
