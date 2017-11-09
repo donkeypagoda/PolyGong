@@ -34,9 +34,10 @@
         vm.delay = vm.tone.makeDelay();
         vm.verb.wet.value = 0.0;
         vm.delay.wet.value = 0.0;
+        Tone.Master.chain(vm.delay, vm.verb);
 
-        vm.width = 800;
-        vm.height = 800;
+        vm.width = window.innerWidth;
+        vm.height = window.innerHeight
         vm.renderer = new THREE.WebGLRenderer();
         vm.renderer.setSize(vm.width, vm.height);
         vm.gongSpace = document.getElementById("gongSpace")
@@ -45,15 +46,62 @@
         vm.cam.position.set(0, 0, 50);
         vm.cam.lookAt(new THREE.Vector3(0, 0, 0));
         vm.scene = new THREE.Scene();
-        vm.polyArr = [];
+        // vm.polyArr = [];
         vm.size = 3;
         vm.speed = 150;
 
+        vm.circleAdd.onclick = () => {
+          let circleShape = new Circle(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(circleShape.group);
+          vm.builder.gongStack.push(circleShape);
+          console.log(vm.builder.gongStack);
+        }
+
+        vm.lineAdd.onclick = () => {
+          let lineShape = new Line(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(lineShape.group);
+          vm.builder.gongStack.push(lineShape);
+        }
+
+        vm.triangleAdd.onclick = () => {
+          let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(triangleShape.group);
+          vm.builder.gongStack.push(triangleShape);
+        }
+
+        vm.squareAdd.onclick = () => {
+          let squareShape = new Square(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(squareShape.group);
+          vm.builder.gongStack.push(squareShape);
+        }
+
+        vm.pentagonAdd.onclick = () => {
+          let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(pentagonShape.group);
+          vm.builder.gongStack.push(pentagonShape);
+        }
+
+        vm.hexagonAdd.onclick = () => {
+          let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(hexagonShape.group);
+          vm.builder.gongStack.push(hexagonShape);
+        }
+
+
+        vm.heptagonAdd.onclick = () => {
+          let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0])
+          vm.scene.add(heptagonShape.group);
+          vm.builder.gongStack.push(heptagonShape);
+        }
+
+        vm.lastRemove.onclick = () => {
+          vm.scene.children.pop()
+          vm.builder.gongStack.pop()
+        }
         // console.log(vm.drone.volume.value);
         // console.log(vm.delay.wet.value);
         // console.log(vm.verb.wet.value);
 
-        Tone.Master.chain(vm.delay, vm.verb);
         // restore from url
         // if ($state.params.url){
         //   // console.log($state.params.url);
@@ -71,59 +119,11 @@
       }
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
-      controller.circleAdd.onclick = () => {
-        let circleShape = new Circle(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(circleShape.group);
-        controller.polyArr.push(circleShape);
-      }
-
-      controller.lineAdd.onclick = () => {
-        let lineShape = new Line(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(lineShape.group);
-        controller.polyArr.push(lineShape);
-      }
-
-      controller.triangleAdd.onclick = () => {
-        let triangleShape = new Triangle(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(triangleShape.group);
-        controller.polyArr.push(triangleShape);
-      }
-
-      controller.squareAdd.onclick = () => {
-        let squareShape = new Square(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(squareShape.group);
-        controller.polyArr.push(squareShape);
-      }
-
-      controller.pentagonAdd.onclick = () => {
-        let pentagonShape = new Pentagon(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(pentagonShape.group);
-        controller.polyArr.push(pentagonShape);
-      }
-
-      controller.hexagonAdd.onclick = () => {
-        let hexagonShape = new Hexagon(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(hexagonShape.group);
-        controller.polyArr.push(hexagonShape);
-      }
-
-
-      controller.heptagonAdd.onclick = () => {
-        let heptagonShape = new Heptagon(controller.size, controller.speed, [0,0,0])
-        controller.scene.add(heptagonShape.group);
-        controller.polyArr.push(heptagonShape);
-      }
-
-      controller.lastRemove.onclick = () => {
-        controller.scene.children.pop()
-        controller.polyArr.pop()
-      }
-
 
       controller.animate = function(){
         requestAnimationFrame(controller.animate);
         for(let i = 0; i < controller.scene.children.length; i++){
-          controller.polyArr[i].rotate();
+          controller.builder.gongStack[i].rotate();
         }
 
         controller.renderer.render(controller.scene, controller.cam);

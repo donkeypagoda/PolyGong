@@ -123,8 +123,8 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    transform: translate3d(-250px, 0, 0);
    position: absolute;
    width: 250px;
-   /*background: #4f6b81;*/
-   background: transparent;
+   background: #4f6b81;
+   /*background: transparent;*/
    color: #ddd;
    left: 0;
    height: 100%;
@@ -134,8 +134,8 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    transform: translate3d(250px, 0, 0);
    position: absolute;
    width: 250px;
-   /*background: #4f6b81;*/
-   background: transparent;
+   background: #4f6b81;
+   /*background: transparent;*/
    color: #ddd;
    right: 0;
    height: 100%;
@@ -192,4 +192,10 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 .five {
   grid-column: 2;
   grid-row: 1;
+}
+#gongSpace {
+  z-index: -1;
+}
+i {
+  color: red;
 }

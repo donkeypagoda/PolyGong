@@ -2,6 +2,7 @@ class Square {
   constructor (size, speed, centArr) {
     this.size = size;
     this.speed = speed;
+    this.volume = 1;
     this.centArr = centArr;
     this.numbSides = 4;
     this.malletColor = 0xffffff;
@@ -35,7 +36,7 @@ class Square {
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
-      squareGong();
+      squareGong(this.volume);
       // console.log('gong', this.gongValue);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;

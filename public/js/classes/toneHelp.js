@@ -91,15 +91,15 @@ lfo1.fan(synth.oscillator.detune,
 
 lfo1.start()
 
-function circleGong(){
-  synth.triggerAttackRelease(baseFreq, 0.04) // root
-  synth2.triggerAttackRelease(baseFreq * allTwelve[10], 0.02) // m7 up
-  synth3.triggerAttackRelease(baseFreq * allTwelve[4], 0.1) // M3
-  synth4.triggerAttackRelease(baseFreq * 0.5, 0.04)  // oct down
-  synth5.triggerAttackRelease(baseFreq * allTwelve[7], 0.03) // fifth
-  synth6.triggerAttackRelease(baseFreq * 2, 0.01) // oct up
-  synth7.triggerAttackRelease(baseFreq * 2 * allTwelve[2], 0.004) // 9th
-  synth8.triggerAttackRelease(baseFreq * 2 * allTwelve[3], 0.004) // m3 above high octave
+function circleGong(vol){
+  synth.triggerAttackRelease(baseFreq, vol * 0.04) // root
+  synth2.triggerAttackRelease(baseFreq * allTwelve[10], vol * 0.02) // m7 up
+  synth3.triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1) // M3
+  synth4.triggerAttackRelease(baseFreq * 0.5, vol * 0.04)  // oct down
+  synth5.triggerAttackRelease(baseFreq * allTwelve[7], vol * 0.03) // fifth
+  synth6.triggerAttackRelease(baseFreq * 2, vol * 0.01) // oct up
+  synth7.triggerAttackRelease(baseFreq * 2 * allTwelve[2], vol * 0.004) // 9th
+  synth8.triggerAttackRelease(baseFreq * 2 * allTwelve[3], vol * 0.004) // m3 above high octave
 }
 
 let synth9 = new Tone.Synth
@@ -155,12 +155,12 @@ lfo2.fan(synth9.oscillator.detune,
 
 lfo2.start()
 
-function lineGong(){
-  synth9.triggerAttackRelease(baseFreq * 2, 0.04)
-  synth10.triggerAttackRelease(baseFreq * 0.5 * allTwelve[7], 0.02)
-  synth11.triggerAttackRelease(baseFreq * allTwelve[9], 0.1)
-  synth12.triggerAttackRelease(baseFreq * 0.5, 0.04)
-  synth13.triggerAttackRelease(baseFreq * allTwelve[4], 0.03)
+function lineGong(vol){
+  synth9.triggerAttackRelease(baseFreq * 2, vol * 0.04)
+  synth10.triggerAttackRelease(baseFreq * 0.5 * allTwelve[7], vol * 0.02)
+  synth11.triggerAttackRelease(baseFreq * allTwelve[9], vol * 0.1)
+  synth12.triggerAttackRelease(baseFreq * 0.5, vol * 0.04)
+  synth13.triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.03)
 }
 
 let synth14 = new Tone.Synth
@@ -216,12 +216,12 @@ lfo3.fan(synth14.oscillator.detune,
 
 lfo3.start()
 
-function triangleGong(){
-  synth14.triggerAttackRelease(baseFreq * 0.5, 0.04)
-  synth15.triggerAttackRelease(baseFreq * 0.5 * allTwelve[4], 0.02)
-  synth16.triggerAttackRelease(baseFreq * allTwelve[4], 0.1)
-  synth17.triggerAttackRelease(baseFreq * allTwelve[9], 0.04)
-  synth18.triggerAttackRelease(baseFreq * 2, 0.03)
+function triangleGong(vol){
+  synth14.triggerAttackRelease(baseFreq * 0.5, vol * 0.04)
+  synth15.triggerAttackRelease(baseFreq * 0.5 * allTwelve[4], vol * 0.02)
+  synth16.triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1)
+  synth17.triggerAttackRelease(baseFreq * allTwelve[9], vol * 0.04)
+  synth18.triggerAttackRelease(baseFreq * 2, vol * 0.03)
 }
 
 let synth19 = new Tone.Synth
@@ -268,11 +268,11 @@ lfo4.fan(synth19.oscillator.detune,
 
 lfo4.start()
 
-function squareGong(){
-  synth19.triggerAttackRelease(baseFreq * 2, 0.04)
-  synth20.triggerAttackRelease(baseFreq * 0.5, 0.02)
-  synth21.triggerAttackRelease(baseFreq * 0.5 * allTwelve[3], 0.1)
-  synth22.triggerAttackRelease(baseFreq * allTwelve[3], 0.04)
+function squareGong(vol){
+  synth19.triggerAttackRelease(baseFreq * 2, vol * 0.04)
+  synth20.triggerAttackRelease(baseFreq * 0.5, vol * 0.02)
+  synth21.triggerAttackRelease(baseFreq * 0.5 * allTwelve[3], vol * 0.1)
+  synth22.triggerAttackRelease(baseFreq * allTwelve[3], vol * 0.04)
 }
 
 let synth23 = new Tone.Synth
@@ -309,10 +309,10 @@ lfo5.fan(synth23.oscillator.detune,
 
 lfo5.start()
 
-function pentagonGong(){
-  synth23.triggerAttackRelease(baseFreq * allTwelve[5], 0.1)
-  synth24.triggerAttackRelease(baseFreq * 0.5 * allTwelve[7], 0.1)
-  synth25.triggerAttackRelease(baseFreq * allTwelve[3], 0.1)
+function pentagonGong(vol){
+  synth23.triggerAttackRelease(baseFreq * allTwelve[5], vol * 0.1)
+  synth24.triggerAttackRelease(baseFreq * 0.5 * allTwelve[7], vol * 0.1)
+  synth25.triggerAttackRelease(baseFreq * allTwelve[3], vol * 0.1)
 }
 
 let synth26 = new Tone.Synth
@@ -349,10 +349,10 @@ lfo6.fan(synth26.oscillator.detune,
 
 lfo6.start()
 
-function hexagonGong(){
-  synth26.triggerAttackRelease(baseFreq * allTwelve[5], 0.1)
-  synth27.triggerAttackRelease(baseFreq * 0.5 * allTwelve[6], 0.06)
-  synth28.triggerAttackRelease(baseFreq * allTwelve[11], 0.1)
+function hexagonGong(vol){
+  synth26.triggerAttackRelease(baseFreq * allTwelve[5], vol * 0.1)
+  synth27.triggerAttackRelease(baseFreq * 0.5 * allTwelve[6], vol * 0.06)
+  synth28.triggerAttackRelease(baseFreq * allTwelve[11], vol * 0.1)
 }
 
 let synth29 = new Tone.Synth
@@ -381,7 +381,7 @@ lfo7.fan(synth29.oscillator.detune,
 
 lfo7.start()
 
-function heptagonGong(){
-  synth29.triggerAttackRelease(baseFreq * allTwelve[6], 0.03)
-  synth30.triggerAttackRelease(baseFreq * 2, 0.03)
+function heptagonGong(vol){
+  synth29.triggerAttackRelease(baseFreq * allTwelve[6], vol * 0.03)
+  synth30.triggerAttackRelease(baseFreq * 2, vol * 0.03)
 }

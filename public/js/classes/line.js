@@ -2,6 +2,7 @@ class Line {
   constructor (size, speed, centArr) {
     this.size = size;
     this.speed = speed;
+    this.volume = 1;
     this.centArr = centArr;
     this.numbSides = 2;
     this.malletColor = 0xffffff;
@@ -32,7 +33,7 @@ class Line {
         this.gongValue = 0;
       }
       if(this.currentPosition > this.gongValue ){
-        lineGong();
+        lineGong(this.volume);
         // console.log('gong', this.gongValue);
         const arc = (2 * Math.PI) / this.numbSides;
         this.gongValue = this.gongValue + arc;

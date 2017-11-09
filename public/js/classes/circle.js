@@ -2,6 +2,7 @@ class Circle {
   constructor (size, speed, centArr) {
     this.size = size;
     this.speed = speed;
+    this.volume = 1;
     this.centArr = centArr;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -45,7 +46,7 @@ class Circle {
         this.gongValue = 0;
       }
       if(this.currentPosition > this.gongValue ){
-        circleGong();
+        circleGong(this.volume);
         // console.log('gong', this.gongValue);
         const arc = (2 * Math.PI) / this.numbSides;
         this.gongValue = this.gongValue + arc;
