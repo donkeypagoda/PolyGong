@@ -15,32 +15,32 @@
           return circleShape;
 
         case 'line':
-          let lineShape = new Line(urlData.size, urlData.speed, urlData.centArr);
+          let lineShape = new Line(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(lineShape);
           return lineShape;
 
         case 'triangle':
-          let triangleShape = new Triangle(urlData.size, urlData.speed, urlData.centArr);
+          let triangleShape = new Triangle(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(triangleShape);
           return triangleShape;
 
         case 'square':
-          let squareShape = new Square(urlData.size, urlData.speed, urlData.centArr);
+          let squareShape = new Square(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(squareShape);
           return squareShape;
 
         case 'pentagon':
-          let pentagonShape = new Pentagon(urlData.size, urlData.speed, urlData.centArr);
+          let pentagonShape = new Pentagon(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(pentagonShape);
           return pentagonShape;
 
         case 'hexagon':
-          let hexagonShape = new Hexagon(urlData.size, urlData.speed, urlData.centArr);
+          let hexagonShape = new Hexagon(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(hexagonShape);
           return hexagonShape;
 
         case 'heptagon':
-          let heptagonShape = new Heptagon(urlData.size, urlData.speed, urlData.centArr);
+          let heptagonShape = new Heptagon(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(heptagonShape);
           return heptagonShape;
         default: return;
@@ -49,16 +49,10 @@
 
     vm.rotateUpdate = (val, id) => {
       vm.gongStack[id].rotationIncrement = Math.PI / parseFloat(val);
-      // console.log(vm.gongStack[id].speed);
-      // console.log(vm.gongDirectives[id].rotationIncrement);
     }
 
     vm.volUpdate = (val, obj) => {
-      // console.log(val);
-      // console.log(obj.setVol);
       obj.setVol(val);
-      // console.log(vm.gongStack[id].volume);
-      // console.log(vm.gongDirectives[id].gong.volume.value);
     }
     vm.setScale = (val, obj) => {
       obj.setScale(val);
