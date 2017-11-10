@@ -1,5 +1,6 @@
 class Hexagon {
   constructor (size, speed, centArr) {
+    this.name = "hexagon"
     this.size = size;
     this.speed = speed;
     this.volume = 0.5;
@@ -20,6 +21,19 @@ class Hexagon {
     this.currentPosition = 0;
     this.gongValue = 0;
 
+    this.save = () => {
+      let saveObj = {
+        "name": this.name,
+        "rotationIncrement": this.rotationIncrement,
+        "volume": this.volume,
+        "pitches": this.gongPitchSet,
+        "size": this.size,
+        "speed": this.speed,
+        "centArr": this.centArr
+      }
+      return saveObj;
+    }
+    
     this.group.quaternion.onChange(() => {
       //color changes
       let h = ( 360 * ( 1.0 + Math.abs(this.group.quaternion.z) ) % 360 ) / 360;

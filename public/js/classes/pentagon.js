@@ -1,5 +1,6 @@
 class Pentagon {
   constructor (size, speed, centArr) {
+    this.name = "pentagon"
     this.size = size;
     this.speed = speed;
     this.volume = 0.5;
@@ -19,6 +20,19 @@ class Pentagon {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
+
+    this.save = () => {
+      let saveObj = {
+        "name": this.name,
+        "rotationIncrement": this.rotationIncrement,
+        "volume": this.volume,
+        "pitches": this.gongPitchSet,
+        "size": this.size,
+        "speed": this.speed,
+        "centArr": this.centArr
+      }
+      return saveObj;
+    }
 
     this.group.quaternion.onChange(() => {
       //color changes

@@ -1,6 +1,6 @@
 class Circle {
   constructor (size, speed, centArr) {
-    this.name = "Circle"
+    this.name = "circle"
     this.size = size;
     this.speed = speed;
     this.volume = 0.5;

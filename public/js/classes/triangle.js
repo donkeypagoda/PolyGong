@@ -1,5 +1,6 @@
 class Triangle {
   constructor (size, speed, centArr) {
+    this.name = "triangle"
     this.size = size;
     this.speed = speed;
     this.volume = 0.5;
@@ -19,6 +20,19 @@ class Triangle {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
+
+    this.save = () => {
+      let saveObj = {
+        "name": this.name,
+        "rotationIncrement": this.rotationIncrement,
+        "volume": this.volume,
+        "pitches": this.gongPitchSet,
+        "size": this.size,
+        "speed": this.speed,
+        "centArr": this.centArr
+      }
+      return saveObj;
+    }
 
     // the callback, could be used to determine gong attack times, and all the other bullshit
     this.group.quaternion.onChange(() => {
