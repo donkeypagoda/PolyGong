@@ -90,14 +90,15 @@
       // restore from url
       if ($state.params.url){
         vm.url.getState($state.params.url)
-        .then(()=>{
+        .then((data)=>{
           vm.builder.gongStack = []
-          for (let i = 0; i < vm.url.gongData.length; i++){
-            let shape = vm.builder.shapeInstantiate(vm.url.gongData[i])
-            vm.scene.add(shape)
-            let quat = this.quaternion = new THREE.Quaternion();
-            quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), vm.url.gongData[i].rotationIncrement );
-            shape.applyQuaternion(quat);
+          for (let i = 0; i < data.length; i++){
+            let shape = vm.builder.shapeInstantiate(data[i])
+            let quat = new THREE.Quaternion();
+            quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), data[i].currentPosition);
+            console.log(data[i].currentPosition);
+            shape.group.applyQuaternion(quat);
+            vm.scene.add(shape.group)
           }
         })
       }

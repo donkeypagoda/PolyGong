@@ -32,16 +32,16 @@
         vm.active = false;
       }
       vm.builder.addGongDirective(this)
-      vm.save = () => {
-        let saveObj = {
-          "name": vm.name,
-          "rotationIncrement": vm.rotationIncrement,
-          "volume": vm.gong.volume.value,
-          "pitches": vm.gongPitchSet,
-          "i": vm.i
-        }
-        return saveObj;
-      }
+      // vm.save = () => {
+      //   let saveObj = {
+      //     "name": vm.name,
+      //     "rotationIncrement": vm.rotationIncrement,
+      //     "volume": vm.gong.volume.value,
+      //     "pitches": vm.gongPitchSet,
+      //     "i": vm.i
+      //   }
+      //   return saveObj;
+      // }
 
     } // end of controller
 

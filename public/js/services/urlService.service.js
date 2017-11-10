@@ -12,12 +12,14 @@
       this.getState = function (url){
         return $http.get(`/polygongs/${url}`)
         .then(function (state) {
-          console.log(state.data.polygong_data);
+          // console.log(state.data.polygong_data);
           vm.gongData = state.data.polygong_data;
+          return vm.gongData;
         })
       }
 
       this.submitState = function(state){
+        console.log(state);
         return $http.post('/polygongs', state)
         .then(function (response) {
           vm.displayUrl = response.data

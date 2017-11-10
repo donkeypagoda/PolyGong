@@ -21,19 +21,19 @@ class Pentagon {
     this.currentPosition = 0;
     this.gongValue = 0;
 
-    this.save = () => {
-      let saveObj = {
-        "name": this.name,
-        "rotationIncrement": this.rotationIncrement,
-        "volume": this.volume,
-        "pitches": this.gongPitchSet,
-        "size": this.size,
-        "speed": this.speed,
-        "centArr": this.centArr,
-        "scale": this.group.scale
-      }
-      return saveObj;
-    }
+    // this.save = () => {
+    //   let saveObj = {
+    //     "name": this.name,
+    //     "rotationIncrement": this.rotationIncrement,
+    //     "volume": this.volume,
+    //     "pitches": this.gongPitchSet,
+    //     "size": this.size,
+    //     "speed": this.speed,
+    //     "centArr": this.centArr,
+    //     "scale": this.group.scale
+    //   }
+    //   return saveObj;
+    // }
 
     this.group.quaternion.onChange(() => {
       //color changes
@@ -43,7 +43,22 @@ class Pentagon {
     })
 
   } // end of constructor
-
+  save(){
+    let saveObj = {
+      "name": this.name,
+      "rotationIncrement": this.rotationIncrement,
+      "volume": this.volume,
+      "pitches": this.gongPitchSet,
+      "size": this.size,
+      "speed": this.speed,
+      "centArr": this.centArr,
+      "scale": this.group.scale,
+      "currentPosition": this.currentPosition
+    }
+    console.log(saveObj);
+    return saveObj;
+  }
+  
   setScale(val){
     this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
   }

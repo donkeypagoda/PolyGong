@@ -12,37 +12,37 @@
         case 'circle':
           let circleShape = new Circle(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(circleShape);
-          return circleShape.group;
+          return circleShape;
 
         case 'line':
           let lineShape = new Line(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(lineShape);
-          return lineShape.group;
+          return lineShape;
 
         case 'triangle':
           let triangleShape = new Triangle(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(triangleShape);
-          return triangleShape.group;
+          return triangleShape;
 
         case 'square':
           let squareShape = new Square(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(squareShape);
-          return squareShape.group;
+          return squareShape;
 
         case 'pentagon':
           let pentagonShape = new Pentagon(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(pentagonShape);
-          return pentagonShape.group;
+          return pentagonShape;
 
         case 'hexagon':
           let hexagonShape = new Hexagon(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(hexagonShape);
-          return hexagonShape.group;
+          return hexagonShape;
 
         case 'heptagon':
           let heptagonShape = new Heptagon(urlData.size, urlData.speed, urlData.centArr);
           vm.gongStack.push(heptagonShape);
-          return heptagonShape.group;
+          return heptagonShape;
         default: return;
       }// end of switch
     } //end of shapeInstantiate
