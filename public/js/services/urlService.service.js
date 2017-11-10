@@ -18,10 +18,8 @@
       }
 
       this.submitState = function(state){
-        // console.log(state);
         return $http.post('/polygongs', state)
         .then(function (response) {
-          // console.log(response.data)
           vm.displayUrl = response.data
 
         })
