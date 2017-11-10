@@ -8,7 +8,47 @@
     // vm.availableGongs = ["circle", "line", "triangle", "square", "pentagon", "hexagon", "heptagon"]
 
     vm.gongStack = [];
+    vm.shapeInstantiate(urlData){
+      switch(urlData.name){
+        case 'circle':
+          let circleShape = new Circle(urlData.size, urlData.speed, urlData.centArr);
+          vm.builder.gongStack.push(circleShape);
+          return circleShape.group;
+          break;
+        case 'line':
+          let lineShape = new Line(urlData.size, urlData.speed, urlData.centArr)
+          vm.builder.gongStack.push(lineShape);
+          return lineShape.group;
+          break;
+        case 'triangle':
+          let triangleShape = new Triangle(urlData.size, urlData.speed, urlData.centArr);
+          vm.builder.gongStack.push(triangleShape);
+          return triangleShape.group;
+          break;
+        case 'square':
+          let squareShape = new Square(urlData.size, urlData.speed, urlData.centArr)
+          vm.builder.gongStack.push(squareShape);
+          return squareShape.group;
+          break;
+        case 'pentagon':
+          let pentagonShape = new Pentagon(urlData.size, urlData.speed, urlData.centArr);
+          vm.builder.gongStack.push(pentagonShape);
+          return pentagonShape.group;
+          break;
+        case 'hexagon':
+          let hexagonShape = new Hexagon(urlData.size, urlData.speed, urlData.centArr)
+          vm.builder.gongStack.push(hexagonShape);
+          return hexagonShape.group;
+          break;
+        case 'heptagon':
+          let hexagonShape = new Heptagon(urlData.size, urlData.speed, urlData.centArr);
+          vm.builder.gongStack.push(heptagonShape);
+          return heptagonShape.group;
+          break;
+      }// end of switch
+    } //end of shapeInstantiate
 
+    
     // vm.gongDirectives = [];
     //
     // vm.addGongDirective = (gong) => {
@@ -26,15 +66,15 @@
       console.log(vm.gongStack[id].volume);
       // console.log(vm.gongDirectives[id].gong.volume.value);
     }
-    vm.rotateSwitch = (id) => {
-      // console.log(vm.gongDirectives[id].direction);
-      vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
-      // console.log(vm.gongDirectives[id].direction);
-    }
-    vm.gongSize = (val,id) => {
-      vm.gongStack[id].size = parseFloat(val);
-      console.log(vm.gongStack[id]);
-    }
+    // vm.rotateSwitch = (id) => {
+    //   // console.log(vm.gongDirectives[id].direction);
+    //   vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
+    //   // console.log(vm.gongDirectives[id].direction);
+    // }
+    // vm.gongSize = (val,id) => {
+    //   vm.gongStack[id].size = parseFloat(val);
+    //   console.log(vm.gongStack[id]);
+    // }
 
     // vm.addGong = function(gong){
     //   vm.gongStack.push(gong);

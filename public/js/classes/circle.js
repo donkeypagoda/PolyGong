@@ -1,6 +1,6 @@
 class Circle {
   constructor (size, speed, centArr) {
-    this.name = "circle"
+    this.name = "Circle"
     this.size = size;
     this.speed = speed;
     this.volume = 0.5;
@@ -36,8 +36,9 @@ class Circle {
         "rotationIncrement": this.rotationIncrement,
         "volume": this.volume,
         "pitches": this.gongPitchSet,
-        "i": this.size,
+        "size": this.size,
         "speed": this.speed,
+        "centArr": this.centArr
       }
       return saveObj;
     }

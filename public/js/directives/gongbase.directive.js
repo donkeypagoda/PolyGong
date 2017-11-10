@@ -114,7 +114,7 @@
             //should replace this next section with a .map function or some shit
             vm.builder.gongStack = []
             for (let i = 0; i < vm.url.gongData.length; i++){
-              vm.builder.gongStack.push(vm.url.gongData[i].name)
+              vm.scene.add((vm.builder.shapeInstantiate(vm.url.gongData[i])).group)
               // here is where I need to build the crap to go in the directives
             }
           })
