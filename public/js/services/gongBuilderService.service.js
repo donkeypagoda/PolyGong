@@ -16,12 +16,14 @@
     // }
 
     vm.rotateUpdate = (val, id) => {
-      vm.gongStack[id].speed = (parseFloat(val));
+      vm.gongStack[id].speed = parseFloat(val);
+      console.log(vm.gongStack[id].speed);
       // console.log(vm.gongDirectives[id].rotationIncrement);
     }
 
     vm.volUpdate = (val, id) => {
       vm.gongStack[id].volume = parseFloat(val);
+      console.log(vm.gongStack[id].volume);
       // console.log(vm.gongDirectives[id].gong.volume.value);
     }
     vm.rotateSwitch = (id) => {

@@ -45,7 +45,7 @@
           <div>
             <h1>Gong Rotation Speeds</h1>
             <div ng-repeat="rot in $ctrl.builder.gongStack track by $index">
-              <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" name="rotSlider" type="range" ng-value="-47" step="1" min="-50" max="-1">
+              <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" name="rotSlider" type="range" ng-value="25" step="1" min="3" max="125">
               <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
             </div>
           </div>
@@ -53,7 +53,7 @@
         <li>
           <h1>Gong Volumes</h1>
           <div ng-repeat="vol in $ctrl.builder.gongStack track by $index">
-          <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" name="volSlider" type="range" ng-value="25" step="1" min="3" max="125">
+          <input ng-model="volSlider" ng-change="$ctrl.builder.volUpdate(volSlider, $index)" name="volSlider" type="range" ng-value="0.5" step="0.01" min="0.01" max="1.0">
           </div>
         </li>
       </nav>

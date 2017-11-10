@@ -1,4 +1,4 @@
-const rotationTable = Array.from(new Array(2512), (x, i) => (i * 0.25) + 0.25);
+// const rotationTable = Array.from(new Array(2512), (x, i) => (i * 0.25) + 0.25);
 
 // main polygon and mallet group constructor function
 const helperPolygon = function (numbSides, size, centArr, malletMaterial, lineMaterial) {
