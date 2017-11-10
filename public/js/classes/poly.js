@@ -24,33 +24,3 @@ const helperPolygon = function (numbSides, size, centArr, malletMaterial, lineMa
 const toDegree = function(radians) {
   return radians * (180 / Math.PI);
 }
-// const makeGongDegArray = function(numbSides){
-//   let gongDegs = [];
-//   for (let i = 0; i < numbSides; i++){
-//     gongDegs.push((360 / numbSides) * i + 1)
-//   }
-//   return gongDegs;
-// }
-
-// const makeGongYetArray = function(numbSides){
-//   let gongYet = [];
-//   for (let i = 0; i < numbSides; i++){
-//     gongYet.push(false)
-//   }
-//   return gongYet;
-// }
-
-// const quatToDegree = function(quat){
-//   const { w, z, x, y} = quat;
-//   let t1 = 2.0 * (w * z + x * y)
-//     let t2 = 1.0 - 2.0 * (Math.pow(y,2) + Math.pow(z,2))
-//     let Z = Math.atan2(t1, t2)
-//   if (Z > 0) {
-//     let degs = Math.floor(toDegree(Z))
-//     return degs;
-//   }
-//   else {
-//     degs = Math.floor(toDegree(Z) + 360)
-//     return degs;
-//   }
-// }
