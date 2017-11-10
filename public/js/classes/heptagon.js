@@ -1,9 +1,9 @@
 class Heptagon {
-  constructor (size, speed, centArr) {
+  constructor (size, speed, centArr, volume = 0.5) {
     this.name = "heptagon"
     this.size = size;
     this.speed = speed;
-    this.volume = 0.5;
+    this.volume = volume;
     this.centArr = centArr;
     this.numbSides = 7;
     this.malletColor = 0xffffff;
@@ -20,21 +20,6 @@ class Heptagon {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
-
-    // this.save = () => {
-    //   let saveObj = {
-    //     "name": this.name,
-    //     "rotationIncrement": this.rotationIncrement,
-    //     "volume": this.volume,
-    //     "pitches": this.gongPitchSet,
-    //     "size": this.size,
-    //     "speed": this.speed,
-    //     "centArr": this.centArr,
-    //     "scale": this.group.scale,
-    //     "currentPostion": this.currentPostion
-    //   }
-    //   return saveObj;
-    // }
 
     this.group.quaternion.onChange(() => {
       //color changes
@@ -63,6 +48,9 @@ class Heptagon {
 
   setScale(val){
     this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
+  }
+  setVol(val){
+    this.volume = val;
   }
 
   rotate(){

@@ -10,7 +10,7 @@
     vm.shapeInstantiate = function(urlData){
       switch(urlData.name){
         case 'circle':
-          let circleShape = new Circle(urlData.size, urlData.speed, urlData.centArr);
+          let circleShape = new Circle(urlData.size, urlData.speed, urlData.centArr, urlData.volume);
           vm.gongStack.push(circleShape);
           return circleShape;
 
@@ -53,8 +53,10 @@
       // console.log(vm.gongDirectives[id].rotationIncrement);
     }
 
-    vm.volUpdate = (val, id) => {
-      vm.gongStack[id].volume = parseFloat(val);
+    vm.volUpdate = (val, obj) => {
+      // console.log(val);
+      // console.log(obj.setVol);
+      obj.setVol(val);
       // console.log(vm.gongStack[id].volume);
       // console.log(vm.gongDirectives[id].gong.volume.value);
     }
