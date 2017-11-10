@@ -54,7 +54,7 @@
           <div>
             <h1>Scale</h1>
             <div ng-repeat="size in $ctrl.builder.gongStack track by $index">
-              <input ng-model="scaleSlider" ng-change="$ctrl.builder.setScale(scaleSlider, size)" name="scaleSlider" type="range" ng-value="1.0" step="0.01" min="0.01" max="6">
+              <input ng-model="size.group.scale.x" ng-change="$ctrl.builder.setScale(size.group.scale.x, size)" name="scaleSlider" type="range" step="0.01" min="0.01" max="6">
             </div>
           </div>
         </li>
