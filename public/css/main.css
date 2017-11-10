@@ -199,3 +199,6 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 i {
   color: red;
 }
+.url {
+  background-color: white;
+}

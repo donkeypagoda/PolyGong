@@ -106,19 +106,19 @@
         // console.log(vm.verb.wet.value);
 
         // restore from url
-        // if ($state.params.url){
-        //   // console.log($state.params.url);
-        //   vm.url.getState($state.params.url)
-        //   .then(()=>{
-        //     // console.log(vm.url.gongData)
-        //     //should replace this next section with a .map function or some shit
-        //     vm.builder.gongStack = []
-        //     for (let i = 0; i < vm.url.gongData.length; i++){
-        //       vm.builder.gongStack.push(vm.url.gongData[i].name)
-        //       // here is where I need to build the crap to go in the directives
-        //     }
-        //   })
-        // }
+        if ($state.params.url){
+          // console.log($state.params.url);
+          vm.url.getState($state.params.url)
+          .then(()=>{
+            // console.log(vm.url.gongData)
+            //should replace this next section with a .map function or some shit
+            vm.builder.gongStack = []
+            for (let i = 0; i < vm.url.gongData.length; i++){
+              vm.builder.gongStack.push(vm.url.gongData[i].name)
+              // here is where I need to build the crap to go in the directives
+            }
+          })
+        }
       // }
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
@@ -176,7 +176,7 @@
 
       controller.getUrl = () => {
         let state = {
-          "directives": controller.builder.gongDirectives.map((e)=>{return e.save()})
+          "directives": controller.builder.gongStack.map((e)=>{return e.save()})
         }
         controller.url.submitState(state)
       }

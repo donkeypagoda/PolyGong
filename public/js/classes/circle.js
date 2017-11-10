@@ -1,5 +1,6 @@
 class Circle {
   constructor (size, speed, centArr) {
+    this.name = "circle"
     this.size = size;
     this.speed = speed;
     this.volume = 0.5;
@@ -29,8 +30,19 @@ class Circle {
     this.currentPosition = 0;
     this.gongValue = 0;
 
-    this.group.quaternion.onChange(() => {
+    this.save = () => {
+      let saveObj = {
+        "name": this.name,
+        "rotationIncrement": this.rotationIncrement,
+        "volume": this.volume,
+        "pitches": this.gongPitchSet,
+        "i": this.size,
+        "speed": this.speed,
+      }
+      return saveObj;
+    }
 
+    this.group.quaternion.onChange(() => {
       // color changes
       let h = ( 360 * ( 1.0 + Math.abs(this.group.quaternion.z) ) % 360 ) / 360;
       // note that if below children[1] is chosen, it changes the line instead of the mallet

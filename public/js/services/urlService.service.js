@@ -12,7 +12,7 @@
       this.getState = function (url){
         return $http.get(`/polygongs/${url}`)
         .then(function (state) {
-          // console.log(state.data.polygong_data);
+          console.log(state.data.polygong_data);
           vm.gongData = state.data.polygong_data;
         })
       }
