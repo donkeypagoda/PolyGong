@@ -9,7 +9,6 @@
 
     vm.gongStack = [];
 
-
     // vm.gongDirectives = [];
     //
     // vm.addGongDirective = (gong) => {

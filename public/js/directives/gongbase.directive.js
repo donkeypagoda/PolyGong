@@ -12,19 +12,22 @@
     controller.inject = ['helperService', 'gongBuilderService', 'toneService', 'urlService', '$state'];
     function controller(helperService, gongBuilderService, toneService, urlService, $state) {
       const vm = this;
-      vm.$onInit = () => {
-        vm.circleAdd = document.querySelector("#circleAdd");
-        vm.lineAdd = document.querySelector("#lineAdd");
-        vm.triangleAdd = document.querySelector("#triangleAdd");
-        vm.squareAdd = document.querySelector("#squareAdd");
-        vm.pentagonAdd = document.querySelector("#pentagonAdd");
-        vm.hexagonAdd = document.querySelector("#hexagonAdd");
-        vm.heptagonAdd = document.querySelector("#heptagonAdd");
-        vm.lastRemove = document.querySelector("#lastRemove");
 
-        vm.helper = helperService;
+      //
+      // vm.$onInit = () => {
+        // vm.circleAdd = document.querySelector("#circleAdd");
+        // vm.lineAdd = document.querySelector("#lineAdd");
+        // vm.triangleAdd = document.querySelector("#triangleAdd");
+        // vm.squareAdd = document.querySelector("#squareAdd");
+        // vm.pentagonAdd = document.querySelector("#pentagonAdd");
+        // vm.hexagonAdd = document.querySelector("#hexagonAdd");
+        // vm.heptagonAdd = document.querySelector("#heptagonAdd");
+        // vm.lastRemove = document.querySelector("#lastRemove");
+
+        // vm.helper = helperService;
         vm.tone = toneService;
         vm.builder = gongBuilderService;
+        // console.log(vm.builder);
         vm.url = urlService;
 
         vm.baseFreq = 250;
@@ -50,51 +53,51 @@
         vm.size = 3;
         vm.speed = 150;
 
-        vm.circleAdd.onclick = () => {
+        vm.circleAdd = () => {
           let circleShape = new Circle(vm.size, vm.speed, [0,0,0])
           vm.scene.add(circleShape.group);
           vm.builder.gongStack.push(circleShape);
           console.log(vm.builder.gongStack);
         }
 
-        vm.lineAdd.onclick = () => {
+        vm.lineAdd = () => {
           let lineShape = new Line(vm.size, vm.speed, [0,0,0])
           vm.scene.add(lineShape.group);
           vm.builder.gongStack.push(lineShape);
         }
 
-        vm.triangleAdd.onclick = () => {
+        vm.triangleAdd = () => {
           let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0])
           vm.scene.add(triangleShape.group);
           vm.builder.gongStack.push(triangleShape);
         }
 
-        vm.squareAdd.onclick = () => {
+        vm.squareAdd = () => {
           let squareShape = new Square(vm.size, vm.speed, [0,0,0])
           vm.scene.add(squareShape.group);
           vm.builder.gongStack.push(squareShape);
         }
 
-        vm.pentagonAdd.onclick = () => {
+        vm.pentagonAdd = () => {
           let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0])
           vm.scene.add(pentagonShape.group);
           vm.builder.gongStack.push(pentagonShape);
         }
 
-        vm.hexagonAdd.onclick = () => {
+        vm.hexagonAdd = () => {
           let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0])
           vm.scene.add(hexagonShape.group);
           vm.builder.gongStack.push(hexagonShape);
         }
 
 
-        vm.heptagonAdd.onclick = () => {
+        vm.heptagonAdd = () => {
           let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0])
           vm.scene.add(heptagonShape.group);
           vm.builder.gongStack.push(heptagonShape);
         }
 
-        vm.lastRemove.onclick = () => {
+        vm.lastRemove = () => {
           vm.scene.children.pop()
           vm.builder.gongStack.pop()
         }
@@ -116,7 +119,7 @@
         //     }
         //   })
         // }
-      }
+      // }
     } // end of controller
     function link(scope, element, iAttrs, controller, transcludeFn){
 
