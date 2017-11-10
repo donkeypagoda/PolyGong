@@ -46,7 +46,7 @@ class Circle {
         this.gongValue = 0;
       }
       if(this.currentPosition > this.gongValue ){
-        circleGong();
+        circleGong(this.volume);
         // console.log('gong', this.gongValue);
         const arc = (2 * Math.PI) / this.numbSides;
         this.gongValue = this.gongValue + arc;

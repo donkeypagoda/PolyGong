@@ -16,7 +16,7 @@
     // }
 
     vm.rotateUpdate = (val, id) => {
-      vm.gongStack[id].speed = parseFloat(val);
+      vm.gongStack[id].rotationIncrement = Math.PI / parseFloat(val);
       console.log(vm.gongStack[id].speed);
       // console.log(vm.gongDirectives[id].rotationIncrement);
     }

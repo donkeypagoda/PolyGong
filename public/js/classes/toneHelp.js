@@ -91,16 +91,15 @@ lfo1.fan(synth.oscillator.detune,
 
 lfo1.start()
 
-function circleGong(){
-  console.log("hi");
-  synth.triggerAttackRelease(baseFreq, 0.04) // root
-  synth2.triggerAttackRelease(baseFreq * allTwelve[10], 0.02) // m7 up
-  synth3.triggerAttackRelease(baseFreq * allTwelve[4], 0.1) // M3
-  synth4.triggerAttackRelease(baseFreq * 0.5, 0.04)  // oct down
-  synth5.triggerAttackRelease(baseFreq * allTwelve[7], 0.03) // fifth
-  synth6.triggerAttackRelease(baseFreq * 2, 0.01) // oct up
-  synth7.triggerAttackRelease(baseFreq * 2 * allTwelve[2], 0.004) // 9th
-  synth8.triggerAttackRelease(baseFreq * 2 * allTwelve[3], 0.004) // m3 above high octave
+function circleGong(vol){
+  synth.triggerAttackRelease(baseFreq, vol * 0.04) // root
+  synth2.triggerAttackRelease(baseFreq * allTwelve[10], vol * 0.02) // m7 up
+  synth3.triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1) // M3
+  synth4.triggerAttackRelease(baseFreq * 0.5, vol * 0.04)  // oct down
+  synth5.triggerAttackRelease(baseFreq * allTwelve[7], vol * 0.03) // fifth
+  synth6.triggerAttackRelease(baseFreq * 2, vol * 0.01) // oct up
+  synth7.triggerAttackRelease(baseFreq * 2 * allTwelve[2], vol * 0.004) // 9th
+  synth8.triggerAttackRelease(baseFreq * 2 * allTwelve[3], vol * 0.004) // m3 above high octave
 }
 
 let synth9 = new Tone.Synth
