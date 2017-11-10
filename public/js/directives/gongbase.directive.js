@@ -35,7 +35,7 @@
       vm.cam.position.set(0, 0, 50);
       vm.cam.lookAt(new THREE.Vector3(0, 0, 0));
       vm.scene = new THREE.Scene();
-      vm.size = 3;
+      vm.size = 5;
       vm.speed = 150;
 
       vm.circleAdd = () => {

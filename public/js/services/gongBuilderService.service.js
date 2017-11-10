@@ -4,7 +4,7 @@
   angular.module('app')
   .service('gongBuilderService', function(){
     const vm = this;
-    
+
     vm.gongStack = [];
 
     vm.shapeInstantiate = function(urlData){
@@ -63,10 +63,10 @@
     //   vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
     //   // console.log(vm.gongDirectives[id].direction);
     // }
-    // vm.gongSize = (val,id) => {
-    //   vm.gongStack[id].size = parseFloat(val);
-    //   console.log(vm.gongStack[id]);
-    // }
+    vm.gongScale = (val, id) => {
+      console.log(vm.gongStack[id]);
+      vm.gongStack[id].scale.set(parseFloat(val),parseFloat(val), 0);
+    }
 
   })
 

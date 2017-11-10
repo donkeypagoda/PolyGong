@@ -3,6 +3,7 @@ class Circle {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
+    this.scale = 1;
     this.volume = 0.5;
     this.centArr = centArr;
     this.malletColor = 0xffffff;
@@ -38,7 +39,8 @@ class Circle {
         "pitches": this.gongPitchSet,
         "size": this.size,
         "speed": this.speed,
-        "centArr": this.centArr
+        "centArr": this.centArr,
+        "scale": this.scale
       }
       return saveObj;
     }
