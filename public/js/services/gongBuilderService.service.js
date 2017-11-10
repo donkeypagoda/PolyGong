@@ -31,6 +31,10 @@
       vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
       // console.log(vm.gongDirectives[id].direction);
     }
+    vm.gongSize = (val,id) => {
+      vm.gongStack[id].size = parseFloat(val);
+      console.log(vm.gongStack[id]);
+    }
 
     // vm.addGong = function(gong){
     //   vm.gongStack.push(gong);

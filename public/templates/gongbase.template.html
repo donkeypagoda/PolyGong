@@ -43,12 +43,20 @@
       <nav class="menu righty">
         <li>
           <div>
-            <h1>Gong Rotation Speeds</h1>
+            <h1>Speed</h1>
             <div ng-repeat="rot in $ctrl.builder.gongStack track by $index">
               <input ng-model="rotSlider" ng-change="$ctrl.builder.rotateUpdate(rotSlider, $index)" name="rotSlider" type="range" ng-value="25" step="1" min="3" max="125">
-              <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button>
+              <!-- <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button> -->
             </div>
           </div>
+        </li>
+        <li>
+          <!-- <div>
+            <h1>Size</h1>
+            <div ng-repeat="size in $ctrl.builder.gongStack track by $index">
+              <input ng-model="sizeSlider" ng-change="$ctrl.builder.gongSize(sizeSlider, $index)" name="sizeSlider" type="range" ng-value="25" step="1" min="3" max="100">
+            </div>
+          </div> -->
         </li>
         <li>
           <h1>Gong Volumes</h1>
