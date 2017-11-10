@@ -29,11 +29,12 @@ class Hexagon {
         "pitches": this.gongPitchSet,
         "size": this.size,
         "speed": this.speed,
-        "centArr": this.centArr
+        "centArr": this.centArr,
+        "scale": this.group.scale
       }
       return saveObj;
     }
-    
+
     this.group.quaternion.onChange(() => {
       //color changes
       let h = ( 360 * ( 1.0 + Math.abs(this.group.quaternion.z) ) % 360 ) / 360;
@@ -42,6 +43,11 @@ class Hexagon {
     })
 
   } // end of constructor
+
+  setScale(val){
+    this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
+  }
+
   rotate(){
     this.currentPosition += this.rotationIncrement;
 

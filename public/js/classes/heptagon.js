@@ -29,7 +29,9 @@ class Heptagon {
         "pitches": this.gongPitchSet,
         "size": this.size,
         "speed": this.speed,
-        "centArr": this.centArr
+        "centArr": this.centArr,
+        "scale": this.group.scale,
+        "currentPostion": this.currentPostion
       }
       return saveObj;
     }
@@ -42,19 +44,24 @@ class Heptagon {
     })
 
   } // end of constructor
+
+  setScale(val){
+    this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
+  }
+
   rotate(){
     this.currentPosition += this.rotationIncrement;
-
     if (this.currentPosition > (2 * Math.PI)){
       this.currentPosition = 0;
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
       heptagonGong(this.volume)
-      // console.log('gong', this.gongValue);
+
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }
+    console.log(this.currentPosition);
     this.quaternion.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), this.rotationIncrement );
     this.group.applyQuaternion(this.quaternion);
   }

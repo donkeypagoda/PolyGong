@@ -58,15 +58,15 @@
       // console.log(vm.gongStack[id].volume);
       // console.log(vm.gongDirectives[id].gong.volume.value);
     }
+    vm.setScale = (val, obj) => {
+      obj.setScale(val);
+    }
     // vm.rotateSwitch = (id) => {
     //   // console.log(vm.gongDirectives[id].direction);
     //   vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
     //   // console.log(vm.gongDirectives[id].direction);
     // }
-    vm.gongScale = (val, id) => {
-      console.log(vm.gongStack[id]);
-      vm.gongStack[id].scale.set(parseFloat(val),parseFloat(val), 0);
-    }
+
 
   })
 

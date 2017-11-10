@@ -35,7 +35,7 @@
       vm.cam.position.set(0, 0, 50);
       vm.cam.lookAt(new THREE.Vector3(0, 0, 0));
       vm.scene = new THREE.Scene();
-      vm.size = 5;
+      vm.size = 3;
       vm.speed = 150;
 
       vm.circleAdd = () => {
@@ -93,7 +93,11 @@
         .then(()=>{
           vm.builder.gongStack = []
           for (let i = 0; i < vm.url.gongData.length; i++){
-            vm.scene.add(vm.builder.shapeInstantiate(vm.url.gongData[i]))
+            let shape = vm.builder.shapeInstantiate(vm.url.gongData[i])
+            vm.scene.add(shape)
+            let quat = this.quaternion = new THREE.Quaternion();
+            quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), vm.url.gongData[i].rotationIncrement );
+            shape.applyQuaternion(quat);
           }
         })
       }

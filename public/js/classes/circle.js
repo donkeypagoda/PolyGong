@@ -3,7 +3,6 @@ class Circle {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
-    this.scale = 1;
     this.volume = 0.5;
     this.centArr = centArr;
     this.malletColor = 0xffffff;
@@ -40,7 +39,7 @@ class Circle {
         "size": this.size,
         "speed": this.speed,
         "centArr": this.centArr,
-        "scale": this.scale
+        "scale": this.group.scale
       }
       return saveObj;
     }
@@ -53,6 +52,11 @@ class Circle {
     })
 
   } // end of constructor
+
+  setScale(val){
+    this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
+  }
+
   rotate(){
       this.currentPosition += this.rotationIncrement;
 

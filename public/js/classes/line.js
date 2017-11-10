@@ -26,7 +26,8 @@ class Line {
         "pitches": this.gongPitchSet,
         "size": this.size,
         "speed": this.speed,
-        "centArr": this.centArr
+        "centArr": this.centArr,
+        "scale": this.group.scale
       }
       return saveObj;
     }
@@ -39,6 +40,11 @@ class Line {
     })
 
   } // end of constructor
+
+  setScale(val){
+    this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
+  }
+
   rotate(){
       this.currentPosition += this.rotationIncrement;
 

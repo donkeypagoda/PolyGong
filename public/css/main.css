@@ -53,6 +53,7 @@ canvas {
 /*stuff for slide out menus*/
 html, body {
    height: 100%;
+   font-family: sans-serif;
 }
 
 #containerL {
