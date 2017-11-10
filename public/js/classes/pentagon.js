@@ -2,7 +2,7 @@ class Pentagon {
   constructor (size, speed, centArr) {
     this.size = size;
     this.speed = speed;
-    this.volume = 1;
+    this.volume = 0.5;
     this.centArr = centArr;
     this.numbSides = 5;
     this.malletColor = 0xffffff;

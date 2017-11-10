@@ -2,7 +2,7 @@ class Heptagon {
   constructor (size, speed, centArr) {
     this.size = size;
     this.speed = speed;
-    this.volume = 1;
+    this.volume = 0.5;
     this.centArr = centArr;
     this.numbSides = 7;
     this.malletColor = 0xffffff;
