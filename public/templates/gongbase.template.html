@@ -46,7 +46,6 @@
             <h1>Speed</h1>
             <div ng-repeat="rot in $ctrl.builder.gongStack track by $index">
               <input ng-model="rot.speed" ng-change="$ctrl.builder.rotateUpdate(rot.speed, rot)" name="rotSlider" type="range" min="5" step="1" max="200">
-              <!-- <button ng-click="$ctrl.builder.rotateSwitch($index)">FLIP</button> -->
             </div>
           </div>
         </li>
