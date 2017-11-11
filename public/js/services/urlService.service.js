@@ -23,16 +23,12 @@
         return $http.post('/polygongs', state)
         .then(function (response) {
           vm.displayUrl = response.data
-          // // $state.reload('/', {url: vm.displayUrl})
           // $state.transitionTo('gongbase', {url: vm.displayUrl}, {
           //     location: true,
           //     inherit: true,
           //     relative: $state.$current,
           //     notify: false
           })
-          // .then(function(tacos) {
-          //   // console.log(tacos);
-          // })
           .catch(function (error) {
           })
         // })
