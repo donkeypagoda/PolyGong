@@ -385,3 +385,39 @@ function heptagonGong(vol){
   synth29.triggerAttackRelease(baseFreq * allTwelve[6], vol * 0.03)
   synth30.triggerAttackRelease(baseFreq * 2, vol * 0.03)
 }
+
+function droneBuilder(pitch){
+  let drone = new Tone.FMSynth();
+  drone.oscillator.type = "sine"
+  drone.modulation.type = "square"
+  drone.volume.value = -36;
+  drone.toMaster();
+
+  let droneModLFO = new Tone.LFO();
+  droneModLFO.connect(drone.modulationIndex)
+  droneModLFO.min = 0.1;
+  droneModLFO.max = 110;
+  droneModLFO.frequency.value = 0.12;
+  droneModLFO.set()
+
+  droneModLFO.start();
+  drone.triggerAttack(30)
+
+  return drone;
+}
+
+function makeDelay(){
+  let delay = new Tone.PingPongDelay(0.2, 0.5);
+  delay.wet.value = 0.0
+  return delay;
+}
+
+function makeLFO(){
+  let lfo = new Tone.LFO(5, 0, 0);
+  return lfo;
+}
+// vm.makeVerb = () => {
+//   let verb = new Tone.Convolver("media/concert-crowd.ogg")
+//   verb.wet.value = 0.0;
+//   return verb;
+// }

@@ -91,15 +91,12 @@
         vm.url.getState($state.params.url)
         .then((data)=>{
           vm.builder.gongStack = []
-
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i])
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))
             let quat = new THREE.Quaternion();
             quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), data[i].currentPosition);
             shape.group.applyQuaternion(quat);
-            // console.log(data[i].scale);
-            // console.log(shape.group);
             vm.scene.add(shape.group)
           }
         })
@@ -120,7 +117,7 @@
 
       let droneInvoked = false;
       let delayInvoked = false;
-      let verbInvoked = false;
+      let shimmyInvoked = false;
 
       controller.droneVolume = (val) => {
         if (droneInvoked){
@@ -135,11 +132,14 @@
         }
         else delayInvoked = true;
       }
-      controller.verbMix = (val) => {
-        if (verbInvoked){
-          controller.verb.wet.value = parseFloat(val);
+      controller.shimmyMix = (val) => {
+        if (shimmyInvoked){
+          for(let i = 0; i < controller.scene.children.length; i++){
+            controller.lfo.setMin(-parseFloat(val))
+            controller.lfo.setMax(parseFloat(val))
+          }
         }
-        else verbInvoked = true;
+        else shimmyInvoked = true;
       }
 
       controller.getUrl = () => {
