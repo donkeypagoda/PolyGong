@@ -47,8 +47,8 @@
       }// end of switch
     } //end of shapeInstantiate
 
-    vm.rotateUpdate = (val, id) => {
-      vm.gongStack[id].rotationIncrement = Math.PI / parseFloat(val);
+    vm.rotateUpdate = (val, obj) => {
+      obj.setSpeed(val);
     }
 
     vm.volUpdate = (val, obj) => {

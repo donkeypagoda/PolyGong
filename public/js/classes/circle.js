@@ -1,5 +1,5 @@
 class Circle {
-  constructor (size, speed, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5) {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
@@ -25,7 +25,7 @@ class Circle {
     this.circle.vertices.shift();
     this.group.add(new THREE.Line(this.circle, this.lineMaterial));
 
-    this.rotationIncrement = Math.PI / this.speed;
+    this.rotationIncrement = Math.PI / (3000/this.speed);
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
@@ -54,6 +54,9 @@ class Circle {
     return saveObj;
   }
 
+  setSpeed(val){
+    this.rotationIncrement = Math.PI / (3000/parseFloat(val));
+  }
 
   setScale(val){
     this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))

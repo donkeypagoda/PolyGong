@@ -14,6 +14,7 @@
         .then(function (state) {
           // console.log(state.data.polygong_data);
           vm.gongData = state.data.polygong_data;
+          // console.log(vm.gongData);
           return vm.gongData;
         })
       }
@@ -31,10 +32,10 @@
               notify: false
           })
           .then(function(tacos) {
-            console.log(tacos);
+            // console.log(tacos);
           })
           .catch(function (tacos) {
-            console.log(tacos);
+            // console.log(tacos);
           })
         })
       }

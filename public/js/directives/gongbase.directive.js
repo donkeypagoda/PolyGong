@@ -36,48 +36,48 @@
       vm.cam.lookAt(new THREE.Vector3(0, 0, 0));
       vm.scene = new THREE.Scene();
       vm.size = 3;
-      vm.speed = 150;
+      vm.speed = 45;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0])
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(circleShape.group);
         vm.builder.gongStack.push(circleShape);
         // console.log(vm.builder.gongStack);
       }
 
       vm.lineAdd = () => {
-        let lineShape = new Line(vm.size, vm.speed, [0,0,0])
+        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(lineShape.group);
         vm.builder.gongStack.push(lineShape);
       }
 
       vm.triangleAdd = () => {
-        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0])
+        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(triangleShape.group);
         vm.builder.gongStack.push(triangleShape);
       }
 
       vm.squareAdd = () => {
-        let squareShape = new Square(vm.size, vm.speed, [0,0,0])
+        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(squareShape.group);
         vm.builder.gongStack.push(squareShape);
       }
 
       vm.pentagonAdd = () => {
-        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0])
+        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(pentagonShape.group);
         vm.builder.gongStack.push(pentagonShape);
       }
 
       vm.hexagonAdd = () => {
-        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0])
+        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(hexagonShape.group);
         vm.builder.gongStack.push(hexagonShape);
       }
 
 
       vm.heptagonAdd = () => {
-        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0])
+        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(heptagonShape.group);
         vm.builder.gongStack.push(heptagonShape);
       }

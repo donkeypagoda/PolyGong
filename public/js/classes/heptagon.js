@@ -1,5 +1,5 @@
 class Heptagon {
-  constructor (size, speed, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5) {
     this.name = "heptagon"
     this.size = size;
     this.speed = speed;
@@ -15,7 +15,7 @@ class Heptagon {
 
     //build the a group with lines and mallets
     this.group = helperPolygon(this.numbSides, this.size, this.centArr, this.malletMaterial, this.lineMaterial);
-    this.rotationIncrement = Math.PI / this.speed;
+    this.rotationIncrement = Math.PI / (3000/this.speed);
     this.degreeIncrement = toDegree(this.rotationIncrement)
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
@@ -44,6 +44,9 @@ class Heptagon {
     }
     console.log(saveObj);
     return saveObj;
+  }
+  setSpeed(val){
+    this.rotationIncrement = Math.PI / (3000/parseFloat(val));
   }
 
   setScale(val){

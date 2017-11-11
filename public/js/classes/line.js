@@ -1,5 +1,5 @@
 class Line {
-  constructor (size, speed, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5) {
     this.name = "line"
     this.size = size;
     this.speed = speed;
@@ -13,7 +13,7 @@ class Line {
     this.lineColor = 0x0000ff;
     this.lineMaterial = new THREE.LineBasicMaterial({ color: this.lineColor });
     this.group = helperPolygon(this.numbSides, this.size, this.centArr, this.malletMaterial, this.lineMaterial);
-    this.rotationIncrement = Math.PI / this.speed;
+    this.rotationIncrement = Math.PI / (3000/this.speed);
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
@@ -39,6 +39,10 @@ class Line {
       "currentPosition": this.currentPosition
     }
     return saveObj;
+  }
+
+  setSpeed(val){
+    this.rotationIncrement = Math.PI / (3000/parseFloat(val));
   }
   setScale(val){
     this.group.scale.set(parseFloat(val),parseFloat(val), parseFloat(val))
