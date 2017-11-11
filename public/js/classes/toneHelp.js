@@ -5,7 +5,7 @@ const allTwelve = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/
 
 // // attack and relase arrays
 const attackArr = [0.1, 0.08, 0.06 ,0.05, 0.04, 0.03];
-// const relArr = [6, 4, 3.5, 2.8, 2.2, 2, 1.9];
+const relArr = [6, 4, 3.5, 2.8, 2.2, 2, 1.9];
 
 
 // sound structure

@@ -125,7 +125,6 @@
       controller.droneVolume = (val) => {
         if (droneInvoked){
           controller.drone.volume.value = parseFloat(val);
-          // console.log(controller.drone.volume.value);
         }
         else droneInvoked = true;
       }
