@@ -12,32 +12,30 @@
       this.getState = function (url){
         return $http.get(`/polygongs/${url}`)
         .then(function (state) {
-          // console.log(state.data.polygong_data);
           vm.gongData = state.data.polygong_data;
-          // console.log(vm.gongData);
           return vm.gongData;
+        })
+        .catch(function (error) {
         })
       }
 
       this.submitState = function(state){
-        // console.log(state);
         return $http.post('/polygongs', state)
         .then(function (response) {
           vm.displayUrl = response.data
-          // $state.reload('/', {url: vm.displayUrl})
-          $state.transitionTo('gongbase', {url: vm.displayUrl}, {
-              location: true,
-              inherit: true,
-              relative: $state.$current,
-              notify: false
+          // // $state.reload('/', {url: vm.displayUrl})
+          // $state.transitionTo('gongbase', {url: vm.displayUrl}, {
+          //     location: true,
+          //     inherit: true,
+          //     relative: $state.$current,
+          //     notify: false
           })
-          .then(function(tacos) {
-            // console.log(tacos);
+          // .then(function(tacos) {
+          //   // console.log(tacos);
+          // })
+          .catch(function (error) {
           })
-          .catch(function (tacos) {
-            // console.log(tacos);
-          })
-        })
+        // })
       }
     }
 }());

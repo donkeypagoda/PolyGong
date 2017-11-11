@@ -42,7 +42,6 @@
         let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5)
         vm.scene.add(circleShape.group);
         vm.builder.gongStack.push(circleShape);
-        // console.log(vm.builder.gongStack);
       }
 
       vm.lineAdd = () => {

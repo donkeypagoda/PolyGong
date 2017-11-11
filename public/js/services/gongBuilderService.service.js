@@ -57,12 +57,6 @@
     vm.setScale = (val, obj) => {
       obj.setScale(val);
     }
-    // vm.rotateSwitch = (id) => {
-    //   // console.log(vm.gongDirectives[id].direction);
-    //   vm.gongDirectives[id].direction = !vm.gongDirectives[id].direction;
-    //   // console.log(vm.gongDirectives[id].direction);
-    // }
-
 
   })
 
