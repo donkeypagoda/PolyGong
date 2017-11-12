@@ -1,10 +1,11 @@
 class Triangle {
-  constructor (size, speed = 45, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
     this.name = "triangle"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
+    this.baseFreq = baseFreq;
     this.numbSides = 3;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -20,6 +21,7 @@ class Triangle {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
+    this.gong = makeGong();
 
     // the callback, could be used to determine gong attack times, and all the other bullshit
     this.group.quaternion.onChange(() => {
@@ -42,7 +44,8 @@ class Triangle {
       "speed": this.speed,
       "centArr": this.centArr,
       "scale": this.group.scale,
-      "currentPosition": this.currentPosition
+      "currentPosition": this.currentPosition,
+      "baseFreq": this.baseFreq
     }
     console.log(saveObj);
     return saveObj;
@@ -66,8 +69,7 @@ class Triangle {
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
-      triangleGong(this.volume);
-      // console.log('gong', this.gongValue);
+      this.gong.triggerAttackRelease(this.baseFreq * allTwelve[8], this.volume * 0.02);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }

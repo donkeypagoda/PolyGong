@@ -1,10 +1,11 @@
 class Line {
-  constructor (size, speed = 45, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
     this.name = "line"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
+    this.baseFreq = baseFreq;
     this.numbSides = 2;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -17,6 +18,7 @@ class Line {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
+    this.gong = makeGong();
 
     this.group.quaternion.onChange(() => {
       //color changes
@@ -36,7 +38,8 @@ class Line {
       "speed": this.speed,
       "centArr": this.centArr,
       "scale": this.group.scale,
-      "currentPosition": this.currentPosition
+      "currentPosition": this.currentPosition,
+      "baseFreq": this.baseFreq
     }
     return saveObj;
   }
@@ -53,20 +56,18 @@ class Line {
   }
 
   rotate(){
-      this.currentPosition += this.rotationIncrement;
+    this.currentPosition += this.rotationIncrement;
 
-      if (this.currentPosition > (2 * Math.PI)){
-        this.currentPosition = 0;
-        this.gongValue = 0;
-      }
-      if(this.currentPosition > this.gongValue ){
-        lineGong(this.volume);
-        // console.log('gong', this.gongValue);
-        const arc = (2 * Math.PI) / this.numbSides;
-        this.gongValue = this.gongValue + arc;
-      }
-
-      this.quaternion.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), this.rotationIncrement );
-      this.group.applyQuaternion(this.quaternion);
+    if (this.currentPosition > (2 * Math.PI)){
+      this.currentPosition = 0;
+      this.gongValue = 0;
     }
+    if(this.currentPosition > this.gongValue ){
+      this.gong.triggerAttackRelease(this.baseFreq * allTwelve[2], this.volume * 0.02);
+      const arc = (2 * Math.PI) / this.numbSides;
+      this.gongValue = this.gongValue + arc;
+    }
+    this.quaternion.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), this.rotationIncrement );
+    this.group.applyQuaternion(this.quaternion);
+  }
 }

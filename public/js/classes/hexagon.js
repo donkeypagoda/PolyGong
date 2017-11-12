@@ -1,10 +1,11 @@
 class Hexagon {
-  constructor (size, speed = 45, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
     this.name = "hexagon"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
+    this.baseFreq = baseFreq;
     this.numbSides = 6;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -20,6 +21,7 @@ class Hexagon {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
+    this.gong = makeGong();
 
     this.group.quaternion.onChange(() => {
       //color changes
@@ -40,7 +42,8 @@ class Hexagon {
       "speed": this.speed,
       "centArr": this.centArr,
       "scale": this.group.scale,
-      "currentPosition": this.currentPosition
+      "currentPosition": this.currentPosition,
+      "baseFreq": this.baseFreq
     }
     console.log(saveObj);
     return saveObj;
@@ -64,7 +67,7 @@ class Hexagon {
       this.gongValue = 0;
     }
     if (this.currentPosition > this.gongValue ){
-      hexagonGong(this.volume)
+      this.gong.triggerAttackRelease(this.baseFreq * 0.5 * allTwelve[2], this.volume * 0.02);
       // console.log('gong', this.gongValue);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;

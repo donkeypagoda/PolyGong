@@ -1,10 +1,11 @@
 class Square {
-  constructor (size, speed = 45, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
     this.name = "square"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
+    this.baseFreq = baseFreq;
     this.numbSides = 4;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -20,6 +21,7 @@ class Square {
     this.quaternion = new THREE.Quaternion();
     this.currentPosition = 0;
     this.gongValue = 0;
+    this.gong = makeGong();
 
     this.group.quaternion.onChange(() => {
       //color changes
@@ -39,7 +41,8 @@ class Square {
       "speed": this.speed,
       "centArr": this.centArr,
       "scale": this.group.scale,
-      "currentPosition": this.currentPosition
+      "currentPosition": this.currentPosition,
+      "baseFreq": this.baseFreq
     }
     console.log(saveObj);
     return saveObj;
@@ -64,7 +67,7 @@ class Square {
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
-      squareGong(this.volume);
+      this.gong.triggerAttackRelease(this.baseFreq * allTwelve[6], this.volume * 0.02);
       // console.log('gong', this.gongValue);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;

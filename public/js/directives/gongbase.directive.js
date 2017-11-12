@@ -9,14 +9,14 @@
         templateUrl: "templates/gongbase.template.html"
       }
     }) // end of directive
-    controller.inject = ['helperService', 'gongBuilderService', 'urlService', '$state'];
-    function controller(helperService, gongBuilderService, urlService, $state) {
+    controller.inject = ['gongBuilderService', 'urlService', '$state'];
+    function controller(gongBuilderService, urlService, $state) {
       const vm = this;
       // vm.tone = toneService;
       vm.builder = gongBuilderService;
       vm.url = urlService;
 
-      vm.baseFreq = 250;
+      vm.baseFreq = 200;
       vm.masterLFO = makeLFO();
       vm.masterLFO.start();
       vm.drone = droneBuilder(vm.baseFreq)
@@ -41,48 +41,57 @@
 
       vm.circleAdd = () => {
         let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
-        for (let i = 0; i < circleShape.gong.length; i++){
-          vm.masterLFO.connect(circleShape.gong[i].detune)
-          circleShape.gong[i].toMaster();
-          // console.log("patched" + i);
-        }
+        vm.masterLFO.connect(circleShape.gong.detune)
+        circleShape.gong.toMaster();
         vm.scene.add(circleShape.group);
         vm.builder.gongStack.push(circleShape);
       }
 
       vm.lineAdd = () => {
-        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5)
+        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        vm.masterLFO.connect(lineShape.gong.detune)
+        lineShape.gong.toMaster();
         vm.scene.add(lineShape.group);
         vm.builder.gongStack.push(lineShape);
       }
 
       vm.triangleAdd = () => {
-        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5)
+        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        vm.masterLFO.connect(triangleShape.gong.detune)
+        triangleShape.gong.toMaster();
         vm.scene.add(triangleShape.group);
         vm.builder.gongStack.push(triangleShape);
       }
 
       vm.squareAdd = () => {
-        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5)
+        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        vm.masterLFO.connect(squareShape.gong.detune)
+        squareShape.gong.toMaster();
         vm.scene.add(squareShape.group);
         vm.builder.gongStack.push(squareShape);
       }
 
       vm.pentagonAdd = () => {
-        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5)
+        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        vm.masterLFO.connect(pentagonShape.gong.detune)
+        pentagonShape.gong.toMaster();
         vm.scene.add(pentagonShape.group);
         vm.builder.gongStack.push(pentagonShape);
       }
 
       vm.hexagonAdd = () => {
-        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5)
+        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        vm.masterLFO.connect(hexagonShape.gong.detune)
+        hexagonShape.gong.toMaster();
         vm.scene.add(hexagonShape.group);
         vm.builder.gongStack.push(hexagonShape);
       }
 
 
       vm.heptagonAdd = () => {
-        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5)
+        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        vm.masterLFO.connect(heptagonShape.gong.detune)
+        heptagonShape.gong.toMaster();
         vm.scene.add(heptagonShape.group);
         vm.builder.gongStack.push(heptagonShape);
       }
@@ -98,7 +107,7 @@
         .then((data)=>{
           vm.builder.gongStack = []
           for (let i = 0; i < data.length; i++){
-            let shape = vm.builder.shapeInstantiate(data[i])
+            let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))
             let quat = new THREE.Quaternion();
             quat.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), data[i].currentPosition);
@@ -142,8 +151,10 @@
       controller.shimmyMix = (val) => {
         if (shimmyInvoked){
           for(let i = 0; i < controller.scene.children.length; i++){
-            controller.masterLFO.setMin(-parseFloat(val))
-            controller.masterLFO.setMax(parseFloat(val))
+            controller.masterLFO.min = -parseFloat(val)
+            controller.masterLFO.max = parseFloat(val)
+            // console.log(controller.masterLFO.min);
+            // console.log(controller.masterLFO.max);
           }
         }
         else shimmyInvoked = true;
@@ -153,6 +164,7 @@
         let state = {
           "directives": controller.builder.gongStack.map((e)=>{return e.save()})
         }
+        console.log(state);
         controller.url.submitState(state)
       }
 

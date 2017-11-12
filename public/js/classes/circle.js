@@ -12,7 +12,7 @@ class Circle {
     this.malletMaterial.color.setHSL( 1.0, 0.3, 0.7 );
     this.lineColor = 0x0000ff;
     this.lineMaterial = new THREE.LineBasicMaterial({ color: this.lineColor });
-    this.gong = makeCircleGong()
+    this.gong = makeGong();
 
     //build the group
     this.group = new THREE.Group();
@@ -50,7 +50,8 @@ class Circle {
       "speed": this.speed,
       "centArr": this.centArr,
       "scale": this.group.scale,
-      "currentPosition": this.currentPosition
+      "currentPosition": this.currentPosition,
+      "baseFreq": this.baseFreq
     }
     console.log(saveObj);
     return saveObj;
@@ -67,16 +68,6 @@ class Circle {
   setVol(val){
     this.volume = val;
   }
-  triggerGong(baseFreq, vol){
-    this.gong[0].triggerAttackRelease(baseFreq, vol * 0.04) // root
-    this.gong[1].triggerAttackRelease(baseFreq * allTwelve[10], vol * 0.02) // m7 up
-    this.gong[2].triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1) // M3
-    this.gong[3].triggerAttackRelease(baseFreq * 0.5, vol * 0.04)  // oct down
-    this.gong[4].triggerAttackRelease(baseFreq * allTwelve[7], vol * 0.03) // fifth
-    this.gong[5].triggerAttackRelease(baseFreq * 2, vol * 0.01) // oct up
-    this.gong[6].triggerAttackRelease(baseFreq * 2 * allTwelve[2], vol * 0.004) // 9th
-    this.gong[7].triggerAttackRelease(baseFreq * 2 * allTwelve[3], vol * 0.004) // m3 above high octave
-  }
   rotate(){
       this.currentPosition += this.rotationIncrement;
 
@@ -85,7 +76,7 @@ class Circle {
         this.gongValue = 0;
       }
       if(this.currentPosition > this.gongValue ){
-        this.triggerGong(this.baseFreq, this.volume);
+        this.gong.triggerAttackRelease(this.baseFreq * 0.5 * allTwelve[10], this.volume * 0.02);
         const arc = (2 * Math.PI) / this.numbSides;
         this.gongValue = this.gongValue + arc;
       }
