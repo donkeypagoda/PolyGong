@@ -1,11 +1,14 @@
 class Circle {
-  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay) {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
     this.baseFreq = baseFreq
+    this.lfo = lfo;
+    this.drone = drone;
+    this.delay = delay;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
     this.malletMaterial =  new THREE.SpriteMaterial({map: this.malletMap, color: this.malletColor, alphaTest: 0.5, transparent: true});
@@ -51,7 +54,10 @@ class Circle {
       "centArr": this.centArr,
       "scale": this.group.scale,
       "currentPosition": this.currentPosition,
-      "baseFreq": this.baseFreq
+      "baseFreq": this.baseFreq,
+      "lfoSize": this.lfo.max,
+      "drone": this.drone.volume.value,
+      "delay": this.delay.wet.value
     }
     console.log(saveObj);
     return saveObj;

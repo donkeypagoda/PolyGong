@@ -1,11 +1,14 @@
 class Pentagon {
-  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay) {
     this.name = "pentagon"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
     this.baseFreq = baseFreq;
+    this.lfo = lfo;
+    this.drone = drone;
+    this.delay = delay;
     this.numbSides = 5;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -42,7 +45,10 @@ class Pentagon {
       "centArr": this.centArr,
       "scale": this.group.scale,
       "currentPosition": this.currentPosition,
-      "baseFreq": this.baseFreq
+      "baseFreq": this.baseFreq,
+      "lfoSize": this.lfo.max,
+      "drone": this.drone.volume.value,
+      "delay": this.delay.wet.value
     }
     console.log(saveObj);
     return saveObj;

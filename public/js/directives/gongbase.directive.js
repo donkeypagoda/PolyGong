@@ -40,7 +40,7 @@
       vm.speed = 45;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(circleShape.gong.detune)
         circleShape.gong.toMaster();
         vm.scene.add(circleShape.group);
@@ -48,7 +48,7 @@
       }
 
       vm.lineAdd = () => {
-        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(lineShape.gong.detune)
         lineShape.gong.toMaster();
         vm.scene.add(lineShape.group);
@@ -56,7 +56,7 @@
       }
 
       vm.triangleAdd = () => {
-        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(triangleShape.gong.detune)
         triangleShape.gong.toMaster();
         vm.scene.add(triangleShape.group);
@@ -64,7 +64,7 @@
       }
 
       vm.squareAdd = () => {
-        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(squareShape.gong.detune)
         squareShape.gong.toMaster();
         vm.scene.add(squareShape.group);
@@ -72,7 +72,7 @@
       }
 
       vm.pentagonAdd = () => {
-        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(pentagonShape.gong.detune)
         pentagonShape.gong.toMaster();
         vm.scene.add(pentagonShape.group);
@@ -80,7 +80,7 @@
       }
 
       vm.hexagonAdd = () => {
-        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(hexagonShape.gong.detune)
         hexagonShape.gong.toMaster();
         vm.scene.add(hexagonShape.group);
@@ -89,7 +89,7 @@
 
 
       vm.heptagonAdd = () => {
-        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
         vm.masterLFO.connect(heptagonShape.gong.detune)
         heptagonShape.gong.toMaster();
         vm.scene.add(heptagonShape.group);
@@ -106,6 +106,11 @@
         vm.url.getState($state.params.url)
         .then((data)=>{
           vm.builder.gongStack = []
+          vm.masterLFO.max = data[0].lfoSize
+          vm.masterLFO.min = -data[0].lfoSize
+          vm.drone.volume.value = data[0].drone
+          console.log(data[0].drone);
+          vm.delay.wet.value = parseFloat(data[0].delay);
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))
@@ -137,7 +142,6 @@
       controller.droneVolume = (val) => {
         if (droneInvoked){
           controller.drone.volume.value = parseFloat(val);
-          console.log(controller.drone.volume.value);
         }
         else droneInvoked = true;
       }
@@ -164,7 +168,6 @@
         let state = {
           "directives": controller.builder.gongStack.map((e)=>{return e.save()})
         }
-        console.log(state);
         controller.url.submitState(state)
       }
 
