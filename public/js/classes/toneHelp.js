@@ -390,21 +390,7 @@ function heptagonGong(vol){
 
 function droneBuilder(pitch){
   let drone = new Tone.Oscillator(pitch * 0.25)
-  // let drone = new Tone.FMSynth();
-  // drone.oscillator.type = "sine"
-  // drone.modulation.type = "sine"
-  // drone.volume.value = -36;
-  //
-  // let droneModLFO = new Tone.LFO();
-  // droneModLFO.connect(drone.modulationIndex)
-  // droneModLFO.min = 0.1;
-  // droneModLFO.max = 110;
-  // droneModLFO.frequency.value = 0.12;
-  // droneModLFO.set()
-  //
-  // droneModLFO.start();
-  // drone.triggerAttack(30)
-
+  drone.start()
   return drone;
 }
 
@@ -423,8 +409,3 @@ function makeLimiter(){
   let limiter = new Tone.Limiter(-10);
   return limiter;
 }
-// vm.makeVerb = () => {
-//   let verb = new Tone.Convolver("media/concert-crowd.ogg")
-//   verb.wet.value = 0.0;
-//   return verb;
-// }

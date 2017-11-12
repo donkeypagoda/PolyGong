@@ -1,10 +1,11 @@
 class Circle {
-  constructor (size, speed = 45, centArr, volume = 0.5) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq) {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
+    this.baseFreq = baseFreq
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
     this.malletMaterial =  new THREE.SpriteMaterial({map: this.malletMap, color: this.malletColor, alphaTest: 0.5, transparent: true});
@@ -66,7 +67,7 @@ class Circle {
   setVol(val){
     this.volume = val;
   }
-  triggerGong(vol){
+  triggerGong(baseFreq, vol){
     this.gong[0].triggerAttackRelease(baseFreq, vol * 0.04) // root
     this.gong[1].triggerAttackRelease(baseFreq * allTwelve[10], vol * 0.02) // m7 up
     this.gong[2].triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1) // M3
@@ -76,7 +77,6 @@ class Circle {
     this.gong[6].triggerAttackRelease(baseFreq * 2 * allTwelve[2], vol * 0.004) // 9th
     this.gong[7].triggerAttackRelease(baseFreq * 2 * allTwelve[3], vol * 0.004) // m3 above high octave
   }
-
   rotate(){
       this.currentPosition += this.rotationIncrement;
 
@@ -85,7 +85,7 @@ class Circle {
         this.gongValue = 0;
       }
       if(this.currentPosition > this.gongValue ){
-        triggerGong(this.volume);
+        this.triggerGong(this.baseFreq, this.volume);
         const arc = (2 * Math.PI) / this.numbSides;
         this.gongValue = this.gongValue + arc;
       }

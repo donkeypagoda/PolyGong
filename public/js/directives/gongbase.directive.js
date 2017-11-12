@@ -18,7 +18,7 @@
 
       vm.baseFreq = 250;
       vm.masterLFO = makeLFO();
-      vm.masterLFO.start()
+      vm.masterLFO.start();
       vm.drone = droneBuilder(vm.baseFreq)
       vm.drone.volume.value = -36;
       vm.drone.toMaster();
@@ -40,9 +40,11 @@
       vm.speed = 45;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5)
-        for (let i = 0; i < circleShape.gong.length){
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, this.baseFreq)
+        for (let i = 0; i < circleShape.gong.length; i++){
           vm.masterLFO.connect(circleShape.gong[i].detune)
+          circleShape.gong[i].toMaster();
+          // console.log("patched" + i);
         }
         vm.scene.add(circleShape.group);
         vm.builder.gongStack.push(circleShape);
@@ -126,6 +128,7 @@
       controller.droneVolume = (val) => {
         if (droneInvoked){
           controller.drone.volume.value = parseFloat(val);
+          console.log(controller.drone.volume.value);
         }
         else droneInvoked = true;
       }
