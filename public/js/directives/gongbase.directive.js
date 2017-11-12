@@ -113,19 +113,21 @@
             vm.droneInvoked = true;
             vm.drone.volume.value = data[0].drone
             vm.droneSlider = data[0].drone
-            console.log(data[0].drone);
           }
+
           if (data[0].lfoSize !== 0.0){
             vm.shimmyInvoked = true;
             vm.masterLFO.max = data[0].lfoSize
             vm.masterLFO.min = -data[0].lfoSize
             vm.shimmySlider = data[0].lfoSize
           }
+
           if (data[0].delay !== 0.0){
             vm.delayInvoked = true;
             vm.delay.wet.value = parseFloat(data[0].delay);
             vm.bounceSlider = data[0].delay
           }
+          
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))

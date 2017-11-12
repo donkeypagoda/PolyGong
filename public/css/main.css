@@ -43,13 +43,7 @@ canvas {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }*/
-.base1 {
-  background-image: url(../media/treestop.png);
 
-}
-.base2 {
-  background-image: url(../media/treesbottom.png);
-}
 /*stuff for slide out menus*/
 html, body {
    height: 100%;
