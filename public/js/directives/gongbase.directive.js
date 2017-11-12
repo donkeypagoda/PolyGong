@@ -17,6 +17,7 @@
       vm.url = urlService;
 
       vm.baseFreq = 200;
+      vm.base1 = 200;
       vm.masterLFO = makeLFO();
       vm.masterLFO.start();
       vm.drone = droneBuilder(vm.baseFreq)
@@ -127,6 +128,7 @@
             vm.delay.wet.value = parseFloat(data[0].delay);
             vm.bounceSlider = data[0].delay
           }
+          vm.baseFreq = data[0].baseFreq
 
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
@@ -145,7 +147,7 @@
       controller.animate = function(){
         requestAnimationFrame(controller.animate);
         for(let i = 0; i < controller.scene.children.length; i++){
-          controller.builder.gongStack[i].rotate(this.baseFreq);
+          controller.builder.gongStack[i].rotate(controller.baseFreq);
         }
 
         controller.renderer.render(controller.scene, controller.cam);
@@ -174,6 +176,11 @@
           }
         }
         else controller.shimmyInvoked = true;
+      }
+      controller.freqChoice = (val) => {
+        controller.drone.frequency.value = (0.25 * val)
+        // controller.baseFreq = val;
+        console.log(controller.baseFreq);
       }
 
       controller.getUrl = () => {

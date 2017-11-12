@@ -33,7 +33,14 @@
         </li>
         <li>
           <h1>Base Frequnecy</h1>
-          
+          <div>
+            <input ng-model="$ctrl.baseFreq" ng-change="$ctrl.freqChoice($ctrl.baseFreq)" type="radio" id="base1" ng-value="200" name="baseFreq">
+            <!-- <label for="contactChoice1">Email</label> -->
+            <input ng-model="$ctrl.baseFreq" ng-change="$ctrl.freqChoice($ctrl.baseFreq)" type="radio" id="base2" ng-value="300" name="baseFreq">
+            <!-- <label for="contactChoice2">Phone</label> -->
+            <input ng-model="$ctrl.baseFreq" ng-change="$ctrl.freqChoice($ctrl.baseFreq)" type="radio" id="base3" ng-value="400" name="baseFreq">
+            <!-- <label for="contactChoice3">Mail</label> -->
+          </div>
         </li>
       </nav>
     </div>
