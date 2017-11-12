@@ -8,99 +8,101 @@ const attackArr = [0.1, 0.08, 0.06 ,0.05, 0.04, 0.03];
 const relArr = [6, 4, 3.5, 2.8, 2.2, 2, 1.9];
 
 
-// sound structure
-const limiter = new Tone.Limiter(-10);
-Tone.Master.chain(limiter);
+// sound structures
+function makeCircleGong(){
+  let synthArr = [];
+  let synth1 = new Tone.Synth
+  synth1.oscillator.type = "sine"
+  synth1.envelope.attack = 0.09;
+  synth1.envelope.decay = 0.1;
+  synth1.envelope.sustain = 0.1;
+  synth1.envelope.release = 3;
+  synthArr.push(synth1);
 
-let synth = new Tone.Synth
-synth.oscillator.type = "sine"
-synth.envelope.attack = 0.09;
-synth.envelope.decay = 0.1;
-synth.envelope.sustain = 0.1;
-synth.envelope.release = 3;
-synth.toMaster();
+  let synth2 = new Tone.Synth
+  synth2.oscillator.type = "sine"
+  synth2.envelope.attack = 0.09;
+  synth2.envelope.decay = 7;
+  synth2.envelope.sustain = 7;
+  synth2.envelope.release = 13;
+  synthArr.push(synth2);
 
-let synth2 = new Tone.Synth
-synth2.oscillator.type = "sine"
-synth2.envelope.attack = 0.09;
-synth2.envelope.decay = 7;
-synth2.envelope.sustain = 7;
-synth2.envelope.release = 13;
-synth2.toMaster();
+  let synth3 = new Tone.Synth
+  synth3.oscillator.type = "sine"
+  synth3.envelope.attack = 1;
+  synth3.envelope.decay = 1;
+  synth3.envelope.sustain = 1;
+  synth3.envelope.release = 4;
+  synthArr.push(synth3);
 
-let synth3 = new Tone.Synth
-synth3.oscillator.type = "sine"
-synth3.envelope.attack = 1;
-synth3.envelope.decay = 1;
-synth3.envelope.sustain = 1;
-synth3.envelope.release = 4;
-synth3.toMaster();
+  let synth4 = new Tone.Synth
+  synth4.oscillator.type = "sine"
+  synth4.envelope.attack = 0.09;
+  synth4.envelope.decay = 0.1;
+  synth4.envelope.sustain = 0.4;
+  synth4.envelope.release = 20;
+  synthArr.push(synth4);
 
-let synth4 = new Tone.Synth
-synth4.oscillator.type = "sine"
-synth4.envelope.attack = 0.09;
-synth4.envelope.decay = 0.1;
-synth4.envelope.sustain = 0.4;
-synth4.envelope.release = 20;
-synth4.toMaster();
+  let synth5 = new Tone.Synth
+  synth5.oscillator.type = "sine"
+  synth5.envelope.attack = 0.09;
+  synth5.envelope.decay = 0.1;
+  synth5.envelope.sustain = 0.1;
+  synth5.envelope.release = 10;
+  synthArr.push(synth5);
 
-let synth5 = new Tone.Synth
-synth5.oscillator.type = "sine"
-synth5.envelope.attack = 0.09;
-synth5.envelope.decay = 0.1;
-synth5.envelope.sustain = 0.1;
-synth5.envelope.release = 10;
-synth5.toMaster();
+  let synth6 = new Tone.Synth
+  synth6.oscillator.type = "sine"
+  synth6.envelope.attack = 0.09;
+  synth6.envelope.decay = 0.1;
+  synth6.envelope.sustain = 0.1;
+  synth6.envelope.release = 10;
+  synthArr.push(synth6);
 
-let synth6 = new Tone.Synth
-synth6.oscillator.type = "sine"
-synth6.envelope.attack = 0.09;
-synth6.envelope.decay = 0.1;
-synth6.envelope.sustain = 0.1;
-synth6.envelope.release = 10;
-synth6.toMaster();
+  let synth7 = new Tone.Synth
+  synth7.oscillator.type = "sine"
+  synth7.envelope.attack = 0.09;
+  synth7.envelope.decay = 0.1;
+  synth7.envelope.sustain = 0.1;
+  synth7.envelope.release = 22;
+  synthArr.push(synth7);
 
-let synth7 = new Tone.Synth
-synth7.oscillator.type = "sine"
-synth7.envelope.attack = 0.09;
-synth7.envelope.decay = 0.1;
-synth7.envelope.sustain = 0.1;
-synth7.envelope.release = 22;
-synth7.toMaster();
+  let synth8 = new Tone.Synth
+  synth8.oscillator.type = "sine"
+  synth8.envelope.attack = 0.09;
+  synth8.envelope.decay = 0.1;
+  synth8.envelope.sustain = 0.1;
+  synth8.envelope.release = 35;
+  synthArr.push(synth8);
 
-let synth8 = new Tone.Synth
-synth8.oscillator.type = "sine"
-synth8.envelope.attack = 0.09;
-synth8.envelope.decay = 0.1;
-synth8.envelope.sustain = 0.1;
-synth8.envelope.release = 35;
-synth8.toMaster();
+  return synthArr;
+}
 
 //lfo shimmy
-let lfo1 = new Tone.LFO(5, -4, 4)
+// let lfo1 = new Tone.LFO(5, -4, 4)
+//
+// lfo1.fan(synth.oscillator.detune,
+//         synth2.oscillator.detune,
+//         synth3.oscillator.detune,
+//         synth4.oscillator.detune,
+//         synth5.oscillator.detune,
+//         synth6.oscillator.detune,
+//         synth7.oscillator.detune,
+//         synth8.oscillator.detune
+//       )
+//
+// lfo1.start()
 
-lfo1.fan(synth.oscillator.detune,
-        synth2.oscillator.detune,
-        synth3.oscillator.detune,
-        synth4.oscillator.detune,
-        synth5.oscillator.detune,
-        synth6.oscillator.detune,
-        synth7.oscillator.detune,
-        synth8.oscillator.detune
-      )
-
-lfo1.start()
-
-function circleGong(vol){
-  synth.triggerAttackRelease(baseFreq, vol * 0.04) // root
-  synth2.triggerAttackRelease(baseFreq * allTwelve[10], vol * 0.02) // m7 up
-  synth3.triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1) // M3
-  synth4.triggerAttackRelease(baseFreq * 0.5, vol * 0.04)  // oct down
-  synth5.triggerAttackRelease(baseFreq * allTwelve[7], vol * 0.03) // fifth
-  synth6.triggerAttackRelease(baseFreq * 2, vol * 0.01) // oct up
-  synth7.triggerAttackRelease(baseFreq * 2 * allTwelve[2], vol * 0.004) // 9th
-  synth8.triggerAttackRelease(baseFreq * 2 * allTwelve[3], vol * 0.004) // m3 above high octave
-}
+// function circleGong(vol){
+//   synth.triggerAttackRelease(baseFreq, vol * 0.04) // root
+//   synth2.triggerAttackRelease(baseFreq * allTwelve[10], vol * 0.02) // m7 up
+//   synth3.triggerAttackRelease(baseFreq * allTwelve[4], vol * 0.1) // M3
+//   synth4.triggerAttackRelease(baseFreq * 0.5, vol * 0.04)  // oct down
+//   synth5.triggerAttackRelease(baseFreq * allTwelve[7], vol * 0.03) // fifth
+//   synth6.triggerAttackRelease(baseFreq * 2, vol * 0.01) // oct up
+//   synth7.triggerAttackRelease(baseFreq * 2 * allTwelve[2], vol * 0.004) // 9th
+//   synth8.triggerAttackRelease(baseFreq * 2 * allTwelve[3], vol * 0.004) // m3 above high octave
+// }
 
 let synth9 = new Tone.Synth
 synth9.oscillator.type = "sine"
@@ -387,21 +389,21 @@ function heptagonGong(vol){
 }
 
 function droneBuilder(pitch){
-  let drone = new Tone.FMSynth();
-  drone.oscillator.type = "sine"
-  drone.modulation.type = "square"
-  drone.volume.value = -36;
-  drone.toMaster();
-
-  let droneModLFO = new Tone.LFO();
-  droneModLFO.connect(drone.modulationIndex)
-  droneModLFO.min = 0.1;
-  droneModLFO.max = 110;
-  droneModLFO.frequency.value = 0.12;
-  droneModLFO.set()
-
-  droneModLFO.start();
-  drone.triggerAttack(30)
+  let drone = new Tone.Oscillator(pitch * 0.25)
+  // let drone = new Tone.FMSynth();
+  // drone.oscillator.type = "sine"
+  // drone.modulation.type = "sine"
+  // drone.volume.value = -36;
+  //
+  // let droneModLFO = new Tone.LFO();
+  // droneModLFO.connect(drone.modulationIndex)
+  // droneModLFO.min = 0.1;
+  // droneModLFO.max = 110;
+  // droneModLFO.frequency.value = 0.12;
+  // droneModLFO.set()
+  //
+  // droneModLFO.start();
+  // drone.triggerAttack(30)
 
   return drone;
 }
@@ -415,6 +417,11 @@ function makeDelay(){
 function makeLFO(){
   let lfo = new Tone.LFO(5, 0, 0);
   return lfo;
+}
+
+function makeLimiter(){
+  let limiter = new Tone.Limiter(-10);
+  return limiter;
 }
 // vm.makeVerb = () => {
 //   let verb = new Tone.Convolver("media/concert-crowd.ogg")

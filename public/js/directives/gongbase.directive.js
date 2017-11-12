@@ -9,21 +9,22 @@
         templateUrl: "templates/gongbase.template.html"
       }
     }) // end of directive
-    controller.inject = ['helperService', 'gongBuilderService', 'toneService', 'urlService', '$state'];
-    function controller(helperService, gongBuilderService, toneService, urlService, $state) {
+    controller.inject = ['helperService', 'gongBuilderService', 'urlService', '$state'];
+    function controller(helperService, gongBuilderService, urlService, $state) {
       const vm = this;
-      vm.tone = toneService;
+      // vm.tone = toneService;
       vm.builder = gongBuilderService;
       vm.url = urlService;
 
       vm.baseFreq = 250;
-      vm.drone = vm.tone.droneBuilder(vm.baseFreq)
+      vm.masterLFO = makeLFO();
+      vm.masterLFO.start()
+      vm.drone = droneBuilder(vm.baseFreq)
       vm.drone.volume.value = -36;
-      vm.verb = vm.tone.makeVerb();
-      vm.delay = vm.tone.makeDelay();
-      vm.verb.wet.value = 0.0;
-      vm.delay.wet.value = 0.0;
-      Tone.Master.chain(vm.delay, vm.verb);
+      vm.drone.toMaster();
+      vm.delay = makeDelay();
+      vm.limiter = makeLimiter();
+      Tone.Master.chain(vm.delay, vm.limiter);
 
       vm.width = window.innerWidth;
       vm.height = window.innerHeight
@@ -40,6 +41,9 @@
 
       vm.circleAdd = () => {
         let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5)
+        for (let i = 0; i < circleShape.gong.length){
+          vm.masterLFO.connect(circleShape.gong[i].detune)
+        }
         vm.scene.add(circleShape.group);
         vm.builder.gongStack.push(circleShape);
       }
@@ -135,8 +139,8 @@
       controller.shimmyMix = (val) => {
         if (shimmyInvoked){
           for(let i = 0; i < controller.scene.children.length; i++){
-            controller.lfo.setMin(-parseFloat(val))
-            controller.lfo.setMax(parseFloat(val))
+            controller.masterLFO.setMin(-parseFloat(val))
+            controller.masterLFO.setMax(parseFloat(val))
           }
         }
         else shimmyInvoked = true;
