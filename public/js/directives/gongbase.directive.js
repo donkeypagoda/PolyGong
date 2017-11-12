@@ -127,7 +127,7 @@
             vm.delay.wet.value = parseFloat(data[0].delay);
             vm.bounceSlider = data[0].delay
           }
-          
+
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))
@@ -145,7 +145,7 @@
       controller.animate = function(){
         requestAnimationFrame(controller.animate);
         for(let i = 0; i < controller.scene.children.length; i++){
-          controller.builder.gongStack[i].rotate();
+          controller.builder.gongStack[i].rotate(this.baseFreq);
         }
 
         controller.renderer.render(controller.scene, controller.cam);

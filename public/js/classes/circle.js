@@ -74,7 +74,8 @@ class Circle {
   setVol(val){
     this.volume = val;
   }
-  rotate(){
+  rotate(currentBase){
+      this.baseFreq = currentBase;
       this.currentPosition += this.rotationIncrement;
 
       if (this.currentPosition > (2 * Math.PI)){
