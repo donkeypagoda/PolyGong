@@ -80,7 +80,8 @@
 
 <footer class="four center url">
 <div>
-  <button ng-click="$ctrl.getUrl()">GET URL</button> <span ng-model="$ctrl.url.displayUrl">http://polygong.herokuapp.com/{{$ctrl.url.displayUrl}}</span>
+  <button ng-click="$ctrl.getUrl()">GET URL</button> <span id="clippie" value="http://polygong.herokuapp.com/{$ctrl.url.displayUrl}" ng-model="$ctrl.url.displayUrl">http://polygong.herokuapp.com/{{$ctrl.url.displayUrl}}</span>
+  <button class="btn" data-clipboard-target="#clippie">Copy To Clipboard</button>
 </div>
 </footer>
 

@@ -189,6 +189,13 @@
         }
         controller.url.submitState(state)
       }
+      controller.clipboard = new Clipboard('.btn');
+      controller.clipboard.on('success', function(e) {
+          console.log(e);
+      });
+      controller.clipboard.on('error', function(e) {
+          console.log(e);
+      });
 
     } // end of link
 }());
