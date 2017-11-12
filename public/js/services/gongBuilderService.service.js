@@ -19,7 +19,7 @@
         case 'line':
           let lineShape = new Line(urlData.size, urlData.speed, urlData.centArr, urlData.volume, urlData.baseFreq, urlData.lfoSize, urlData.drone, urlData.delay);
           masterLFO.connect(lineShape.gong.detune)
-          linehape.gong.toMaster();
+          lineShape.gong.toMaster();
           vm.gongStack.push(lineShape);
           return lineShape;
 

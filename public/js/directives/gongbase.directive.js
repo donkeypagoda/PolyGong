@@ -38,6 +38,9 @@
       vm.scene = new THREE.Scene();
       vm.size = 3;
       vm.speed = 45;
+      vm.droneInvoked = false;
+      vm.delayInvoked = false;
+      vm.shimmyInvoked = false;
 
       vm.circleAdd = () => {
         let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
@@ -106,11 +109,23 @@
         vm.url.getState($state.params.url)
         .then((data)=>{
           vm.builder.gongStack = []
-          vm.masterLFO.max = data[0].lfoSize
-          vm.masterLFO.min = -data[0].lfoSize
-          vm.drone.volume.value = data[0].drone
-          console.log(data[0].drone);
-          vm.delay.wet.value = parseFloat(data[0].delay);
+          if (data[0].lfoSize !== -36){
+            vm.droneInvoked = true;
+            vm.drone.volume.value = data[0].drone
+            vm.droneSlider = data[0].drone
+            console.log(data[0].drone);
+          }
+          if (data[0].lfoSize !== 0.0){
+            vm.shimmyInvoked = true;
+            vm.masterLFO.max = data[0].lfoSize
+            vm.masterLFO.min = -data[0].lfoSize
+            vm.shimmySlider = data[0].lfoSize
+          }
+          if (data[0].delay !== 0.0){
+            vm.delayInvoked = true;
+            vm.delay.wet.value = parseFloat(data[0].delay);
+            vm.bounceSlider = data[0].delay
+          }
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))
@@ -135,33 +150,28 @@
       }
       controller.animate()
 
-      let droneInvoked = false;
-      let delayInvoked = false;
-      let shimmyInvoked = false;
-
       controller.droneVolume = (val) => {
-        if (droneInvoked){
+        if (controller.droneInvoked){
+
           controller.drone.volume.value = parseFloat(val);
         }
-        else droneInvoked = true;
+        else controller.droneInvoked = true;
       }
 
       controller.delayMix = (val) => {
-        if (delayInvoked){
-          controller.delay.wet.value = parseFloat(val);
+        if (controller.delayInvoked){
+          controller.delay.wet.value = (val).toFixed(3);
         }
-        else delayInvoked = true;
+        else controller.delayInvoked = true;
       }
       controller.shimmyMix = (val) => {
-        if (shimmyInvoked){
+        if (controller.shimmyInvoked){
           for(let i = 0; i < controller.scene.children.length; i++){
             controller.masterLFO.min = -parseFloat(val)
             controller.masterLFO.max = parseFloat(val)
-            // console.log(controller.masterLFO.min);
-            // console.log(controller.masterLFO.max);
           }
         }
-        else shimmyInvoked = true;
+        else controller.shimmyInvoked = true;
       }
 
       controller.getUrl = () => {
