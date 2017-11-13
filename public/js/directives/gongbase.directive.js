@@ -12,7 +12,6 @@
     controller.inject = ['gongBuilderService', 'urlService', '$state'];
     function controller(gongBuilderService, urlService, $state) {
       const vm = this;
-      // vm.tone = toneService;
       vm.builder = gongBuilderService;
       vm.url = urlService;
 
@@ -113,24 +112,26 @@
         vm.url.getState($state.params.url)
         .then((data)=>{
           vm.builder.gongStack = []
-          if (data[0].lfoSize !== -36){
+          if (data[0].drone.volume.value !== -36){
             vm.droneInvoked = true;
-            vm.drone.volume.value = data[0].drone
-            vm.droneSlider = data[0].drone
+            console.log(data[0].drone.volume);
+            vm.drone.volume.value = data[0].drone.volume
+            vm.droneSlider = data[0].drone.volume.value
           }
 
           if (data[0].lfoSize !== 0.0){
             vm.shimmyInvoked = true;
             vm.masterLFO.max = data[0].lfoSize
             vm.masterLFO.min = -data[0].lfoSize
-            vm.shimmySlider = data[0].lfoSize
+            vm.shimmySlider = data[0].lfoSize.value
           }
 
           if (data[0].delay !== 0.0){
             vm.delayInvoked = true;
-            vm.delay.wet.value = parseFloat(data[0].delay);
-            vm.bounceSlider = data[0].delay
+            vm.delay.wet.value = data[0].delay.wet;
+            vm.bounceSlider = data[0].delay.wet.value
           }
+
           vm.baseFreq = data[0].baseFreq
           if (data[0].toneChoice[0] === "all"){
             vm.toneChoice = vm.allTwelve
@@ -169,7 +170,7 @@
 
       controller.droneVolume = (val) => {
         if (controller.droneInvoked){
-
+          console.log(controller.drone.volume);
           controller.drone.volume.value = parseFloat(val);
         }
         else controller.droneInvoked = true;
@@ -192,12 +193,8 @@
       }
       controller.freqChoice = (val) => {
         controller.drone.frequency.value = (0.25 * val)
-        // controller.baseFreq = val;
-        // console.log(controller.baseFreq);
       }
       controller.toneChooser = (val) => {
-        // controller.toneChoice = val
-        // console.log(controller.toneChoice);
       }
 
       controller.getUrl = () => {

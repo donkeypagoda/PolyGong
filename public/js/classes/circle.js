@@ -57,11 +57,10 @@ class Circle {
       "currentPosition": this.currentPosition,
       "baseFreq": this.baseFreq,
       "lfoSize": this.lfo.max,
-      "drone": this.drone.volume.value,
-      "delay": this.delay.wet.value,
+      "drone": this.drone,
+      "delay": this.delay,
       "toneChoice": this.toneChoice
     }
-    console.log(saveObj);
     return saveObj;
   }
 

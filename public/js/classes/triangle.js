@@ -51,8 +51,8 @@ class Triangle {
       "currentPosition": this.currentPosition,
       "baseFreq": this.baseFreq,
       "lfoSize": this.lfo.max,
-      "drone": this.drone.volume.value,
-      "delay": this.delay.wet.value,
+      "drone": this.drone,
+      "delay": this.delay,
       "toneChoice": this.toneChoice
     }
     console.log(saveObj);
@@ -79,7 +79,6 @@ class Triangle {
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
-      console.log(this.baseFreq);
       this.gong.triggerAttackRelease(this.baseFreq * this.toneChoice[8], this.volume * 0.02);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;

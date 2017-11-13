@@ -13,7 +13,7 @@ const morgan = require("morgan");
 const port = process.env.PORT || 5000;
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 app.use(cookie());
 app.use(morgan('dev'))
 app.use(express.static(path.join("public")));
