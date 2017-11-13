@@ -76,8 +76,9 @@ class Circle {
   setVol(val){
     this.volume = val;
   }
-  rotate(currentBase){
+  rotate(currentBase, toneChoice){
       this.baseFreq = currentBase;
+      this.toneChoice = toneChoice;
       this.currentPosition += this.rotationIncrement;
 
       if (this.currentPosition > (2 * Math.PI)){
@@ -85,7 +86,7 @@ class Circle {
         this.gongValue = 0;
       }
       if(this.currentPosition > this.gongValue ){
-        this.gong.triggerAttackRelease(this.baseFreq * 0.5 * allTwelve[10], this.volume * 0.02);
+        this.gong.triggerAttackRelease(this.baseFreq * 0.5 * this.toneChoice[10], this.volume * 0.02);
         const arc = (2 * Math.PI) / this.numbSides;
         this.gongValue = this.gongValue + arc;
       }

@@ -67,15 +67,16 @@ class Heptagon {
     this.volume = val;
   }
 
-  rotate(currentBase){
+  rotate(currentBase, toneChoice){
     this.baseFreq = currentBase;
+    this.toneChoice = toneChoice;
     this.currentPosition += this.rotationIncrement;
     if (this.currentPosition > (2 * Math.PI)){
       this.currentPosition = 0;
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
-      this.gong.triggerAttackRelease(this.baseFreq * 2, this.volume * 0.02);
+      this.gong.triggerAttackRelease(this.baseFreq * 2 * this.toneChoice[0], this.volume * 0.02);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }

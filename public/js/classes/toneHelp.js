@@ -1,7 +1,7 @@
 // freq ratios for scales, might replace this with arrpeggios
 const allTwelve = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
-const downTone = [2]
-const upTone = [3]
+const downTone = [15/8, 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]
+const upTone = [9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8]
 // // attack and relase arrays
 // const attackArr = [0.1, 0.08, 0.06 ,0.05, 0.04, 0.03];
 // const relArr = [6, 4, 3.5, 2.8, 2.2, 2, 1.9];

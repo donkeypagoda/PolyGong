@@ -17,8 +17,11 @@
       vm.url = urlService;
 
       vm.baseFreq = 200;
-      vm.toneNumb = 2;
-      vm.toneChoice = downTone;
+      // vm.toneNumb = 1;
+      vm.allTwelve = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
+      vm.downTone = [15/8, 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]
+      vm.upTone = [9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8]
+      vm.toneChoice = vm.allTwelve;
       // vm.base1 = 200;
       vm.masterLFO = makeLFO();
       vm.masterLFO.start();
@@ -149,7 +152,7 @@
       controller.animate = function(){
         requestAnimationFrame(controller.animate);
         for(let i = 0; i < controller.scene.children.length; i++){
-          controller.builder.gongStack[i].rotate(controller.baseFreq);
+          controller.builder.gongStack[i].rotate(controller.baseFreq, controller.toneChoice);
         }
 
         controller.renderer.render(controller.scene, controller.cam);
@@ -182,22 +185,11 @@
       controller.freqChoice = (val) => {
         controller.drone.frequency.value = (0.25 * val)
         // controller.baseFreq = val;
-        console.log(controller.baseFreq);
+        // console.log(controller.baseFreq);
       }
       controller.toneChooser = (val) => {
-        console.log(val);
-        switch(val){
-          case "1":
-          controller.toneChoice= allTwelve;
-          break;
-          case "2":
-          controller.toneChoice = downTone;
-          break;
-          case "3":
-          controller.toneChoice= upTone;
-          break;
-        }
-        console.log(controller.toneChoice);
+        // controller.toneChoice = val
+        // console.log(controller.toneChoice);
       }
 
       controller.getUrl = () => {

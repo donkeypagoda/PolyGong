@@ -63,8 +63,9 @@ class Line {
     this.volume = val;
   }
 
-  rotate(currentBase){
+  rotate(currentBase, toneChoice){
     this.baseFreq = currentBase;
+    this.toneChoice = toneChoice;
     this.currentPosition += this.rotationIncrement;
 
     if (this.currentPosition > (2 * Math.PI)){
@@ -72,7 +73,7 @@ class Line {
       this.gongValue = 0;
     }
     if(this.currentPosition > this.gongValue ){
-      this.gong.triggerAttackRelease(this.baseFreq * allTwelve[2], this.volume * 0.02);
+      this.gong.triggerAttackRelease(this.baseFreq * this.toneChoice[2], this.volume * 0.02);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }

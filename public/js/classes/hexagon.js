@@ -51,7 +51,8 @@ class Hexagon {
       "lfoSize": this.lfo.max,
       "drone": this.drone.volume.value,
       "delay": this.delay.wet.value,
-      "toneChoice": this.toneChoice
+      "toneChoice": this.toneChoice,
+      "toneNumb" : this.toneNumb
     }
     console.log(saveObj);
     return saveObj;
@@ -67,8 +68,9 @@ class Hexagon {
     this.volume = val;
   }
 
-  rotate(currentBase){
+  rotate(currentBase, toneChoice){
     this.baseFreq = currentBase;
+    this.toneChoice = toneChoice;
     this.currentPosition += this.rotationIncrement;
 
     if (this.currentPosition > (2 * Math.PI)){
@@ -76,7 +78,7 @@ class Hexagon {
       this.gongValue = 0;
     }
     if (this.currentPosition > this.gongValue ){
-      this.gong.triggerAttackRelease(this.baseFreq * 0.5 * allTwelve[2], this.volume * 0.02);
+      this.gong.triggerAttackRelease(this.baseFreq * 0.5 * this.toneChoice[2], this.volume * 0.02);
       // console.log('gong', this.gongValue);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
