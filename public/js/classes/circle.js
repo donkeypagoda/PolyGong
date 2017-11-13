@@ -59,7 +59,7 @@ class Circle {
       "scale": this.group.scale,
       "currentPosition": this.currentPosition,
       "baseFreq": this.baseFreq,
-      "lfoSize": this.lfo.max,
+      "lfo": this.lfo,
       "drone": this.drone,
       "delay": this.delay,
       "toneChoice": this.toneChoice,

@@ -27,7 +27,7 @@
       vm.drone.toMaster();
       vm.delay = makeDelay();
       vm.limiter = makeLimiter();
-      Tone.Master.chain(vm.delay, vm.limiter);
+      Tone.Master.chain(vm.delay, vm.limiter)
 
       vm.width = window.innerWidth;
       vm.height = window.innerHeight
@@ -46,7 +46,7 @@
       vm.shimmyInvoked = false;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.shimmySlider)
         vm.masterLFO.connect(circleShape.gong.detune)
         circleShape.gong.toMaster();
         vm.scene.add(circleShape.group);
@@ -115,25 +115,21 @@
           vm.baseFreq = data[0].baseFreq
           if (data[0].droneSlider !== -36){
             vm.droneInvoked = true;
-            // vm.drone = droneBuilder(vm.baseFreq)
-            // vm.drone.volume.value = data[0].droneSlider
-            // console.log(vm.drone.volume.value);
             vm.drone.volume.value = data[0].droneSlider
-            // vm.drone.toMaster();
             vm.droneSlider = data[0].droneSlider
-            // console.log(vm.droneSlider);
           }
 
-          if (data[0].lfoSize !== 0.0){
+          if (data[0].shimmySlider !== 0.0){
             vm.shimmyInvoked = true;
-            vm.masterLFO.max = data[0].lfoSize
-            vm.masterLFO.min = -data[0].lfoSize
+            vm.masterLFO.max = data[0].shimmySlider
+            vm.masterLFO.min = -data[0].shimmySlider
             vm.shimmySlider = data[0].shimmySlider
           }
 
-          if (data[0].delay !== 0.0){
+          if (data[0].bounceSlider !== 0.0){
             vm.delayInvoked = true;
-            vm.delay.wet.value = data[0].delay.wet;
+            vm.delay.wet.value = data[0].bounceSlider;
+            console.log(data[0].bounceSlider);
             vm.bounceSlider = data[0].bounceSlider
           }
 
@@ -183,6 +179,7 @@
       controller.delayMix = (val) => {
         if (controller.delayInvoked){
           controller.delay.wet.value = (val).toFixed(3);
+          console.log(controller.bounceSlider);
         }
         else controller.delayInvoked = true;
       }
