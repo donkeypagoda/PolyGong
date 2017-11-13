@@ -17,12 +17,10 @@
       vm.url = urlService;
 
       vm.baseFreq = 200;
-      // vm.toneNumb = 1;
-      vm.allTwelve = [1, 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
-      vm.downTone = [15/8, 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]
-      vm.upTone = [9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8]
+      vm.allTwelve = ["all", 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
+      vm.downTone = ["down", 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]
+      vm.upTone = ["up", 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8]
       vm.toneChoice = vm.allTwelve;
-      // vm.base1 = 200;
       vm.masterLFO = makeLFO();
       vm.masterLFO.start();
       vm.drone = droneBuilder(vm.baseFreq)
@@ -134,6 +132,16 @@
             vm.bounceSlider = data[0].delay
           }
           vm.baseFreq = data[0].baseFreq
+          if (data[0].toneChoice[0] === "all"){
+            vm.toneChoice = vm.allTwelve
+          }
+          if (data[0].toneChoice[0] === "down"){
+            vm.toneChoice = vm.downTone
+          }
+          if (data[0].toneChoice[0] === "up"){
+            vm.toneChoice = vm.upTone
+          }
+          // get the radios to display right
 
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
