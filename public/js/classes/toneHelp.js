@@ -1,7 +1,7 @@
 // freq ratios for scales, might replace this with arrpeggios
-const allTwelve = ["all", 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
-const downTone = ["down", 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]
-const upTone = ["up", 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8]
+// const allTwelve = ["all", 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
+// const downTone = ["down", 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]
+// const upTone = ["up", 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8, 4/3, 3/2, 5/3, 9/8]
 
 function makeGong(){
   let synth = new Tone.Synth
