@@ -28,6 +28,7 @@
       vm.delay = makeDelay();
       vm.limiter = makeLimiter();
       Tone.Master.chain(vm.delay, vm.limiter);
+      // vm.droneSlider
 
       vm.width = window.innerWidth;
       vm.height = window.innerHeight
@@ -46,7 +47,7 @@
       vm.shimmyInvoked = false;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(circleShape.gong.detune)
         circleShape.gong.toMaster();
         vm.scene.add(circleShape.group);
@@ -54,7 +55,7 @@
       }
 
       vm.lineAdd = () => {
-        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(lineShape.gong.detune)
         lineShape.gong.toMaster();
         vm.scene.add(lineShape.group);
@@ -62,7 +63,7 @@
       }
 
       vm.triangleAdd = () => {
-        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(triangleShape.gong.detune)
         triangleShape.gong.toMaster();
         vm.scene.add(triangleShape.group);
@@ -70,7 +71,7 @@
       }
 
       vm.squareAdd = () => {
-        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(squareShape.gong.detune)
         squareShape.gong.toMaster();
         vm.scene.add(squareShape.group);
@@ -78,7 +79,7 @@
       }
 
       vm.pentagonAdd = () => {
-        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(pentagonShape.gong.detune)
         pentagonShape.gong.toMaster();
         vm.scene.add(pentagonShape.group);
@@ -86,7 +87,7 @@
       }
 
       vm.hexagonAdd = () => {
-        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(hexagonShape.gong.detune)
         hexagonShape.gong.toMaster();
         vm.scene.add(hexagonShape.group);
@@ -95,7 +96,7 @@
 
 
       vm.heptagonAdd = () => {
-        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
+        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
         vm.masterLFO.connect(heptagonShape.gong.detune)
         heptagonShape.gong.toMaster();
         vm.scene.add(heptagonShape.group);
@@ -112,18 +113,23 @@
         vm.url.getState($state.params.url)
         .then((data)=>{
           vm.builder.gongStack = []
-          if (data[0].drone.volume.value !== -36){
+          vm.baseFreq = data[0].baseFreq
+          if (data[0].droneSlider !== -36){
             vm.droneInvoked = true;
-            console.log(data[0].drone.volume);
-            vm.drone.volume.value = data[0].drone.volume
+            // vm.drone = droneBuilder(vm.baseFreq)
+            // vm.drone.volume.value = data[0].droneSlider
+            console.log(vm.drone);
+            vm.drone.volume.value = data[0].droneSlider
+            // vm.drone.toMaster();
             vm.droneSlider = data[0].drone.volume.value
+            console.log(vm.droneSlider);
           }
 
           if (data[0].lfoSize !== 0.0){
             vm.shimmyInvoked = true;
             vm.masterLFO.max = data[0].lfoSize
             vm.masterLFO.min = -data[0].lfoSize
-            vm.shimmySlider = data[0].lfoSize.value
+            vm.shimmySlider = data[0].lfoSize
           }
 
           if (data[0].delay !== 0.0){
@@ -132,7 +138,6 @@
             vm.bounceSlider = data[0].delay.wet.value
           }
 
-          vm.baseFreq = data[0].baseFreq
           if (data[0].toneChoice[0] === "all"){
             vm.toneChoice = vm.allTwelve
           }
@@ -170,8 +175,8 @@
 
       controller.droneVolume = (val) => {
         if (controller.droneInvoked){
-          console.log(controller.drone.volume);
           controller.drone.volume.value = parseFloat(val);
+          // console.log(val);
         }
         else controller.droneInvoked = true;
       }

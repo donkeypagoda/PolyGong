@@ -10,7 +10,7 @@
     vm.shapeInstantiate = function(urlData, masterLFO){
       switch(urlData.name){
         case 'circle':
-          let circleShape = new Circle(urlData.size, urlData.speed, urlData.centArr, urlData.volume, urlData.baseFreq, urlData.lfoSize, urlData.drone, urlData.delay, urlData.toneChoice);
+          let circleShape = new Circle(urlData.size, urlData.speed, urlData.centArr, urlData.volume, urlData.baseFreq, urlData.lfoSize, urlData.drone, urlData.delay, urlData.toneChoice, urlData.droneSlider);
           masterLFO.connect(circleShape.gong.detune)
           circleShape.gong.toMaster();
           vm.gongStack.push(circleShape);
