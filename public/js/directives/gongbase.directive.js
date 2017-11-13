@@ -23,7 +23,7 @@
       vm.masterLFO = makeLFO();
       vm.masterLFO.start();
       vm.drone = droneBuilder(vm.baseFreq)
-      vm.drone.volume.value = -36;
+      vm.drone.volume.value = -42.0;
       vm.drone.toMaster();
       vm.delay = makeDelay();
       vm.limiter = makeLimiter();
@@ -46,7 +46,7 @@
       vm.shimmyInvoked = false;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.shimmySlider)
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(circleShape.gong.detune)
         circleShape.gong.toMaster();
         vm.scene.add(circleShape.group);
