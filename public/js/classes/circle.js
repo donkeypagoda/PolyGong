@@ -1,5 +1,5 @@
 class Circle {
-  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay, toneChoice, droneSlider) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay, toneChoice, droneSlider, shimmySlider,bounceSlider) {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
@@ -11,6 +11,8 @@ class Circle {
     this.drone = drone;
     this.delay = delay;
     this.droneSlider = droneSlider
+    this.shimmySlider = shimmySlider;
+    this.bounceSlider = bounceSlider;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
     this.malletMaterial =  new THREE.SpriteMaterial({map: this.malletMap, color: this.malletColor, alphaTest: 0.5, transparent: true});
@@ -61,7 +63,9 @@ class Circle {
       "drone": this.drone,
       "delay": this.delay,
       "toneChoice": this.toneChoice,
-      "droneSlider": this.droneSlider
+      "droneSlider": this.droneSlider,
+      "shimmySlider": this.shimmySlider,
+      "bounceSlider": this.bounceSlider
     }
     return saveObj;
   }

@@ -28,7 +28,6 @@
       vm.delay = makeDelay();
       vm.limiter = makeLimiter();
       Tone.Master.chain(vm.delay, vm.limiter);
-      // vm.droneSlider
 
       vm.width = window.innerWidth;
       vm.height = window.innerHeight
@@ -118,24 +117,24 @@
             vm.droneInvoked = true;
             // vm.drone = droneBuilder(vm.baseFreq)
             // vm.drone.volume.value = data[0].droneSlider
-            console.log(vm.drone);
+            // console.log(vm.drone.volume.value);
             vm.drone.volume.value = data[0].droneSlider
             // vm.drone.toMaster();
-            vm.droneSlider = data[0].drone.volume.value
-            console.log(vm.droneSlider);
+            vm.droneSlider = data[0].droneSlider
+            // console.log(vm.droneSlider);
           }
 
           if (data[0].lfoSize !== 0.0){
             vm.shimmyInvoked = true;
             vm.masterLFO.max = data[0].lfoSize
             vm.masterLFO.min = -data[0].lfoSize
-            vm.shimmySlider = data[0].lfoSize
+            vm.shimmySlider = data[0].shimmySlider
           }
 
           if (data[0].delay !== 0.0){
             vm.delayInvoked = true;
             vm.delay.wet.value = data[0].delay.wet;
-            vm.bounceSlider = data[0].delay.wet.value
+            vm.bounceSlider = data[0].bounceSlider
           }
 
           if (data[0].toneChoice[0] === "all"){
