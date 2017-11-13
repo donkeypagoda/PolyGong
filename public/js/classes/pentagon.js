@@ -1,5 +1,5 @@
 class Pentagon {
-  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay, toneChoice) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay, toneChoice, droneSlider, shimmySlider,bounceSlider) {
     this.name = "pentagon"
     this.size = size;
     this.speed = speed;
@@ -10,6 +10,9 @@ class Pentagon {
     this.drone = drone;
     this.delay = delay;
     this.toneChoice = toneChoice;
+    this.droneSlider = droneSlider;
+    this.shimmySlider = shimmySlider;
+    this.bounceSlider = bounceSlider;
     this.numbSides = 5;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -50,7 +53,10 @@ class Pentagon {
       "lfoSize": this.lfo.max,
       "drone": this.drone,
       "delay": this.delay,
-      "toneChoice": this.toneChoice
+      "toneChoice": this.toneChoice,
+      "droneSlider": this.droneSlider,
+      "shimmySlider": this.shimmySlider,
+      "bounceSlider": this.bounceSlider
     }
     console.log(saveObj);
     return saveObj;

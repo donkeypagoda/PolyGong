@@ -54,7 +54,7 @@
       }
 
       vm.lineAdd = () => {
-        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(lineShape.gong.detune)
         lineShape.gong.toMaster();
         vm.scene.add(lineShape.group);
@@ -62,7 +62,7 @@
       }
 
       vm.triangleAdd = () => {
-        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(triangleShape.gong.detune)
         triangleShape.gong.toMaster();
         vm.scene.add(triangleShape.group);
@@ -70,7 +70,7 @@
       }
 
       vm.squareAdd = () => {
-        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(squareShape.gong.detune)
         squareShape.gong.toMaster();
         vm.scene.add(squareShape.group);
@@ -78,7 +78,7 @@
       }
 
       vm.pentagonAdd = () => {
-        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(pentagonShape.gong.detune)
         pentagonShape.gong.toMaster();
         vm.scene.add(pentagonShape.group);
@@ -86,7 +86,7 @@
       }
 
       vm.hexagonAdd = () => {
-        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(hexagonShape.gong.detune)
         hexagonShape.gong.toMaster();
         vm.scene.add(hexagonShape.group);
@@ -95,7 +95,7 @@
 
 
       vm.heptagonAdd = () => {
-        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider)
+        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice, vm.droneSlider, vm.shimmySlider, vm.bounceSlider)
         vm.masterLFO.connect(heptagonShape.gong.detune)
         heptagonShape.gong.toMaster();
         vm.scene.add(heptagonShape.group);
@@ -112,21 +112,21 @@
         vm.url.getState($state.params.url)
         .then((data)=>{
           vm.builder.gongStack = []
-          vm.baseFreq = data[0].baseFreq
-          if (data[0].droneSlider !== -36){
+          vm.baseFreq = data[data.length - 1].baseFreq
+          if (data[data.length - 1].droneSlider !== -36){
             vm.droneInvoked = true;
             vm.drone.volume.value = data[0].droneSlider
             vm.droneSlider = data[0].droneSlider
           }
 
-          if (data[0].shimmySlider !== 0.0){
+          if (data[data.length - 1].shimmySlider !== 0.0){
             vm.shimmyInvoked = true;
             vm.masterLFO.max = data[0].shimmySlider
             vm.masterLFO.min = -data[0].shimmySlider
             vm.shimmySlider = data[0].shimmySlider
           }
 
-          if (data[0].bounceSlider !== 0.0){
+          if (data[data.length - 1].bounceSlider !== 0.0){
             vm.delayInvoked = true;
             vm.delay.wet.value = data[0].bounceSlider;
             console.log(data[0].bounceSlider);
