@@ -179,7 +179,6 @@
       controller.delayMix = (val) => {
         if (controller.delayInvoked){
           controller.delay.wet.value = (val).toFixed(3);
-          console.log(controller.bounceSlider);
         }
         else controller.delayInvoked = true;
       }
