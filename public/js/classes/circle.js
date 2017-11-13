@@ -1,11 +1,12 @@
 class Circle {
-  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay, toneChoice) {
     this.name = "circle"
     this.size = size;
     this.speed = speed;
     this.volume = volume;
     this.centArr = centArr;
-    this.baseFreq = baseFreq
+    this.baseFreq = baseFreq;
+    this.toneChoice = toneChoice;
     this.lfo = lfo;
     this.drone = drone;
     this.delay = delay;
@@ -57,7 +58,8 @@ class Circle {
       "baseFreq": this.baseFreq,
       "lfoSize": this.lfo.max,
       "drone": this.drone.volume.value,
-      "delay": this.delay.wet.value
+      "delay": this.delay.wet.value,
+      "toneChoice": this.toneChoice
     }
     console.log(saveObj);
     return saveObj;

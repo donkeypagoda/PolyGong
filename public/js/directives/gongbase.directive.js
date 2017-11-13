@@ -17,7 +17,9 @@
       vm.url = urlService;
 
       vm.baseFreq = 200;
-      vm.base1 = 200;
+      vm.toneNumb = 2;
+      vm.toneChoice = downTone;
+      // vm.base1 = 200;
       vm.masterLFO = makeLFO();
       vm.masterLFO.start();
       vm.drone = droneBuilder(vm.baseFreq)
@@ -44,7 +46,7 @@
       vm.shimmyInvoked = false;
 
       vm.circleAdd = () => {
-        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let circleShape = new Circle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(circleShape.gong.detune)
         circleShape.gong.toMaster();
         vm.scene.add(circleShape.group);
@@ -52,7 +54,7 @@
       }
 
       vm.lineAdd = () => {
-        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let lineShape = new Line(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(lineShape.gong.detune)
         lineShape.gong.toMaster();
         vm.scene.add(lineShape.group);
@@ -60,7 +62,7 @@
       }
 
       vm.triangleAdd = () => {
-        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let triangleShape = new Triangle(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(triangleShape.gong.detune)
         triangleShape.gong.toMaster();
         vm.scene.add(triangleShape.group);
@@ -68,7 +70,7 @@
       }
 
       vm.squareAdd = () => {
-        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let squareShape = new Square(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(squareShape.gong.detune)
         squareShape.gong.toMaster();
         vm.scene.add(squareShape.group);
@@ -76,7 +78,7 @@
       }
 
       vm.pentagonAdd = () => {
-        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let pentagonShape = new Pentagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(pentagonShape.gong.detune)
         pentagonShape.gong.toMaster();
         vm.scene.add(pentagonShape.group);
@@ -84,7 +86,7 @@
       }
 
       vm.hexagonAdd = () => {
-        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let hexagonShape = new Hexagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(hexagonShape.gong.detune)
         hexagonShape.gong.toMaster();
         vm.scene.add(hexagonShape.group);
@@ -93,7 +95,7 @@
 
 
       vm.heptagonAdd = () => {
-        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay)
+        let heptagonShape = new Heptagon(vm.size, vm.speed, [0,0,0], 0.5, vm.baseFreq, vm.masterLFO, vm.drone, vm.delay, vm.toneChoice)
         vm.masterLFO.connect(heptagonShape.gong.detune)
         heptagonShape.gong.toMaster();
         vm.scene.add(heptagonShape.group);
@@ -181,6 +183,21 @@
         controller.drone.frequency.value = (0.25 * val)
         // controller.baseFreq = val;
         console.log(controller.baseFreq);
+      }
+      controller.toneChooser = (val) => {
+        console.log(val);
+        switch(val){
+          case "1":
+          controller.toneChoice= allTwelve;
+          break;
+          case "2":
+          controller.toneChoice = downTone;
+          break;
+          case "3":
+          controller.toneChoice= upTone;
+          break;
+        }
+        console.log(controller.toneChoice);
       }
 
       controller.getUrl = () => {

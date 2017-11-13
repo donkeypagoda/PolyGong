@@ -1,5 +1,5 @@
 class Line {
-  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay) {
+  constructor (size, speed = 45, centArr, volume = 0.5, baseFreq, lfo, drone, delay, toneChoice) {
     this.name = "line"
     this.size = size;
     this.speed = speed;
@@ -9,6 +9,7 @@ class Line {
     this.lfo = lfo;
     this.drone = drone;
     this.delay = delay;
+    this.toneChoice = toneChoice;
     this.numbSides = 2;
     this.malletColor = 0xffffff;
     this.malletMap = new THREE.TextureLoader().load('media/circle.png');
@@ -45,7 +46,8 @@ class Line {
       "baseFreq": this.baseFreq,
       "lfoSize": this.lfo.max,
       "drone": this.drone.volume.value,
-      "delay": this.delay.wet.value
+      "delay": this.delay.wet.value,
+      "toneChoice": this.toneChoice
     }
     return saveObj;
   }

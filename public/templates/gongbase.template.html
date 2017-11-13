@@ -42,6 +42,17 @@
             <!-- <label for="contactChoice3">Mail</label> -->
           </div>
         </li>
+        <li>
+          <h1>Tone Clusters</h1>
+          <div>
+            <input ng-model="$ctrl.toneNumb" ng-change="$ctrl.toneChooser($ctrl.toneNumb)" type="radio" id="tone1" ng-value="1" name="toneNumb">
+            <!-- <label for="contactChoice1">Email</label> -->
+            <input ng-model="$ctrl.toneNumb" ng-change="$ctrl.toneChooser($ctrl.toneNumb)" type="radio" id="tone2" ng-value="2" name="toneNumb">
+            <!-- <label for="contactChoice2">Phone</label> -->
+            <input ng-model="$ctrl.toneNumb" ng-change="$ctrl.toneChooser($ctrl.toneNumb)" type="radio" id="tone3" ng-value="3" name="toneNumb">
+            <!-- <label for="contactChoice3">Mail</label> -->
+          </div>
+        </li>
       </nav>
     </div>
   </div>
