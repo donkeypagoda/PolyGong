@@ -86,22 +86,16 @@
           <h1>Base Frequency</h1>
           <div>
             <input ng-model="$ctrl.baseFreq" ng-change="$ctrl.freqChoice($ctrl.baseFreq)" type="radio" id="base1" ng-value="200" name="baseFreq">
-            <!-- <label for="contactChoice1">Email</label> -->
             <input ng-model="$ctrl.baseFreq" ng-change="$ctrl.freqChoice($ctrl.baseFreq)" type="radio" id="base2" ng-value="300" name="baseFreq">
-            <!-- <label for="contactChoice2">Phone</label> -->
             <input ng-model="$ctrl.baseFreq" ng-change="$ctrl.freqChoice($ctrl.baseFreq)" type="radio" id="base3" ng-value="400" name="baseFreq">
-            <!-- <label for="contactChoice3">Mail</label> -->
           </div>
         </li>
         <li>
           <h1>Tone Clusters</h1>
           <div>
             <input ng-model="$ctrl.toneChoice" ng-change="$ctrl.toneChooser($ctrl.toneChoice)" type="radio" id="tone1" ng-value="$ctrl.allTwelve" name="toneChoice">
-            <!-- <label for="contactChoice1">Email</label> -->
             <input ng-model="$ctrl.toneChoice" ng-change="$ctrl.toneChooser($ctrl.toneChoice)" type="radio" id="tone2" ng-value="$ctrl.downTone" name="toneChoice">
-            <!-- <label for="contactChoice2">Phone</label> -->
             <input ng-model="$ctrl.toneChoice" ng-change="$ctrl.toneChooser($ctrl.toneChoice)" type="radio" id="tone3" ng-value="$ctrl.upTone" name="toneChoice">
-            <!-- <label for="contactChoice3">Mail</label> -->
           </div>
         </li>
       </nav>
