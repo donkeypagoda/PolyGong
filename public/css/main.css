@@ -96,7 +96,7 @@ input[type=checkbox]:checked ~ .slide-menu {
 }
 
 input[type=checkbox]:checked ~ .slide-menu1 {
-  transform: translate3d(-210px, 0, 0);
+  transform: translate3d(-210px, -15px, 0);
 }
 
 input[type=checkbox]:checked ~ .slide-menu .menu li {
@@ -127,7 +127,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 .bottom .slide-menu1{
    transform: translate3d(-200px, 175px, 0);
    position: absolute;
-   /*width: 250px;*/
+   width: 100%;
    /*background: #4f6b81;*/
    /*background: transparent;*/
    /*color: #ddd;*/
@@ -198,6 +198,8 @@ i {
 }
 #clippie {
   background-color: white;
+  /*height: 100%;
+  width: 300px;*/
 }
 /* styles for buttons, button grid*/
 .wrapper1{
@@ -273,7 +275,7 @@ svg {
 }
 
 /* positioning the gong line images*/
-#gongLineTop{
+/*#gongLineTop{
   right: 0;
   bottom: 0;
   grid-column: 3;
@@ -284,4 +286,4 @@ svg {
   bottom: 0;
   grid-column: 3;
   grid-row: 1;
-}
+}*/
