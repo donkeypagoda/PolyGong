@@ -94,6 +94,7 @@ input[type=checkbox] {
 input[type=checkbox]:checked ~ .slide-menu {
    transform: translate3d(0, 0, 0);
 }
+
 input[type=checkbox]:checked ~ .slide-menu .menu li {
    width: 100%;
 }
@@ -120,7 +121,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    transition: all .7s;
 }
 .bottom .slide-menu{
-   transform: translate3d(0, 175px, 0);
+   transform: translate3d(-50px, 175px, 0);
    position: absolute;
    /*width: 250px;*/
    /*background: #4f6b81;*/
@@ -256,7 +257,12 @@ i {
 }
 /*svg buttons*/
 svg {
+    margin-top: 10px;
     -webkit-animation: rotation 2s infinite linear;
+}
+#remove{
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 @-webkit-keyframes rotation {
