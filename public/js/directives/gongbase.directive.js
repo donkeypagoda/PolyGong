@@ -15,6 +15,18 @@
       vm.builder = gongBuilderService;
       vm.url = urlService;
 
+      //svgs for buttons
+      vm.tri = document.getElementById("trianglePath")
+      vm.square = document.getElementById("squarePath")
+      vm.pent = document.getElementById("pentagonPath")
+      vm.hex = document.getElementById("hexagonPath")
+      vm.hept = document.getElementById("heptagonPath")
+      svgPoints(3, 25, 25, 25, vm.tri);
+      svgPoints(4, 25, 25, 25, vm.square);
+      svgPoints(5, 25, 25, 25, vm.pent);
+      svgPoints(6, 25, 25, 25, vm.hex);
+      svgPoints(7, 25, 25, 25, vm.hept);
+
       vm.baseFreq = 200;
       vm.allTwelve = ["all", 16/15, 9/8, 6/5, 5/4, 4/3, 45/32, 3/2, 8/5, 5/3, 16/9, 15/8]
       vm.downTone = ["down", 16/9, 5/3, 8/5, 3/2, 45/32, 4/3, 5/4, 6/5, 9/8, 16/5, 1]

@@ -1,5 +1,66 @@
 <header>
-  <div>
+  <div class="wrapper1">
+      <span class="circle box">
+        <button ng-click="$ctrl.circleAdd()">
+        <svg id="circleSVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="18" stroke="red" fill="transparent" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="line box">
+        <button ng-click="$ctrl.circleAdd()">
+        <svg id="lineSVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" x2="46" y1="26" y2="26" stroke="blue" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="triangle box">
+        <button ng-click="$ctrl.triangleAdd()">
+        <svg id="triangleSVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon id="trianglePath" points="" stroke="green" fill="transparent" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="square box">
+        <button ng-click="$ctrl.squareAdd()">
+        <svg id="square SVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon id="squarePath" points="" stroke="yellow" fill="transparent" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="pentagon box">
+        <button ng-click="$ctrl.pentagonAdd()">
+        <svg id="pentagonSVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon id="pentagonPath" points="" stroke="orange" fill="transparent" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="hexagon box">
+        <button ng-click="$ctrl.hexagonAdd()">
+        <svg id="hexagonSVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon id="hexagonPath" points="" stroke="lightblue" fill="transparent" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="heptagon box">
+        <button ng-click="$ctrl.heptagonAdd()">
+        <svg id="heptagonSVG" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon id="heptagonPath" points="" stroke="lightgreen" fill="transparent" stroke-width="3"/>
+        </svg>
+      </button>
+      </span>
+
+      <span class="remove">
+        <button ng-click="$ctrl.lastRemove()"><i class="fa fa-undo fa-3x" aria-hidden="true"></i></button>
+      </span>
+    </div>
+  <!-- <div>
     <div>
       <button ng-click="$ctrl.circleAdd()">ADD CIRCLE</button>
       <button ng-click="$ctrl.lineAdd()">ADD LINE</button>
@@ -10,7 +71,7 @@
       <button ng-click="$ctrl.heptagonAdd()">ADD HEPTAGON</button>
       <button ng-click="$ctrl.lastRemove()">Remove Last Shape Added</button>
     </div>
-  </div>
+  </div> -->
 </header>
 
 <div class="wrapper">

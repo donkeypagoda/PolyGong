@@ -191,3 +191,54 @@ i {
 .url {
   background-color: white;
 }
+/* styles for buttons*/
+.wrapper1{
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, auto);
+}
+.circle {
+  grid-column: 9;
+  grid-row: 1
+}
+.line {
+  grid-column: 10;
+  grid-row: 1
+}
+.square {
+  grid-column: 11;
+  grid-row: 1
+}
+.triangle {
+  grid-column: 12;
+  grid-row: 1
+}
+.pentagon {
+  grid-column: 13;
+  grid-row: 1
+}
+.hexagon {
+  grid-column: 14;
+  grid-row: 1
+}
+.heptagon {
+  grid-column: 15;
+  grid-row: 1
+}
+.remove {
+  grid-column: 16;
+  grid-row: 1;
+}
+.box {
+  border: 2px solid red;
+  background-color: black;
+}
+svg {
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
+}
