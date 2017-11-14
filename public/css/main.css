@@ -52,6 +52,9 @@ html, body {
    display: flex;
    min-height: 100%;
 }
+#containerB {
+   display: flex;
+}
 input[type=checkbox] {
    position: absolute;
    opacity: 0;
@@ -81,12 +84,26 @@ input[type=checkbox] {
   transform: translate3d(0, 0, 0);
   transition: transform .3s;
 }
+.bottom_label {
+  position: absolute;
+  bottom: 50px;
+  z-index: 1;
+  display: block;
+  font-size:3em;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+  transition: transform .3s;
+}
+
 .lefty input[type=checkbox]:checked ~ label{
   transform: translate3d(220px, 0px, 0);
 }
 
 .righty input[type=checkbox]:checked ~ label{
   transform: translate3d(-250px, 0px, 0);
+}
+.bottom input[type=checkbox]:checked ~ label{
+  transform: translate3d(0px, -250px, 0);
 }
 
 .content {
@@ -101,6 +118,9 @@ input[type=checkbox] {
 }
 .righty input[type=checkbox]:checked ~ .content {
    transform: translate3d(-400px, 0, 0);
+}
+.bottom input[type=checkbox]:checked ~ .content {
+   transform: translate3d(0, -250px, 0);
 }
 input[type=checkbox]:checked ~ .slide-menu {
    transform: translate3d(0, 0, 0);
@@ -128,6 +148,17 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    color: #ddd;
    right: 0;
    height: 100%;
+   transition: all .4s;
+}
+.bottom .slide-menu{
+   transform: translate3d(0, 250px, 0);
+   position: absolute;
+   width: 250px;
+   background: #4f6b81;
+   /*background: transparent;*/
+   color: #ddd;
+   bottom: 0;
+   /*height: 100%;*/
    transition: all .4s;
 }
 
@@ -188,10 +219,13 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 i {
   color: red;
 }
-.url {
+/*.url {
+  background-color: white;
+}*/
+#clippie {
   background-color: white;
 }
-/* styles for buttons*/
+/* styles for buttons, button grid*/
 .wrapper1{
   display: grid;
   grid-template-columns: repeat(24, 1fr);
@@ -231,9 +265,25 @@ i {
   grid-row: 1;
 }
 .box {
-  border: 2px solid red;
+  /*border: 2px solid red;*/
   background-color: black;
 }
+/*footer grid*/
+.footwrap{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, auto);
+}
+.footmid {
+  grid-column: 3;
+  grid-row: 1;
+}
+.footleft{
+    grid-column: 2;
+    grid-row: 1;
+}
+/*svg buttons*/
 svg {
     -webkit-animation: rotation 2s infinite linear;
 }
