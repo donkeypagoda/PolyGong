@@ -67,7 +67,7 @@ input[type=checkbox] {
   transition: transform .3s;
 }
 .lefty input[type=checkbox]:checked ~ label{
-  transform: translate3d(220px, 0px, 0);
+  transform: translate3d(250px, 0px, 0);
 }
 .righty input[type=checkbox]:checked ~ label{
   transform: translate3d(-250px, 0px, 0);
@@ -89,7 +89,7 @@ input[type=checkbox] {
    transform: translate3d(-400px, 0, 0);
 }
 .bottom input[type=checkbox]:checked ~ .content {
-   transform: translate3d(0, -150px, 0);
+   transform: translate3d(-300, -150px, 0);
 }
 input[type=checkbox]:checked ~ .slide-menu {
    transform: translate3d(0, 0, 0);
@@ -157,11 +157,12 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    background: linear-gradient(#3b3f48, #3c434d);
    box-shadow: inset 0px 1px 1px #475059;
 }
+/*end of slide menu stuff*/
 
 /* this is my attempt to make my layout not suck*/
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
+  grid-template-columns: repeat(25, 2fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
@@ -170,15 +171,15 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
   grid-row: 2;
 }
 .two {
-  grid-column: 2;
+  grid-column: 12;
   grid-row: 2;
 }
-.three {
+/*.three {
   grid-column: 3;
   grid-row: 2;
-}
+}*/
 .four {
-  grid-column: 2;
+  grid-column: 12;
   grid-row: 5
 }
 .five {
