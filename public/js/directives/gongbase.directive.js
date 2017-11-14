@@ -51,12 +51,7 @@
       vm.cam.position.set(0, 0, 50);
       vm.cam.lookAt(new THREE.Vector3(0, 0, 0));
       vm.scene = new THREE.Scene();
-      // working on adding the gong line
 
-      vm.gongBotShape = vm.builder.makeBotShape();
-      vm.scene.add(vm.gongBotShape)
-      
-      // end of gong line work
       vm.size = 3;
       vm.speed = 45;
       vm.droneInvoked = false;
@@ -178,7 +173,7 @@
 
       controller.animate = function(){
         requestAnimationFrame(controller.animate);
-        for(let i = 1; i < controller.scene.children.length; i++){
+        for(let i = 0; i < controller.scene.children.length; i++){
           controller.builder.gongStack[i].rotate(controller.baseFreq, controller.toneChoice);
         }
 

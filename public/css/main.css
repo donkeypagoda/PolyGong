@@ -162,7 +162,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   grid-gap: 10px;
-  grid-auto-rows: minmax(150px, auto);
+  grid-auto-rows: minmax(100px, auto);
 }
 .one {
   grid-column: 1;
@@ -262,4 +262,12 @@ svg {
 @-webkit-keyframes rotation {
     from {-webkit-transform: rotate(0deg);}
     to   {-webkit-transform: rotate(359deg);}
+}
+
+/* positioning the gong line images*/
+#gongLineTop{
+  right: 0;
+  bottom: 0;
+  grid-column: 3;
+  grid-row: 4;
 }

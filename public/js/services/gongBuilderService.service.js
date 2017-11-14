@@ -71,26 +71,6 @@
     vm.setScale = (val, obj) => {
       obj.setScale(val);
     }
-    // working on gong line
-    // gradients for gong line
-
-    vm.generateGrad = (size) => {}
-      let grad = context.createLinearGradient( 0, 0, size, size );
-      grad.addColorStop(0, '#99ddff'); // light blue
-      grad.addColorStop(1, 'transparent'); // dark blue
-      return grad;
-    }
-
-
-    vm.makeBotShape = () => {
-      const geo = new THREE.PlaneGeometry( 5, 20, 32 );
-      const text = vm.generateGrad(250, 250)
-      var mat = new THREE.MeshBasicMaterial( {map: text, transparent: true} );
-      var plane = new THREE.Mesh(geo, mat );
-      return plane;
-    }
-
-    // end of gong line work
 
   })
 
