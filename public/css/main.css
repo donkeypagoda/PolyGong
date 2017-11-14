@@ -63,17 +63,17 @@ input[type=checkbox] {
   display: block;
   font-size:3em;
   cursor: pointer;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(-500, 0, 0);
   transition: transform .3s;
 }
 .lefty input[type=checkbox]:checked ~ label{
-  transform: translate3d(250px, 0px, 0);
+  transform: translate3d(265px, 0px, 0);
 }
 .righty input[type=checkbox]:checked ~ label{
   transform: translate3d(-250px, 0px, 0);
 }
 .bottom input[type=checkbox]:checked ~ label{
-  transform: translate3d(0px, -25px, 0);
+  transform: translate3d(0, -15px, 0);
 }
 .content {
    width:100%;
@@ -89,10 +89,10 @@ input[type=checkbox] {
    transform: translate3d(-400px, 0, 0);
 }
 .bottom input[type=checkbox]:checked ~ .content {
-   transform: translate3d(-300, -150px, 0);
+   transform: translate3d(0, -150px, 0);
 }
 input[type=checkbox]:checked ~ .slide-menu {
-   transform: translate3d(0, 0, 0);
+   transform: translate3d(-210px, 0, 0);
 }
 
 input[type=checkbox]:checked ~ .slide-menu .menu li {
@@ -121,7 +121,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    transition: all .7s;
 }
 .bottom .slide-menu{
-   transform: translate3d(-50px, 175px, 0);
+   transform: translate3d(-200px, 175px, 0);
    position: absolute;
    /*width: 250px;*/
    /*background: #4f6b81;*/
@@ -171,13 +171,9 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
   grid-row: 2;
 }
 .two {
-  grid-column: 12;
+  grid-column: 11;
   grid-row: 2;
 }
-/*.three {
-  grid-column: 3;
-  grid-row: 2;
-}*/
 .four {
   grid-column: 12;
   grid-row: 5
@@ -192,9 +188,6 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 i {
   color: red;
 }
-/*.url {
-  background-color: white;
-}*/
 #clippie {
   background-color: white;
 }
