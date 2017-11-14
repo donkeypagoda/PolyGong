@@ -127,7 +127,7 @@
           </div>
         </li>
         <li>
-          <h1>Gong Volumes</h1>
+          <h1>Volume</h1>
           <div ng-repeat="vol in $ctrl.builder.gongStack track by $index">
           <input ng-model="vol.volume" ng-change="$ctrl.builder.volUpdate(vol.volume, vol)" name="volSlider" type="range" step="0.01" min="0.01" max="1.2">
           </div>

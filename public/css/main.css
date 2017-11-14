@@ -96,7 +96,7 @@ input[type=checkbox]:checked ~ .slide-menu {
 }
 
 input[type=checkbox]:checked ~ .slide-menu1 {
-  transform: translate3d(-210px, -15px, 0);
+  transform: translate3d(-210px, -25px, 0);
 }
 
 input[type=checkbox]:checked ~ .slide-menu .menu li {
