@@ -123,9 +123,9 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    transform: translate3d(0, 175px, 0);
    position: absolute;
    /*width: 250px;*/
-   background: #4f6b81;
+   /*background: #4f6b81;*/
    /*background: transparent;*/
-   color: #ddd;
+   /*color: #ddd;*/
    bottom: 0;
    /*left: 0;
    right: 0;*/
@@ -270,4 +270,10 @@ svg {
   bottom: 0;
   grid-column: 3;
   grid-row: 4;
+}
+#gongLineBot{
+  right: 0;
+  bottom: 0;
+  grid-column: 3;
+  grid-row: 1;
 }
