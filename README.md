@@ -1,1 +1,1 @@
-Current deployment: #[PolyGong](http://polygong.herokuapp.com/)
+# Current deployment: [PolyGong](http://polygong.herokuapp.com/)
