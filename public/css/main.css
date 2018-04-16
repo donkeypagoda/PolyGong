@@ -273,17 +273,3 @@ svg {
     from {-webkit-transform: rotate(0deg);}
     to   {-webkit-transform: rotate(359deg);}
 }
-
-/* positioning the gong line images*/
-/*#gongLineTop{
-  right: 0;
-  bottom: 0;
-  grid-column: 3;
-  grid-row: 4;
-}
-#gongLineBot{
-  right: 0;
-  bottom: 0;
-  grid-column: 3;
-  grid-row: 1;
-}*/
