@@ -13,7 +13,6 @@ canvas {
     bottom: 0;
     left: 0;
     right: 0;
-    /*opacity: 0.5;*/
 }
 
 /*stuff for slide out menus*/
@@ -107,7 +106,6 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    position: absolute;
    width: 250px;
    background: #4f6b81;
-   /*background: transparent;*/
    color: #ddd;
    left: 0;
    height: 100%;
@@ -118,7 +116,6 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    position: absolute;
    width: 250px;
    background: #4f6b81;
-   /*background: transparent;*/
    color: #ddd;
    right: 0;
    height: 100%;
@@ -128,13 +125,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
    transform: translate3d(-200px, 175px, 0);
    position: absolute;
    width: 100%;
-   /*background: #4f6b81;*/
-   /*background: transparent;*/
-   /*color: #ddd;*/
    bottom: 0;
-   /*left: 0;
-   right: 0;*/
-   /*height: 100%;*/
    transition: all .4s;
 }
 
@@ -167,7 +158,7 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 }
 /*end of slide menu stuff*/
 
-/* this is my attempt to make my layout not suck*/
+/* general layout */
 .wrapper {
   display: grid;
   grid-template-columns: repeat(25, 2fr);
@@ -196,11 +187,11 @@ input[type=checkbox]:checked ~ .slide-menu .menu li {
 i {
   color: red;
 }
+
 #clippie {
   background-color: white;
-  /*height: 100%;
-  width: 300px;*/
 }
+
 /* styles for buttons, button grid*/
 .wrapper1{
   display: grid;
@@ -241,9 +232,9 @@ i {
   grid-row: 1;
 }
 .box {
-  /*border: 2px solid red;*/
   background-color: black;
 }
+
 /*footer grid*/
 .footwrap{
   display: grid;
