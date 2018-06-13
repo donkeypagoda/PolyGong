@@ -8,8 +8,6 @@ const morgan = require("morgan");
 //   require('dotenv').config();
 // }
 
-
-
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -28,9 +26,6 @@ app.use('*', function(req, res, next) {
 app.use((req, res) => {
   res.sendStatus(404);
 });
-
-// console.log("hayo");
-
 
 app.listen(port, () => {
   console.log('listening on port', port)
