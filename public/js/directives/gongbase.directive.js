@@ -155,8 +155,7 @@
           if (data[0].toneChoice[0] === "up"){
             vm.toneChoice = vm.upTone
           }
-          // get the radios to display right
-
+          
           for (let i = 0; i < data.length; i++){
             let shape = vm.builder.shapeInstantiate(data[i], vm.masterLFO)
             shape.group.scale.set(parseFloat(data[i].scale.x), parseFloat(data[i].scale.y), parseFloat(data[i].scale.z))
@@ -170,7 +169,6 @@
     } // end of controller
 
     function link(scope, element, iAttrs, controller, transcludeFn){
-
       controller.animate = function(){
         requestAnimationFrame(controller.animate);
         for(let i = 0; i < controller.scene.children.length; i++){
@@ -184,7 +182,6 @@
       controller.droneVolume = (val) => {
         if (controller.droneInvoked){
           controller.drone.volume.value = parseFloat(val);
-          // console.log(val);
         }
         else controller.droneInvoked = true;
       }
@@ -209,7 +206,6 @@
       }
       controller.toneChooser = (val) => {
       }
-
       controller.getUrl = () => {
         let state = {
           "directives": controller.builder.gongStack.map((e)=>{return e.save()})
@@ -223,6 +219,5 @@
       controller.clipboard.on('error', function(e) {
           console.log(e);
       });
-
     } // end of link
 }());
