@@ -22,11 +22,6 @@ const helperPolygon = function (numbSides, size, centArr, malletMaterial, lineMa
 const toDegree = function(radians) {
   return radians * (180 / Math.PI);
 }
-const tri = document.getElementById("trianglePath")
-const square = document.getElementById("squarePath")
-const pent = document.getElementById("pentagonPath")
-const hex = document.getElementById("hexagonPath")
-const hept = document.getElementById("heptagonPath")
 
 const svgPoints = function(numbSides, Xcent, Ycent, size, tag){
   let pointArr = []
