@@ -84,7 +84,6 @@ class Square {
     }
     if(this.currentPosition > this.gongValue ){
       this.gong.triggerAttackRelease(this.baseFreq * this.toneChoice[6], this.volume * 0.02);
-      // console.log('gong', this.gongValue);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }

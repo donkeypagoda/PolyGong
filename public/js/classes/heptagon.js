@@ -86,7 +86,6 @@ class Heptagon {
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }
-    // console.log(this.currentPosition);
     this.quaternion.setFromAxisAngle( new THREE.Vector3( 0, 0, 1 ), this.rotationIncrement );
     this.group.applyQuaternion(this.quaternion);
   }
