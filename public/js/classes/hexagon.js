@@ -84,7 +84,6 @@ class Hexagon {
     }
     if (this.currentPosition > this.gongValue ){
       this.gong.triggerAttackRelease(this.baseFreq * 0.5 * this.toneChoice[2], this.volume * 0.02);
-      // console.log('gong', this.gongValue);
       const arc = (2 * Math.PI) / this.numbSides;
       this.gongValue = this.gongValue + arc;
     }

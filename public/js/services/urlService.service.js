@@ -23,15 +23,9 @@
         return $http.post('/polygongs', state)
         .then(function (response) {
           vm.displayUrl = response.data
-          // $state.transitionTo('gongbase', {url: vm.displayUrl}, {
-          //     location: true,
-          //     inherit: true,
-          //     relative: $state.$current,
-          //     notify: false
           })
           .catch(function (error) {
           })
-        // })
       }
     }
 }());
