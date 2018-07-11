@@ -1,7 +1,7 @@
 const polygongs = [
   {
     id: 1,
-    url: "/something",
+    polygong_url: "/something",
     polygong_data: [
       {
         shape: "triangle",
