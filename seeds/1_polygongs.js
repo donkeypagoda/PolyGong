@@ -2,7 +2,8 @@ const polygongs = [
   {
     id: 1,
     polygong_url: "/something",
-    polygong_data: [
+    polygong_data: JSON.stringify(
+      [
       {
         shape: "triangle",
         speed: 50,
@@ -10,6 +11,7 @@ const polygongs = [
         tonal_center: "d_minor"
       }
     ]
+  )
 
 }]
 
