@@ -19,7 +19,6 @@
         droneModLFO.max = 110;
         droneModLFO.frequency.value = 0.12;
         droneModLFO.set()
-
         droneModLFO.start();
         drone.triggerAttack(30)
 
